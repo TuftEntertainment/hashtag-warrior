@@ -534,16 +534,16 @@
 		9FD9BF3116A3735400DBEB88 /* LICENSE_Box2D.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_Box2D.txt; path = libs/LICENSE_Box2D.txt; sourceTree = "<group>"; };
 		9FD9BF3316A3735400DBEB88 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		9FD9BF3416A3735400DBEB88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9FD9BF3616A3735400DBEB88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9FD9BF3716A3735400DBEB88 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		9FD9BF3916A3735400DBEB88 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		9FD9BF3A16A3735400DBEB88 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HelloWorldLayer.mm; sourceTree = "<group>"; };
-		9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IntroLayer.mm; sourceTree = "<group>"; };
-		9FD9BF3F16A3735400DBEB88 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
-		9FD9BF4016A3735400DBEB88 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
-		9FD9BF4216A3735400DBEB88 /* PhysicsSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsSprite.h; sourceTree = "<group>"; };
-		9FD9BF4316A3735400DBEB88 /* PhysicsSprite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PhysicsSprite.mm; sourceTree = "<group>"; };
+		9FD9BF3616A3735400DBEB88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = System/AppDelegate.h; sourceTree = "<group>"; };
+		9FD9BF3716A3735400DBEB88 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = System/AppDelegate.mm; sourceTree = "<group>"; };
+		9FD9BF3916A3735400DBEB88 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldLayer.h; path = Game/Scenes/HelloWorldLayer.h; sourceTree = "<group>"; };
+		9FD9BF3A16A3735400DBEB88 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = HelloWorldLayer.mm; path = Game/Scenes/HelloWorldLayer.mm; sourceTree = "<group>"; };
+		9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroLayer.h; path = Game/Scenes/IntroLayer.h; sourceTree = "<group>"; };
+		9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = IntroLayer.mm; path = Game/Scenes/IntroLayer.mm; sourceTree = "<group>"; };
+		9FD9BF3F16A3735400DBEB88 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "System/GLES-Render.h"; sourceTree = "<group>"; };
+		9FD9BF4016A3735400DBEB88 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "GLES-Render.mm"; path = "System/GLES-Render.mm"; sourceTree = "<group>"; };
+		9FD9BF4216A3735400DBEB88 /* PhysicsSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PhysicsSprite.h; path = Game/Objects/PhysicsSprite.h; sourceTree = "<group>"; };
+		9FD9BF4316A3735400DBEB88 /* PhysicsSprite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PhysicsSprite.mm; path = Game/Objects/PhysicsSprite.mm; sourceTree = "<group>"; };
 		9FD9BF4516A3735400DBEB88 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
