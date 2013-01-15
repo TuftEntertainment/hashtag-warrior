@@ -567,6 +567,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F31739316A5DB99005145EC /* System */ = {
+			isa = PBXGroup;
+			children = (
+				9FD9BF3616A3735400DBEB88 /* AppDelegate.h */,
+				9FD9BF3716A3735400DBEB88 /* AppDelegate.mm */,
+				9FD9BF3F16A3735400DBEB88 /* GLES-Render.h */,
+				9FD9BF4016A3735400DBEB88 /* GLES-Render.mm */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		9F31739516A5DBE2005145EC /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				9F31739616A5DC37005145EC /* Scenes */,
+				9F31739716A5DC65005145EC /* Objects */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		9F31739616A5DC37005145EC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9FD9BF3916A3735400DBEB88 /* HelloWorldLayer.h */,
+				9FD9BF3A16A3735400DBEB88 /* HelloWorldLayer.mm */,
+				9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */,
+				9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		9F31739716A5DC65005145EC /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				9FD9BF4216A3735400DBEB88 /* PhysicsSprite.h */,
+				9FD9BF4316A3735400DBEB88 /* PhysicsSprite.mm */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		9FD9BD0A16A3735100DBEB88 = {
 			isa = PBXGroup;
 			children = (
@@ -603,19 +643,12 @@
 		9FD9BD2B16A3735100DBEB88 /* hashtag-warrior */ = {
 			isa = PBXGroup;
 			children = (
-				9FD9BF3616A3735400DBEB88 /* AppDelegate.h */,
-				9FD9BF3716A3735400DBEB88 /* AppDelegate.mm */,
-				9FD9BF3916A3735400DBEB88 /* HelloWorldLayer.h */,
-				9FD9BF3A16A3735400DBEB88 /* HelloWorldLayer.mm */,
-				9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */,
-				9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */,
-				9FD9BF3F16A3735400DBEB88 /* GLES-Render.h */,
-				9FD9BF4016A3735400DBEB88 /* GLES-Render.mm */,
-				9FD9BF4216A3735400DBEB88 /* PhysicsSprite.h */,
-				9FD9BF4316A3735400DBEB88 /* PhysicsSprite.mm */,
+				9FD9BF3316A3735400DBEB88 /* Prefix.pch */,
+				9FD9BF3416A3735400DBEB88 /* main.m */,
+				9F31739316A5DB99005145EC /* System */,
+				9F31739516A5DBE2005145EC /* Game */,
 				9FD9BD2C16A3735100DBEB88 /* Resources */,
 				9FD9BD4616A3735100DBEB88 /* libs */,
-				9FD9BF3216A3735400DBEB88 /* Supporting Files */,
 			);
 			path = "hashtag-warrior";
 			sourceTree = "<group>";
@@ -1133,15 +1166,6 @@
 			name = Rope;
 			sourceTree = "<group>";
 		};
-		9FD9BF3216A3735400DBEB88 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9FD9BF3316A3735400DBEB88 /* Prefix.pch */,
-				9FD9BF3416A3735400DBEB88 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1472,6 +1496,7 @@
 				9FD9BF4B16A3735400DBEB88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
