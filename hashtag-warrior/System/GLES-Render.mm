@@ -58,7 +58,8 @@ void GLESDebugDraw::DrawPolygon(const b2Vec2* old_vertices, int32 vertexCount, c
 
 	ccVertex2F vertices[vertexCount];
 
-	for( int i=0;i<vertexCount;i++) {
+	for( int i=0;i<vertexCount;i++)
+    {
 		b2Vec2 tmp = old_vertices[i];
 		tmp *= mRatio;
 		vertices[i].x = tmp.x;
@@ -82,7 +83,8 @@ void GLESDebugDraw::DrawSolidPolygon(const b2Vec2* old_vertices, int32 vertexCou
 
 	ccVertex2F vertices[vertexCount];
 
-	for( int i=0;i<vertexCount;i++) {
+	for( int i=0;i<vertexCount;i++)
+    {
 		b2Vec2 tmp = old_vertices[i];
 		tmp = old_vertices[i];
 		tmp *= mRatio;

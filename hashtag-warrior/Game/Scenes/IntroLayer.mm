@@ -9,15 +9,15 @@
 
 // Import the interfaces
 #import "IntroLayer.h"
-#import "HelloWorldLayer.h"
+#import "GameLayer.h"
 
 
 #pragma mark - IntroLayer
 
-// HelloWorldLayer implementation
+// GameLayer implementation
 @implementation IntroLayer
 
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
+// Helper class method that creates a Scene with the GameLayer as the only child.
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -33,22 +33,26 @@
 	return scene;
 }
 
-// 
 -(void) onEnter
 {
 	[super onEnter];
 
 	// ask director for the window size
 	CGSize size = [[CCDirector sharedDirector] winSize];
-
-	CCSprite *background;
 	
-	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
+    // The application is landscape only, set this scenes background image accoridngly.
+    CCSprite *background;
+    
+	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
+    {
 		background = [CCSprite spriteWithFile:@"Default.png"];
 		background.rotation = 90;
-	} else {
+	}
+    else
+    {
 		background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
 	}
+
 	background.position = ccp(size.width/2, size.height/2);
 
 	// add the label as a child to this Layer
@@ -60,6 +64,17 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] withColor:ccWHITE]];
+    // Fade from the launch image into the application.
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
+                                                                                 scene:[GameLayer scene]
+                                                                             withColor:ccWHITE]];
+}
+
+- (void) dealloc
+{
+	// cocos2d will automatically release all the children.
+	
+	// Call "super dealloc".
+	[super dealloc];
 }
 @end
