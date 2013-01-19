@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F47BE0816AAC679001BE137 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.m */; };
+		9F47BE0F16AAC83D001BE137 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.m */; };
+		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
+		9F5D096216AA13B700600AD2 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5D096116AA13B700600AD2 /* GameOverLayer.m */; };
 		9F79C68616A9DA680040F204 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F79C68516A9DA680040F204 /* GameLayer.m */; };
 		9F79C68F16A9DF700040F204 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C68D16A9DF700040F204 /* Default-Landscape@2x~ipad.png */; };
 		9F79C69016A9DF700040F204 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */; };
@@ -184,8 +188,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9F79C68416A9DA680040F204 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLayer.h; path = Game/Scenes/GameLayer.h; sourceTree = "<group>"; };
-		9F79C68516A9DA680040F204 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameLayer.m; path = Game/Scenes/GameLayer.m; sourceTree = "<group>"; };
+		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Game/Scenes/GameScene.h; sourceTree = "<group>"; };
+		9F47BE0716AAC679001BE137 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Game/Scenes/GameScene.m; sourceTree = "<group>"; };
+		9F47BE0D16AAC83D001BE137 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Game/Scenes/GameOverScene.h; sourceTree = "<group>"; };
+		9F47BE0E16AAC83D001BE137 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Game/Scenes/GameOverScene.m; sourceTree = "<group>"; };
+		9F47BE1016AAC9B2001BE137 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Game/Scenes/IntroScene.h; sourceTree = "<group>"; };
+		9F47BE1116AAC9B2001BE137 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Game/Scenes/IntroScene.m; sourceTree = "<group>"; };
+		9F5D096016AA13B700600AD2 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverLayer.h; path = Game/Layers/GameOverLayer.h; sourceTree = "<group>"; };
+		9F5D096116AA13B700600AD2 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverLayer.m; path = Game/Layers/GameOverLayer.m; sourceTree = "<group>"; };
+		9F79C68416A9DA680040F204 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLayer.h; path = Game/Layers/GameLayer.h; sourceTree = "<group>"; };
+		9F79C68516A9DA680040F204 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameLayer.m; path = Game/Layers/GameLayer.m; sourceTree = "<group>"; };
 		9F79C68D16A9DF700040F204 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "Resources/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		9F79C69716A9E16B0040F204 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
@@ -540,8 +552,8 @@
 		9FD9BF3416A3735400DBEB88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FD9BF3616A3735400DBEB88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = System/AppDelegate.h; sourceTree = "<group>"; };
 		9FD9BF3716A3735400DBEB88 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = System/AppDelegate.mm; sourceTree = "<group>"; };
-		9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroLayer.h; path = Game/Scenes/IntroLayer.h; sourceTree = "<group>"; };
-		9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = IntroLayer.mm; path = Game/Scenes/IntroLayer.mm; sourceTree = "<group>"; };
+		9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroLayer.h; path = Game/Layers/IntroLayer.h; sourceTree = "<group>"; };
+		9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = IntroLayer.mm; path = Game/Layers/IntroLayer.mm; sourceTree = "<group>"; };
 		9FD9BF3F16A3735400DBEB88 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "System/GLES-Render.h"; sourceTree = "<group>"; };
 		9FD9BF4016A3735400DBEB88 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "GLES-Render.mm"; path = "System/GLES-Render.mm"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -581,7 +593,8 @@
 			isa = PBXGroup;
 			children = (
 				9F31739616A5DC37005145EC /* Scenes */,
-				9F31739716A5DC65005145EC /* Objects */,
+				9F47BE0B16AAC6B9001BE137 /* Layers */,
+				9F47BE0C16AAC6D4001BE137 /* Sprites */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -589,19 +602,34 @@
 		9F31739616A5DC37005145EC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				9F79C68416A9DA680040F204 /* GameLayer.h */,
-				9F79C68516A9DA680040F204 /* GameLayer.m */,
-				9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */,
-				9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */,
+				9F47BE1016AAC9B2001BE137 /* IntroScene.h */,
+				9F47BE1116AAC9B2001BE137 /* IntroScene.m */,
+				9F47BE0616AAC679001BE137 /* GameScene.h */,
+				9F47BE0716AAC679001BE137 /* GameScene.m */,
+				9F47BE0D16AAC83D001BE137 /* GameOverScene.h */,
+				9F47BE0E16AAC83D001BE137 /* GameOverScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
 		};
-		9F31739716A5DC65005145EC /* Objects */ = {
+		9F47BE0B16AAC6B9001BE137 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */,
+				9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */,
+				9F79C68416A9DA680040F204 /* GameLayer.h */,
+				9F79C68516A9DA680040F204 /* GameLayer.m */,
+				9F5D096016AA13B700600AD2 /* GameOverLayer.h */,
+				9F5D096116AA13B700600AD2 /* GameOverLayer.m */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		9F47BE0C16AAC6D4001BE137 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Objects;
+			name = Sprites;
 			sourceTree = "<group>";
 		};
 		9FD9BD0A16A3735100DBEB88 = {
@@ -642,8 +670,8 @@
 			children = (
 				9FD9BF3316A3735400DBEB88 /* Prefix.pch */,
 				9FD9BF3416A3735400DBEB88 /* main.m */,
-				9F31739316A5DB99005145EC /* System */,
 				9F31739516A5DBE2005145EC /* Game */,
+				9F31739316A5DB99005145EC /* System */,
 				9FD9BD2C16A3735100DBEB88 /* Resources */,
 				9FD9BD4616A3735100DBEB88 /* libs */,
 			);
@@ -1389,6 +1417,10 @@
 				9FD9BF3E16A3735400DBEB88 /* IntroLayer.mm in Sources */,
 				9FD9BF4116A3735400DBEB88 /* GLES-Render.mm in Sources */,
 				9F79C68616A9DA680040F204 /* GameLayer.m in Sources */,
+				9F5D096216AA13B700600AD2 /* GameOverLayer.m in Sources */,
+				9F47BE0816AAC679001BE137 /* GameScene.m in Sources */,
+				9F47BE0F16AAC83D001BE137 /* GameOverScene.m in Sources */,
+				9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
