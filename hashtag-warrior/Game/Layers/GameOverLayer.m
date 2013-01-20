@@ -15,17 +15,38 @@
 {
     if ((self=[super init]))
     {
-        // Create and initialize a Label.
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Marker Felt" fontSize:64];
+        // Get an instance of the game state singleton.
+        _state = [GameState sharedInstance];
+        
+        // Create and initialize a label for the title.
+		CCLabelTTF *title = [CCLabelTTF labelWithString:@"Game Over!"
+                                               fontName:@"Marker Felt"
+                                               fontSize:64];
+        
+        CCLabelTTF *victory;
+        if ( _state._won == YES )
+        {
+            victory = [CCLabelTTF labelWithString:@"You won :)"
+                                         fontName:@"Marker Felt"
+                                         fontSize:32];
+        }
+        else
+        {
+            victory = [CCLabelTTF labelWithString:@"You lost :("
+                                         fontName:@"Marker Felt"
+                                         fontSize:32];
+        }
         
         // Ask director for the window size.
 		CGSize size = [[CCDirector sharedDirector] winSize];
         
-		// Position the label on the center of the screen.
-		label.position =  ccp( size.width /2 , size.height/2 );
+		// Position the labels on the center of the screen.
+		title.position = ccp(size.width /2 , size.height/2);
+        victory.position = ccp(size.width /2, size.height /3);
 		
-		// Add the label as a child to this Layer.
-		[self addChild: label];
+		// Add the labels as a child to this Layer.
+		[self addChild: title];
+        [self addChild: victory];
     }
     return self;
 }

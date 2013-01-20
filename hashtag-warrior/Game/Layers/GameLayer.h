@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "cocos2d.h"
+#import "GameState.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
@@ -18,6 +19,7 @@
 
 @interface GameLayer : CCLayer
 {
+    GameState *_state;
 }
 
 @end

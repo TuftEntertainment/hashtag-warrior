@@ -15,6 +15,9 @@
 {
     if ((self=[super init]))
     {
+        // Get an instance of the game state singleton.
+        _state = [GameState sharedInstance];
+        
         // Create and initialize a Label.
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Insert game here..." fontName:@"Marker Felt" fontSize:64];
         
@@ -48,6 +51,7 @@
 	// Win Button.
 	CCMenuItemLabel *win = [CCMenuItemFont itemWithString:@"Win Game" block:^(id sender)
     {
+        _state._won = YES;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionRotoZoom transitionWithDuration:1.0
                                                                                           scene:[GameOverScene node]]];
 	}];
@@ -55,6 +59,7 @@
     // Lose Button
 	CCMenuItemLabel *lose = [CCMenuItemFont itemWithString:@"Lose Game" block:^(id sender)
     {
+        _state._won = NO;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols transitionWithDuration:2.0
                                                                                           scene:[GameOverScene node]]];
 	}];

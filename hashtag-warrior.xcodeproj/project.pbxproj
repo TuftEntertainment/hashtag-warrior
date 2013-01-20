@@ -16,6 +16,8 @@
 		9F79C69016A9DF700040F204 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */; };
 		9F79C69916A9E16B0040F204 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C69716A9E16B0040F204 /* Default.png */; };
 		9F79C69A16A9E16B0040F204 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C69816A9E16B0040F204 /* Default@2x.png */; };
+		9F7C1D7516AC215A0039EA64 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 9F7C1D7316AC215A0039EA64 /* README */; };
+		9F7C1D7A16AC22340039EA64 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7C1D7916AC22340039EA64 /* GameState.m */; };
 		9FD9BD1A16A3735100DBEB88 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */; };
 		9FD9BD1C16A3735100DBEB88 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */; };
 		9FD9BD1E16A3735100DBEB88 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */; };
@@ -202,6 +204,10 @@
 		9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		9F79C69716A9E16B0040F204 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		9F79C69816A9E16B0040F204 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
+		9F7C1D7316AC215A0039EA64 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		9F7C1D7416AC215A0039EA64 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		9F7C1D7816AC22340039EA64 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameState.h; path = Game/State/GameState.h; sourceTree = "<group>"; };
+		9F7C1D7916AC22340039EA64 /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameState.m; path = Game/State/GameState.m; sourceTree = "<group>"; };
 		9FD9BD1516A3735100DBEB88 /* hashtag-warrior.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hashtag-warrior.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -595,6 +601,7 @@
 				9F31739616A5DC37005145EC /* Scenes */,
 				9F47BE0B16AAC6B9001BE137 /* Layers */,
 				9F47BE0C16AAC6D4001BE137 /* Sprites */,
+				9F7C1D7716AC21C50039EA64 /* State */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -630,6 +637,25 @@
 			children = (
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		9F7C1D7216AC215A0039EA64 /* Optimized-Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				9F7C1D7316AC215A0039EA64 /* README */,
+				9F7C1D7416AC215A0039EA64 /* SynthesizeSingleton.h */,
+			);
+			name = "Optimized-Singleton";
+			path = "libs/Optimized-Singleton";
+			sourceTree = "<group>";
+		};
+		9F7C1D7716AC21C50039EA64 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				9F7C1D7816AC22340039EA64 /* GameState.h */,
+				9F7C1D7916AC22340039EA64 /* GameState.m */,
+			);
+			name = State;
 			sourceTree = "<group>";
 		};
 		9FD9BD0A16A3735100DBEB88 = {
@@ -711,6 +737,7 @@
 				9FD9BE5E16A3735300DBEB88 /* CocosDenshion */,
 				9FD9BE6D16A3735300DBEB88 /* kazmath */,
 				9FD9BE9F16A3735300DBEB88 /* Box2D */,
+				9F7C1D7216AC215A0039EA64 /* Optimized-Singleton */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -1257,6 +1284,7 @@
 				9F79C69016A9DF700040F204 /* Default-Landscape~ipad.png in Resources */,
 				9F79C69916A9E16B0040F204 /* Default.png in Resources */,
 				9F79C69A16A9E16B0040F204 /* Default@2x.png in Resources */,
+				9F7C1D7516AC215A0039EA64 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1449,7 @@
 				9F47BE0816AAC679001BE137 /* GameScene.m in Sources */,
 				9F47BE0F16AAC83D001BE137 /* GameOverScene.m in Sources */,
 				9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */,
+				9F7C1D7A16AC22340039EA64 /* GameState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
