@@ -7,7 +7,7 @@
 //
 
 #import "GameOverLayer.h"
-#import "GameScene.h"
+#import "MainMenuScene.h"
 
 @implementation GameOverLayer
 
@@ -63,12 +63,15 @@
 {
     // Go back to the game.
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                                                                 scene:[GameScene node]
+                                                                                 scene:[MainMenuScene node]
                                                                              withColor:ccBLACK]];
 }
 
 - (void) dealloc
 {
+    // Destroy the GameState ready for a new game.
+    [GameState purgeSharedInstance];
+    
 	// Nothing else to deallocate.
 	[super dealloc];
 }

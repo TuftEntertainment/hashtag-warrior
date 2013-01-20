@@ -7,7 +7,7 @@
 //
 
 #import "IntroLayer.h"
-#import "GameScene.h"
+#import "MainMenuScene.h"
 
 // GameLayer implementation
 @implementation IntroLayer
@@ -19,7 +19,7 @@
 	// ask director for the window size.
 	CGSize size = [[CCDirector sharedDirector] winSize];
 	
-    // The application is landscape only, set this scenes background image accoridngly.
+    // The application is landscape only, set this scenes background image accordingly.
     CCSprite *background;
     
 	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
@@ -45,7 +45,7 @@
 {
     // Fade from the launch image into the application.
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                                                                 scene:[GameScene node]
+                                                                                 scene:[MainMenuScene node]
                                                                              withColor:ccBLACK]];
 }
 
