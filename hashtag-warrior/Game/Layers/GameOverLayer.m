@@ -19,7 +19,7 @@
         _state = [GameState sharedInstance];
         
         // Create and initialize a label for the title.
-		CCLabelTTF *title = [CCLabelTTF labelWithString:@"Game Over!"
+        CCLabelTTF *title = [CCLabelTTF labelWithString:@"Game Over!"
                                                fontName:@"Marker Felt"
                                                fontSize:64];
         
@@ -38,14 +38,14 @@
         }
         
         // Ask director for the window size.
-		CGSize size = [[CCDirector sharedDirector] winSize];
+        CGSize size = [[CCDirector sharedDirector] winSize];
         
-		// Position the labels on the center of the screen.
-		title.position = ccp(size.width /2 , size.height/2);
+        // Position the labels on the center of the screen.
+        title.position = ccp(size.width /2 , size.height/2);
         victory.position = ccp(size.width /2, size.height /3);
-		
-		// Add the labels as a child to this Layer.
-		[self addChild: title];
+        
+        // Add the labels as a child to this Layer.
+        [self addChild: title];
         [self addChild: victory];
     }
     return self;
@@ -53,16 +53,16 @@
 
 -(void) onEnter
 {
-	[super onEnter];
+    [super onEnter];
     
-	// In three seconds transition to the new scene.
-	[self scheduleOnce:@selector(makeTransition:) delay:3];
+    // In three seconds transition to the new scene.
+    [self scheduleOnce:@selector(makeTransition:) delay:3];
 }
 
 -(void) makeTransition:(ccTime)dt
 {
     // Go back to the game.
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
                                                                                  scene:[MainMenuScene node]
                                                                              withColor:ccBLACK]];
 }
@@ -72,8 +72,8 @@
     // Destroy the GameState ready for a new game.
     [GameState purgeSharedInstance];
     
-	// Nothing else to deallocate.
-	[super dealloc];
+    // Nothing else to deallocate.
+    [super dealloc];
 }
 
 @end

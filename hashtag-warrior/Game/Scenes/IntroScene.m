@@ -14,20 +14,20 @@
 
 - (id)init
 {
-	if ((self = [super init]))
-	{
-		// All this scene does upon initialization is init & add the layer class.
-		IntroLayer *layer = [IntroLayer node];
-		[self addChild:layer];
-	}
-	
-	return self;
+    if ((self = [super init]))
+    {
+        // All this scene does upon initialization is init & add the layer class.
+        IntroLayer *layer = [IntroLayer node];
+        [self addChild:layer];
+    }
+    
+    return self;
 }
 
 - (void)dealloc
 {
-	// Nothing else to deallocate.
-	[super dealloc];
+    // Nothing else to deallocate.
+    [super dealloc];
 }
 
 @end
