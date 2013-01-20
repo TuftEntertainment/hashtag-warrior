@@ -1,0 +1,3 @@
+[submodule "hashtag-warrior/libs/Optimized-Singleton"]
+	path = hashtag-warrior/libs/Optimized-Singleton
+	url = git://github.com/verbitan/Objective-C-Optimized-Singleton.git
