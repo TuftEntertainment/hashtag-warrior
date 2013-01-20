@@ -1256,6 +1256,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Ossum Games";
 			};
 			buildConfigurationList = 9FD9BD0F16A3735100DBEB88 /* Build configuration list for PBXProject "hashtag-warrior" */;
 			compatibilityVersion = "Xcode 3.2";

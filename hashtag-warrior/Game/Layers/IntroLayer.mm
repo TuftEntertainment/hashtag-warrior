@@ -3,7 +3,7 @@
 //  hashtag-warrior
 //
 //  Created by Nick James on 13/01/2013.
-//  Copyright __MyCompanyName__ 2013. All rights reserved.
+//  Copyright Ossum Games 2013. All rights reserved.
 //
 
 #import "IntroLayer.h"
