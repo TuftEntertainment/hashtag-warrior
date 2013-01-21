@@ -7,6 +7,7 @@
 //
 
 #import "MainMenuLayer.h"
+#import "AboutScene.h"
 #import "GameScene.h"
 
 
@@ -33,15 +34,20 @@
     // Default font size will be 32 points.
     [CCMenuItemFont setFontSize:32];
     
-    // New game menu item.
+    // Menu items
     CCMenuItemLabel *newGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender)
     {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionShrinkGrow transitionWithDuration:1.0
                                                                                            scene:[GameScene node]]];
     }];
+    CCMenuItemLabel *about = [CCMenuItemFont itemWithString:@"About" block:^(id aboutSender)
+    {
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
+                                                                    scene:[AboutScene node]]];
+    }];
     
     // Create the main menu.
-    CCMenu *menu = [CCMenu menuWithItems:newGame, nil];
+    CCMenu *menu = [CCMenu menuWithItems:newGame, about, nil];
     
     // Align everything vertically.
     [menu alignItemsVertically];

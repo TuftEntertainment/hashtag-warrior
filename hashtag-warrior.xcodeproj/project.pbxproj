@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
+		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
 		9F47BE0816AAC679001BE137 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.m */; };
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.m */; };
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
@@ -192,6 +194,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37AD94E516ACA48A00FBA15C /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
+		37AD94E616ACA48A00FBA15C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
+		37AD94E916ACA4FE00FBA15C /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
+		37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
 		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Game/Scenes/GameScene.h; sourceTree = "<group>"; };
 		9F47BE0716AAC679001BE137 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Game/Scenes/GameScene.m; sourceTree = "<group>"; };
 		9F47BE0D16AAC83D001BE137 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Game/Scenes/GameOverScene.h; sourceTree = "<group>"; };
@@ -615,6 +621,8 @@
 		9F31739616A5DC37005145EC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				37AD94E516ACA48A00FBA15C /* AboutScene.h */,
+				37AD94E616ACA48A00FBA15C /* AboutScene.m */,
 				9F47BE1016AAC9B2001BE137 /* IntroScene.h */,
 				9F47BE1116AAC9B2001BE137 /* IntroScene.m */,
 				9F63943A16AC2D6F00BAA9CF /* MainMenuScene.h */,
@@ -630,6 +638,8 @@
 		9F47BE0B16AAC6B9001BE137 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				37AD94E916ACA4FE00FBA15C /* AboutLayer.h */,
+				37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */,
 				9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */,
 				9FD9BF3D16A3735400DBEB88 /* IntroLayer.mm */,
 				9F63943E16AC2F8F00BAA9CF /* MainMenuLayer.h */,
@@ -1463,6 +1473,8 @@
 				9F7C1D7A16AC22340039EA64 /* GameState.m in Sources */,
 				9F63943C16AC2D6F00BAA9CF /* MainMenuScene.m in Sources */,
 				9F63944016AC2F8F00BAA9CF /* MainMenuLayer.m in Sources */,
+				37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */,
+				37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
