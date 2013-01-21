@@ -13,6 +13,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(GameState);
 @implementation GameState
 
 @synthesize _score;
+@synthesize _hashtag;
 @synthesize _won;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(GameState);
@@ -22,6 +23,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameState);
     if ((self=[super init]))
     {
         self._score = 0;
+        self._hashtag = @"foo";
         self._won = NO;
     }
     
@@ -31,6 +33,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameState);
 -(void)encodeWithCoder:(NSCoder *)coder
 {
     [coder encodeInt:self._score forKey:@"_score"];
+    [coder encodeObject:self._hashtag forKey:@"_hashtag"];
     [coder encodeBool:self._won forKey:@"_won"];
 }
 
@@ -41,6 +44,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameState);
     if(self != nil)
     {
         self._score = [coder decodeIntForKey:@"_score"];
+        self._hashtag = [coder decodeObjectForKey:@"_hashtag"];
         self._won = [coder decodeBoolForKey:@"_won"];
     }
     

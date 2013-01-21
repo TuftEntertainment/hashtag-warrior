@@ -14,9 +14,11 @@
 @interface GameState : NSObject <NSCoding>
 {
     NSInteger _score;
+    NSString* _hashtag;
     Boolean _won;
 }
 
+@property (readwrite) NSString* _hashtag;
 @property (readwrite) NSInteger _score;
 @property (readwrite) Boolean _won;
 
