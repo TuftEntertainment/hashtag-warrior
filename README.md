@@ -9,7 +9,7 @@ To build Hashtag Warrior for yourself, you'll need:
 * A Mac
 * Git
 * XCode 4+
-** If you're going to run the game in the simulator, you'll also need http://code.google.com/p/accelerometer-simulator/wiki/Home
+    * If you're going to run the game in the simulator, you'll also need http://code.google.com/p/accelerometer-simulator/wiki/Home
 
 Usage
 -----
@@ -28,7 +28,9 @@ You should now be in XCode, with the project ready to build.
 Thanks
 ------
 Cocos2d: http://www.cocos2d-iphone.org/
+
 Box2D by Erin Catto: http://box2d.org/
+
 
 With thanks to Keith Peters, developer of the original "Falling Balls" game for iOS, sadly no longer in development.
 
