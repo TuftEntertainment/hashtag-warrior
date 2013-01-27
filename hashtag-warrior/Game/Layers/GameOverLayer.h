@@ -13,6 +13,7 @@
 
 @interface GameOverLayer : CCLayer
 {
+    // The game state.
     GameState *_state;
 }
 

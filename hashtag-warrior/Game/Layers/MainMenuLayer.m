@@ -29,7 +29,7 @@
     [super dealloc];
 }
 
--(void) addMainMenu
+- (void) addMainMenu
 {
     // Default font size will be 32 points.
     [CCMenuItemFont setFontSize:32];

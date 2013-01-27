@@ -15,6 +15,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(GameState);
 @synthesize _score;
 @synthesize _hashtag;
 @synthesize _won;
+@synthesize _gravity;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(GameState);
 
@@ -25,6 +26,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameState);
         self._score = 0;
         self._hashtag = @"foo";
         self._won = NO;
+        
+        self._gravity = b2Vec2(0.0f, -10.0f);
     }
     
     return self;
