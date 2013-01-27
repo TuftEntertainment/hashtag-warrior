@@ -196,6 +196,7 @@
 		9FD9BF3816A3735400DBEB88 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9BF3716A3735400DBEB88 /* AppDelegate.mm */; };
 		9FD9BF3E16A3735400DBEB88 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9BF3D16A3735400DBEB88 /* IntroLayer.m */; };
 		9FD9BF4116A3735400DBEB88 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9BF4016A3735400DBEB88 /* GLES-Render.mm */; };
+		9FFEE43716B594F60033E140 /* AccelerometerSimulation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFEE43616B594F60033E140 /* AccelerometerSimulation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -585,6 +586,8 @@
 		9FD9BF3D16A3735400DBEB88 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		9FD9BF3F16A3735400DBEB88 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		9FD9BF4016A3735400DBEB88 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
+		9FFEE43516B594F60033E140 /* AccelerometerSimulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerometerSimulation.h; path = "libs/accelerometer-simulator/AccSim/Simulator classes/AccelerometerSimulation.h"; sourceTree = "<group>"; };
+		9FFEE43616B594F60033E140 /* AccelerometerSimulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerometerSimulation.m; path = "libs/accelerometer-simulator/AccSim/Simulator classes/AccelerometerSimulation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -775,6 +778,7 @@
 				9FD9BE6D16A3735300DBEB88 /* kazmath */,
 				9FD9BE9F16A3735300DBEB88 /* Box2D */,
 				9F7C1D7216AC215A0039EA64 /* Optimized-Singleton */,
+				9FFEE43916B595000033E140 /* AccelerometerSimulation */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -1256,6 +1260,15 @@
 			name = Rope;
 			sourceTree = "<group>";
 		};
+		9FFEE43916B595000033E140 /* AccelerometerSimulation */ = {
+			isa = PBXGroup;
+			children = (
+				9FFEE43516B594F60033E140 /* AccelerometerSimulation.h */,
+				9FFEE43616B594F60033E140 /* AccelerometerSimulation.m */,
+			);
+			name = AccelerometerSimulation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1497,6 +1510,7 @@
 				37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */,
 				37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */,
 				9FB0E54816B5591B00A97DF2 /* Hero.mm in Sources */,
+				9FFEE43716B594F60033E140 /* AccelerometerSimulation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
