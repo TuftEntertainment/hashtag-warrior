@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "SynthesizeSingleton.h"
+#import "TwitterManager.h"
 
 #import "cocos2d.h"
 #import "Box2D.h"

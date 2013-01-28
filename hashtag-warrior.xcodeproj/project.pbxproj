@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3746DF1A16B588DA00E26E77 /* TwitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3746DF1916B588DA00E26E77 /* TwitterManager.m */; };
 		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
+		37B606F916B72E2F0044077C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B606F816B72E2F0044077C /* Social.framework */; };
 		9F47BE0816AAC679001BE137 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.mm */; };
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */; };
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
@@ -199,10 +201,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3746DF1816B588DA00E26E77 /* TwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterManager.h; sourceTree = "<group>"; };
+		3746DF1916B588DA00E26E77 /* TwitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterManager.m; sourceTree = "<group>"; };
 		37AD94E516ACA48A00FBA15C /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		37AD94E616ACA48A00FBA15C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
 		37AD94E916ACA4FE00FBA15C /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
 		37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
+		37B606F816B72E2F0044077C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		9F47BE0716AAC679001BE137 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
 		9F47BE0D16AAC83D001BE137 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
@@ -592,6 +597,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B606F916B72E2F0044077C /* Social.framework in Frameworks */,
 				9FD9BD1A16A3735100DBEB88 /* QuartzCore.framework in Frameworks */,
 				9FD9BD1C16A3735100DBEB88 /* OpenGLES.framework in Frameworks */,
 				9FD9BD1E16A3735100DBEB88 /* OpenAL.framework in Frameworks */,
@@ -687,6 +693,8 @@
 			children = (
 				9F7C1D7816AC22340039EA64 /* GameState.h */,
 				9F7C1D7916AC22340039EA64 /* GameState.mm */,
+				3746DF1816B588DA00E26E77 /* TwitterManager.h */,
+				3746DF1916B588DA00E26E77 /* TwitterManager.m */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -711,6 +719,7 @@
 		9FD9BD1816A3735100DBEB88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37B606F816B72E2F0044077C /* Social.framework */,
 				9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */,
 				9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */,
 				9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */,
@@ -1497,6 +1506,7 @@
 				37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */,
 				37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */,
 				9FB0E54816B5591B00A97DF2 /* Hero.mm in Sources */,
+				3746DF1A16B588DA00E26E77 /* TwitterManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
