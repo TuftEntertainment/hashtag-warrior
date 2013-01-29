@@ -9,7 +9,7 @@
 #import "GameLayer.h"
 #import "GameOverScene.h"
 
-#import "Hero.h"
+#import "AccelerometerSimulation.h"
 
 // Define macros to convert from an iPhone ccp to iPad ccp.
 // Note: Not much use when using the size from the director (e.g. [[CCDirector sharedDirector] winSize].width) as this
@@ -32,6 +32,9 @@
 {
     if ((self=[super init]))
     {
+        // Enable the accelerometer.
+        self.isAccelerometerEnabled = YES;
+        
         // Get an instance of the game state singleton.
         _state = [GameState sharedInstance];
         
@@ -39,10 +42,13 @@
         CGSize size = [[CCDirector sharedDirector] winSize];
         
         // Create the world.
-        _world = new b2World(_state._gravity);
+        [self createWorld:size];
         
         // Create our hero.
-        [self createHero:size];
+        [self createHero:ccp(size.width/2, ADJUST_Y(200))];
+        
+        // Schedule animations.
+        [self schedule:@selector(tick:)];
         
         // Add the game over menu (so we can escape the layer until game logic is implemented)
         [self addGameOverMenu:size];
@@ -52,21 +58,101 @@
 
 - (void) dealloc
 {
+    // Destroy the world.
+    delete _world;
+    _world = NULL;
+    
     // Nothing else to deallocate.
     [super dealloc];
 }
 
-- (void) createHero: (CGSize) screenSize
+- (void) createWorld: (CGSize)size
 {
-    // Enable the accelerometer.
-    self.isAccelerometerEnabled = YES;
+    // Create our world.
+    _world = new b2World(_state._gravity);
+    
+    // Create edges around the entire screen
+    b2BodyDef groundBodyDef;
+    groundBodyDef.position.Set(0,0);
+    b2Body *groundBody = _world->CreateBody(&groundBodyDef);
+    b2EdgeShape groundEdge;
+    b2FixtureDef boxShapeDef;
+    boxShapeDef.shape = &groundEdge;
+    groundEdge.Set(b2Vec2(0,0), b2Vec2(size.width/PTM_RATIO, 0));
+    groundBody->CreateFixture(&boxShapeDef);
+    groundEdge.Set(b2Vec2(0,0), b2Vec2(0, size.height/PTM_RATIO));
+    groundBody->CreateFixture(&boxShapeDef);
+    groundEdge.Set(b2Vec2(0, size.height/PTM_RATIO),
+                   b2Vec2(size.width/PTM_RATIO, size.height/PTM_RATIO));
+    groundBody->CreateFixture(&boxShapeDef);
+    groundEdge.Set(b2Vec2(size.width/PTM_RATIO,
+                          size.height/PTM_RATIO), b2Vec2(size.width/PTM_RATIO, 0));
+    groundBody->CreateFixture(&boxShapeDef);
+}
+
+- (void) createHero: (CGPoint)p
+{
+    CCLOG(@"Add hero to %0.2f x %0.2f",p.x,p.y);
     
     // Our hero.
-    Hero *hero = [Hero spriteWithFile:@"Hero.png"];
+    _hero = [Hero spriteWithFile:@"Hero.png"];
     
-    // Have him sit at the bottom of the screen, in the middle.
-    hero.position = ccp(screenSize.width/2, ADJUST_Y(16) );
-    [self addChild:hero];
+    // Add him to the layer.
+    [self addChild:_hero];
+    
+    // Position him where requested.
+    _hero.position = ccp(p.x, p.y);
+    
+    // Create the dynamic body definition.
+    b2BodyDef heroBodyDef;
+    heroBodyDef.type = b2_dynamicBody;
+    
+    // Position it where requested.
+    heroBodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
+    
+    // Create the body.
+    b2Body *heroBody = _world->CreateBody(&heroBodyDef);
+    
+    // Create the shape.
+    b2PolygonShape heroShape;
+    heroShape.SetAsBox(_hero.contentSize.width/PTM_RATIO/2,
+                       _hero.contentSize.height/PTM_RATIO/2);
+    
+    // Create the definition and add to body.
+    b2FixtureDef heroShapeDef;
+    heroShapeDef.shape = &heroShape;
+    heroShapeDef.density = 1.0f;
+    heroShapeDef.friction = 0.2f;
+    heroShapeDef.restitution = 0.8f;
+    heroBody->CreateFixture(&heroShapeDef);
+    
+    // Add the physics to the sprite.
+	[_hero setPhysicsBody:heroBody];
+}
+
+- (void) tick: (ccTime) dt {
+    
+    int32 velocityIterations = 10;
+    int32 positionIterations = 10;
+    
+    _world->Step(dt, velocityIterations, positionIterations);
+    
+    for(b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
+    {
+        if (b == _hero.getPhysicsBody)
+        {
+            _hero.position = ccp(b->GetPosition().x * PTM_RATIO,
+                                 b->GetPosition().y * PTM_RATIO);
+            _hero.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+        }
+    }
+}
+
+- (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{    
+    // Landscape left values
+    b2Vec2 gravity(acceleration.y * 15, -acceleration.x *15);
+    _world->SetGravity(gravity);
 }
 
 - (void) addGameOverMenu: (CGSize) screenSize

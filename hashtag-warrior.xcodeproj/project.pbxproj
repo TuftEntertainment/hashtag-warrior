@@ -1272,9 +1272,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9FD9BD1416A3735100DBEB88 /* hashtag-warrior */ = {
+		9FD9BD1416A3735100DBEB88 /* #Warrior */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9FD9BF4916A3735400DBEB88 /* Build configuration list for PBXNativeTarget "hashtag-warrior" */;
+			buildConfigurationList = 9FD9BF4916A3735400DBEB88 /* Build configuration list for PBXNativeTarget "#Warrior" */;
 			buildPhases = (
 				9FD9BD1116A3735100DBEB88 /* Sources */,
 				9FD9BD1216A3735100DBEB88 /* Frameworks */,
@@ -1284,7 +1284,7 @@
 			);
 			dependencies = (
 			);
-			name = "hashtag-warrior";
+			name = "#Warrior";
 			productName = "hashtag-warrior";
 			productReference = 9FD9BD1516A3735100DBEB88 /* hashtag-warrior.app */;
 			productType = "com.apple.product-type.application";
@@ -1310,7 +1310,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9FD9BD1416A3735100DBEB88 /* hashtag-warrior */,
+				9FD9BD1416A3735100DBEB88 /* #Warrior */,
 			);
 		};
 /* End PBXProject section */
@@ -1521,6 +1521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1533,6 +1534,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1542,6 +1544,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1552,6 +1555,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1609,7 +1613,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9FD9BF4916A3735400DBEB88 /* Build configuration list for PBXNativeTarget "hashtag-warrior" */ = {
+		9FD9BF4916A3735400DBEB88 /* Build configuration list for PBXNativeTarget "#Warrior" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9FD9BF4A16A3735400DBEB88 /* Debug */,
