@@ -149,9 +149,24 @@
 }
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
-{    
-    // Landscape left values
-    b2Vec2 gravity(acceleration.y * 15, -acceleration.x *15);
+{
+    // Setup the gravity x & y coordinates.
+    float32 gravityX = acceleration.y * 15;
+    float32 gravityY = acceleration.x * 15;
+
+    // Alter the gravity based on the devices orientation.
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if ( orientation == UIInterfaceOrientationLandscapeLeft )
+    {
+        gravityY = gravityY * -1;
+    }
+    else if ( orientation == UIInterfaceOrientationLandscapeRight )
+    {
+        gravityX = gravityX * -1;
+    }
+    
+    // Update the world with the new gravity.
+    b2Vec2 gravity(gravityX, gravityY);
     _world->SetGravity(gravity);
 }
 
