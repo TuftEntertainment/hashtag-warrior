@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
+		9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F0EF90E16B8723C0007E929 /* Localizable.strings */; };
 		9F47BE0816AAC679001BE137 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.mm */; };
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */; };
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
@@ -204,6 +205,9 @@
 		37AD94E616ACA48A00FBA15C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
 		37AD94E916ACA4FE00FBA15C /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
 		37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
+		9F0EF90D16B8723C0007E929 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9F0EF90F16B872450007E929 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9F0EF91016B872480007E929 /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		9F47BE0716AAC679001BE137 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
 		9F47BE0D16AAC83D001BE137 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
@@ -232,7 +236,7 @@
 		9FB0E54B16B5619200A97DF2 /* Hero-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-hd.png"; sourceTree = "<group>"; };
 		9FB0E54D16B5620200A97DF2 /* Hero-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-ipad.png"; sourceTree = "<group>"; };
 		9FB0E54E16B5620200A97DF2 /* Hero-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-ipadhd.png"; sourceTree = "<group>"; };
-		9FD9BD1516A3735100DBEB88 /* hashtag-warrior.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hashtag-warrior.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FD9BD1516A3735100DBEB88 /* hashtag-warrior.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "hashtag-warrior.app"; path = "#Warrior.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -743,6 +747,7 @@
 		9FD9BD2C16A3735100DBEB88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9F0EF90E16B8723C0007E929 /* Localizable.strings */,
 				9F79C69716A9E16B0040F204 /* Default.png */,
 				9F79C69816A9E16B0040F204 /* Default@2x.png */,
 				9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */,
@@ -1304,6 +1309,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
+				de,
 			);
 			mainGroup = 9FD9BD0A16A3735100DBEB88;
 			productRefGroup = 9FD9BD1616A3735100DBEB88 /* Products */;
@@ -1340,6 +1347,7 @@
 				9FB0E54C16B5619200A97DF2 /* Hero-hd.png in Resources */,
 				9FB0E54F16B5620200A97DF2 /* Hero-ipad.png in Resources */,
 				9FB0E55016B5620200A97DF2 /* Hero-ipadhd.png in Resources */,
+				9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1515,6 +1523,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9F0EF90E16B8723C0007E929 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F0EF90D16B8723C0007E929 /* en */,
+				9F0EF90F16B872450007E929 /* fr */,
+				9F0EF91016B872480007E929 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9FD9BF4716A3735400DBEB88 /* Debug */ = {

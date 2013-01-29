@@ -161,7 +161,7 @@
     [CCMenuItemFont setFontSize:32];
     
     // Win Button.
-    CCMenuItemLabel *win = [CCMenuItemFont itemWithString:@"Win Game" block:^(id sender)
+    CCMenuItemLabel *win = [CCMenuItemFont itemWithString:NSLocalizedString(@"Win Game", nil) block:^(id sender)
     {
        _state._won = YES;
        [[CCDirector sharedDirector] replaceScene:[CCTransitionRotoZoom transitionWithDuration:1.0
@@ -169,7 +169,7 @@
     }];
     
     // Lose Button
-    CCMenuItemLabel *lose = [CCMenuItemFont itemWithString:@"Lose Game" block:^(id sender)
+    CCMenuItemLabel *lose = [CCMenuItemFont itemWithString:NSLocalizedString(@"Lose Game", nil) block:^(id sender)
     {
         _state._won = NO;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols transitionWithDuration:2.0

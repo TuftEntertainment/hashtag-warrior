@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  hashtag-warrior
+
+  Created by Nick James on 29/01/2013.
+  Copyright (c) 2013 Ossum Games. All rights reserved.
+*/
+
+"About" = "About";
+"Loser" = "You lost";
+"New Game" = "New Game";
+"Winner" = "You won";
