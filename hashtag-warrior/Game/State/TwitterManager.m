@@ -11,6 +11,8 @@
 @implementation TwitterManager
 
 @synthesize trendsLastFetched;
+@synthesize twitterAccount;
+@synthesize trends;
 
 - (id)init
 {
@@ -18,52 +20,66 @@
         return nil;
     }
     
-    [self loadTrends];
+    // Get first configured Twitter account
+    ACAccountStore *account = [[ACAccountStore alloc] init];
+    ACAccountType *accountType = [account accountTypeWithAccountTypeIdentifier: ACAccountTypeIdentifierTwitter];
+    
+    [account requestAccessToAccountsWithType: accountType
+                                     options: nil
+                                  completion: ^(BOOL granted, NSError *error) {
+                                      
+        if (granted == YES) {
+            NSArray *arrayOfAccounts = [account accountsWithAccountType: accountType];
+            
+            if ([arrayOfAccounts count] > 0) {
+                twitterAccount = [arrayOfAccounts lastObject];
+                
+                [self loadTrends];
+            }
+        }
+    }];
     
     return self;
 }
 
 - (void)loadTrends
 {
-    // Configure the request
-    // TODO locale-specific trends based on the WOEID
-    // TODO make amusing joke about WOE...IDs
-    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/trends/place.json"];
-    NSDictionary *params = [NSDictionary dictionaryWithObject:@"id" forKey:@"1"];
-    SLRequest *request = [SLRequest requestForServiceType: SLServiceTypeTwitter
-                                            requestMethod: SLRequestMethodGET
-                                                      URL: url
-                                               parameters: params];
-    
-    // Actually make the request
-    [request performRequestWithHandler: ^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+    if(twitterAccount != nil) {
+        // Configure the request
+        // TODO locale-specific trends based on the WOEID
+        NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/trends/place.json?id=1"];
+        SLRequest *request = [SLRequest requestForServiceType: SLServiceTypeTwitter
+                                                requestMethod: SLRequestMethodGET
+                                                          URL: url
+                                                   parameters: nil];
+        request.account = twitterAccount;
         
-        if(responseData) {
-            // Data is returned as JSON, parse it
-            NSError *jsonError;
-            NSArray *currentTrends = [NSJSONSerialization JSONObjectWithData: responseData
-                                                              options: NSJSONReadingMutableLeaves
-                                                                error: &jsonError];
+        // Actually make the request
+        [request performRequestWithHandler: ^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
             
-            if(currentTrends) {
-                // TODO u r here
-                NSLog(@"array: %@", currentTrends);
-                
-                trends = currentTrends;
-                trendsLastFetched = [NSDate date];
-                
+            if(responseData) {
+                // Data is returned as JSON, parse it
+                NSError *jsonError;
+                NSArray *json = [NSJSONSerialization JSONObjectWithData: responseData
+                                                                         options: 0
+                                                                        error: &jsonError];
+                if(json) {
+                    trends = [[json objectAtIndex: 0] objectForKey: @"trends"];
+                    trendsLastFetched = [NSDate date];
+                    
+                } else {
+                    NSLog(@"Error during JSON parsing: %@", [jsonError localizedDescription]);
+                }
             } else {
-                // TODO make some attempt to handle JSON errors...
+                NSLog(@"Network/API error: %@", [error localizedDescription]);
             }
-        }
-        
-        // TODO make some attempt to handle network/API errors...
-    }];
+        }];
+    }
 }
 
 - (NSArray*)getTrends
 {
-    if([trendsLastFetched timeIntervalSinceNow] > 1800) {
+    if(trends == nil || [trendsLastFetched timeIntervalSinceNow] > 1800) {
         [self loadTrends];
     }
     

@@ -7,15 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Accounts/Accounts.h>
 #import <Social/Social.h>
 
 @interface TwitterManager : NSObject {
     NSArray* trends;
     NSDate* trendsLastFetched;
+    ACAccount* twitterAccount;
 }
 
-@property (readonly) NSDate* trendsLastFetched;
+@property (retain) NSArray* trends;
+@property (retain) NSDate* trendsLastFetched;
+@property (retain) ACAccount* twitterAccount;
 
 - (void)loadTrends;
+- (NSArray*)getTrends;
 
 @end

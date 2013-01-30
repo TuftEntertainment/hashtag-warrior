@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3746DF1A16B588DA00E26E77 /* TwitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3746DF1916B588DA00E26E77 /* TwitterManager.m */; };
+		377C5F4016B8950600060D34 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377C5F3F16B8950600060D34 /* Accounts.framework */; };
 		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
 		37B606F916B72E2F0044077C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B606F816B72E2F0044077C /* Social.framework */; };
@@ -203,6 +204,7 @@
 /* Begin PBXFileReference section */
 		3746DF1816B588DA00E26E77 /* TwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterManager.h; sourceTree = "<group>"; };
 		3746DF1916B588DA00E26E77 /* TwitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterManager.m; sourceTree = "<group>"; };
+		377C5F3F16B8950600060D34 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		37AD94E516ACA48A00FBA15C /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		37AD94E616ACA48A00FBA15C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
 		37AD94E916ACA4FE00FBA15C /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377C5F4016B8950600060D34 /* Accounts.framework in Frameworks */,
 				37B606F916B72E2F0044077C /* Social.framework in Frameworks */,
 				9FD9BD1A16A3735100DBEB88 /* QuartzCore.framework in Frameworks */,
 				9FD9BD1C16A3735100DBEB88 /* OpenGLES.framework in Frameworks */,
@@ -702,6 +705,7 @@
 		9FD9BD0A16A3735100DBEB88 = {
 			isa = PBXGroup;
 			children = (
+				377C5F3F16B8950600060D34 /* Accounts.framework */,
 				9FD9BD2B16A3735100DBEB88 /* hashtag-warrior */,
 				9FD9BD1816A3735100DBEB88 /* Frameworks */,
 				9FD9BD1616A3735100DBEB88 /* Products */,

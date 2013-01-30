@@ -32,6 +32,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameState);
     
     // lol
     TwitterManager *test = [[TwitterManager alloc] init];
+    NSLog(@"%@", [test getTrends]);
     
     return self;
 }
