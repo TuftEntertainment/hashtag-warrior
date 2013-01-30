@@ -158,11 +158,19 @@
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     if ( orientation == UIInterfaceOrientationLandscapeLeft )
     {
-        gravityY = gravityY * -1;
+    	//The device is in landscape mode, 
+    	//with the device held upright and the home button on the right side.
+    	// (rot(90) counterclockwise)
+        gravityX = gravityY * -1;
+        gravityY = gravityX;
     }
     else if ( orientation == UIInterfaceOrientationLandscapeRight )
     {
-        gravityX = gravityX * -1;
+    	//The device is in landscape mode, 
+    	//with the device held upright and the home button on the left side.
+    	// (rot(-90) counterclockwise)
+        gravityX = gravityY;
+        gravityY = gravityX *-1;
     }
     
     // Update the world with the new gravity.
