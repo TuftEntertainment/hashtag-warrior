@@ -14,6 +14,7 @@
 #import "GameState.h"
 
 #import "Hero.h"
+#import "Projectile.h"
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
@@ -31,6 +32,9 @@
     
     // Our hero.
     Hero *_hero;
+    
+    // A ball.
+    Projectile *_projectile;
 }
 
 @end

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
+		37B3360F16C2F93400019D7A /* Projectile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37B3360E16C2F93400019D7A /* Projectile.mm */; };
+		37B3361516C3036B00019D7A /* Projectile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361116C3036B00019D7A /* Projectile-hd.png */; };
+		37B3361616C3036B00019D7A /* Projectile-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361216C3036B00019D7A /* Projectile-ipad.png */; };
+		37B3361716C3036B00019D7A /* Projectile-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361316C3036B00019D7A /* Projectile-ipadhd.png */; };
+		37B3361816C3036B00019D7A /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361416C3036B00019D7A /* Projectile.png */; };
 		9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F0EF90E16B8723C0007E929 /* Localizable.strings */; };
 		9F47BE0816AAC679001BE137 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.mm */; };
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */; };
@@ -205,9 +210,15 @@
 		37AD94E616ACA48A00FBA15C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
 		37AD94E916ACA4FE00FBA15C /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
 		37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
-		9F0EF90D16B8723C0007E929 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9F0EF90F16B872450007E929 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9F0EF91016B872480007E929 /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		37B3360E16C2F93400019D7A /* Projectile.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Projectile.mm; sourceTree = "<group>"; };
+		37B3361016C2F9A300019D7A /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
+		37B3361116C3036B00019D7A /* Projectile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile-hd.png"; sourceTree = "<group>"; };
+		37B3361216C3036B00019D7A /* Projectile-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile-ipad.png"; sourceTree = "<group>"; };
+		37B3361316C3036B00019D7A /* Projectile-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile-ipadhd.png"; sourceTree = "<group>"; };
+		37B3361416C3036B00019D7A /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
+		9F0EF90D16B8723C0007E929 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9F0EF90F16B872450007E929 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9F0EF91016B872480007E929 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		9F47BE0716AAC679001BE137 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
 		9F47BE0D16AAC83D001BE137 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
@@ -675,6 +686,8 @@
 			children = (
 				9FB0E54616B5591B00A97DF2 /* Hero.h */,
 				9FB0E54716B5591B00A97DF2 /* Hero.mm */,
+				37B3361016C2F9A300019D7A /* Projectile.h */,
+				37B3360E16C2F93400019D7A /* Projectile.mm */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -756,6 +769,10 @@
 				9FB0E54B16B5619200A97DF2 /* Hero-hd.png */,
 				9FB0E54D16B5620200A97DF2 /* Hero-ipad.png */,
 				9FB0E54E16B5620200A97DF2 /* Hero-ipadhd.png */,
+				37B3361116C3036B00019D7A /* Projectile-hd.png */,
+				37B3361216C3036B00019D7A /* Projectile-ipad.png */,
+				37B3361316C3036B00019D7A /* Projectile-ipadhd.png */,
+				37B3361416C3036B00019D7A /* Projectile.png */,
 				9FD9BD3116A3735100DBEB88 /* fps_images.png */,
 				9FD9BD3316A3735100DBEB88 /* fps_images-hd.png */,
 				9FD9BD3516A3735100DBEB88 /* fps_images-ipadhd.png */,
@@ -1348,6 +1365,10 @@
 				9FB0E54F16B5620200A97DF2 /* Hero-ipad.png in Resources */,
 				9FB0E55016B5620200A97DF2 /* Hero-ipadhd.png in Resources */,
 				9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */,
+				37B3361516C3036B00019D7A /* Projectile-hd.png in Resources */,
+				37B3361616C3036B00019D7A /* Projectile-ipad.png in Resources */,
+				37B3361716C3036B00019D7A /* Projectile-ipadhd.png in Resources */,
+				37B3361816C3036B00019D7A /* Projectile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,6 +1540,7 @@
 				37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */,
 				9FB0E54816B5591B00A97DF2 /* Hero.mm in Sources */,
 				9FFEE43716B594F60033E140 /* AccelerometerSimulation.m in Sources */,
+				37B3360F16C2F93400019D7A /* Projectile.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

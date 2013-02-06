@@ -47,6 +47,9 @@
         // Create our hero.
         [self createHero:ccp(size.width/2, ADJUST_Y(200))];
         
+        // Create a ball.
+        [self createProjectile:ccp(size.width/2, ADJUST_Y(100))];
+        
         // Schedule animations.
         [self schedule:@selector(tick:)];
         
@@ -130,6 +133,39 @@
 	[_hero setPhysicsBody:heroBody];
 }
 
+- (void) createProjectile: (CGPoint)p
+{
+    CCLOG(@"Adding new projectile! %0.2f x %0.2f",p.x,p.y);
+    
+    _projectile = [Projectile spriteWithFile:@"Projectile.png"];
+    [self addChild:_projectile];
+    _projectile.position = ccp(p.x, p.y);
+    
+    // Create the body definition.
+    b2BodyDef bd;
+    bd.type = b2_dynamicBody;
+    bd.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
+    bd.userData = _projectile;
+    
+    // Create the body
+    b2Body *b = _world->CreateBody(&bd);
+    
+    // Create the shape and shape definition
+    b2CircleShape s;
+    s.m_radius = (_projectile.contentSize.width/2)/PTM_RATIO;
+
+    b2FixtureDef sd;
+    sd.shape = &s;
+    sd.density = 1.0f;
+    sd.friction = 0.f;
+    sd.restitution = 0.8f;
+    b->CreateFixture(&sd);
+    
+    // Zoom
+    b2Vec2 force = b2Vec2(5, -10);
+    b->ApplyLinearImpulse(force, bd.position);
+}
+
 - (void) tick: (ccTime) dt {
     
     int32 velocityIterations = 10;
@@ -144,6 +180,13 @@
             _hero.position = ccp(b->GetPosition().x * PTM_RATIO,
                                  b->GetPosition().y * PTM_RATIO);
             _hero.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+            
+        } else if(b->GetUserData() != NULL)
+        {
+            CCSprite *projectileData = (CCSprite*)b->GetUserData();
+            projectileData.position = ccp(b->GetPosition().x * PTM_RATIO,
+                                          b->GetPosition().y * PTM_RATIO);
+            projectileData.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
         }
     }
 }
