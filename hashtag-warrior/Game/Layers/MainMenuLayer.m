@@ -35,12 +35,12 @@
     [CCMenuItemFont setFontSize:32];
     
     // Menu items
-    CCMenuItemLabel *newGame = [CCMenuItemFont itemWithString:@"New Game" block:^(id sender)
+    CCMenuItemLabel *newGame = [CCMenuItemFont itemWithString:NSLocalizedString(@"New Game", nil) block:^(id sender)
     {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionShrinkGrow transitionWithDuration:1.0
                                                                                            scene:[GameScene node]]];
     }];
-    CCMenuItemLabel *about = [CCMenuItemFont itemWithString:@"About" block:^(id aboutSender)
+    CCMenuItemLabel *about = [CCMenuItemFont itemWithString:NSLocalizedString(@"About", nil) block:^(id aboutSender)
     {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
                                                                     scene:[AboutScene node]]];

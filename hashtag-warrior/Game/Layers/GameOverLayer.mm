@@ -26,13 +26,13 @@
         CCLabelTTF *victory;
         if ( _state._won == YES )
         {
-            victory = [CCLabelTTF labelWithString:@"You won :)"
+            victory = [CCLabelTTF labelWithString:NSLocalizedString(@"Winner", nil)
                                          fontName:@"Marker Felt"
                                          fontSize:32];
         }
         else
         {
-            victory = [CCLabelTTF labelWithString:@"You lost :("
+            victory = [CCLabelTTF labelWithString:NSLocalizedString(@"Loser", nil)
                                          fontName:@"Marker Felt"
                                          fontSize:32];
         }
