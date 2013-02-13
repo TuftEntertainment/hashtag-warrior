@@ -238,7 +238,7 @@
     
     [menu alignItemsHorizontallyWithPadding:30.0f];
     
-    [menu setPosition:ccp(screenSize.width/2, ADJUST_Y(304))];
+    [menu setPosition:ccp(screenSize.width/2, ADJUST_Y(270))];
     
     [self addChild: menu z:-1];
 }

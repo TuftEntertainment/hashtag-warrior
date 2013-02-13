@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "GameLayer.h"
+#import "StatusLayer.h"
 
 
 @implementation GameScene
@@ -19,6 +20,9 @@
         // All this scene does upon initialization is init & add the layer class.
         GameLayer *layer = [GameLayer node];
         [self addChild:layer];
+        
+        StatusLayer *statLayer = [StatusLayer node];
+        [self addChild:statLayer];
     }
     
     return self;

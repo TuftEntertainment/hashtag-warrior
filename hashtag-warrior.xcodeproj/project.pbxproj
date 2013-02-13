@@ -14,6 +14,7 @@
 		37B3361616C3036B00019D7A /* Projectile-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361216C3036B00019D7A /* Projectile-ipad.png */; };
 		37B3361716C3036B00019D7A /* Projectile-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361316C3036B00019D7A /* Projectile-ipadhd.png */; };
 		37B3361816C3036B00019D7A /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361416C3036B00019D7A /* Projectile.png */; };
+		37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */; };
 		9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F0EF90E16B8723C0007E929 /* Localizable.strings */; };
 		9F47BE0816AAC679001BE137 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.mm */; };
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */; };
@@ -216,6 +217,8 @@
 		37B3361216C3036B00019D7A /* Projectile-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile-ipad.png"; sourceTree = "<group>"; };
 		37B3361316C3036B00019D7A /* Projectile-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile-ipadhd.png"; sourceTree = "<group>"; };
 		37B3361416C3036B00019D7A /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
+		37CFFF4016CC3F4F0075CAC8 /* StatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusLayer.h; sourceTree = "<group>"; };
+		37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatusLayer.mm; sourceTree = "<group>"; };
 		9F0EF90D16B8723C0007E929 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF90F16B872450007E929 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF91016B872480007E929 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -677,6 +680,8 @@
 				9F79C68516A9DA680040F204 /* GameLayer.mm */,
 				9F5D096016AA13B700600AD2 /* GameOverLayer.h */,
 				9F5D096116AA13B700600AD2 /* GameOverLayer.mm */,
+				37CFFF4016CC3F4F0075CAC8 /* StatusLayer.h */,
+				37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1541,6 +1546,7 @@
 				9FB0E54816B5591B00A97DF2 /* Hero.mm in Sources */,
 				9FFEE43716B594F60033E140 /* AccelerometerSimulation.m in Sources */,
 				37B3360F16C2F93400019D7A /* Projectile.mm in Sources */,
+				37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
