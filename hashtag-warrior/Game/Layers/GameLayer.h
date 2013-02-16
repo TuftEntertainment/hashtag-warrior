@@ -30,6 +30,9 @@
     // The world.
     b2World *_world;
     
+    // The ground.
+    b2Body *_groundBody;
+    
     // Our hero.
     Hero *_hero;
     

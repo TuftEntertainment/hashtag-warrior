@@ -39,22 +39,22 @@
         _state = [GameState sharedInstance];
         
         // Ask director for the window size.
-        CGSize size = [[CCDirector sharedDirector] winSize];
+        CGSize windowSize = [[CCDirector sharedDirector] winSize];
         
         // Create the world.
-        [self createWorld:size];
+        [self createWorld:windowSize];
         
         // Create our hero.
-        [self createHero:ccp(size.width/2, ADJUST_Y(200))];
+        [self createHero:windowSize];
         
         // Create a ball.
-        [self createProjectile:ccp(size.width/2, ADJUST_Y(100))];
+        [self createProjectile:ccp(windowSize.width/2, ADJUST_Y(100))];
         
         // Schedule animations.
         [self schedule:@selector(tick:)];
         
         // Add the game over menu (so we can escape the layer until game logic is implemented)
-        [self addGameOverMenu:size];
+        [self addGameOverMenu:windowSize];
     }
     return self;
 }
@@ -69,39 +69,40 @@
     [super dealloc];
 }
 
-- (void) createWorld: (CGSize)size
+- (void) createWorld: (CGSize)windowSize
 {
     // Create our world.
     _world = new b2World(_state._gravity);
     
-    // Create edges around the entire screen
+    // Create edges around the entire screen.
     b2BodyDef groundBodyDef;
     groundBodyDef.position.Set(0,0);
-    b2Body *groundBody = _world->CreateBody(&groundBodyDef);
+    _groundBody = _world->CreateBody(&groundBodyDef);
     b2EdgeShape groundEdge;
     b2FixtureDef boxShapeDef;
     boxShapeDef.shape = &groundEdge;
-    groundEdge.Set(b2Vec2(0,0), b2Vec2(size.width/PTM_RATIO, 0));
-    groundBody->CreateFixture(&boxShapeDef);
-    groundEdge.Set(b2Vec2(0,0), b2Vec2(0, size.height/PTM_RATIO));
-    groundBody->CreateFixture(&boxShapeDef);
-    groundEdge.Set(b2Vec2(0, size.height/PTM_RATIO),
-                   b2Vec2(size.width/PTM_RATIO, size.height/PTM_RATIO));
-    groundBody->CreateFixture(&boxShapeDef);
-    groundEdge.Set(b2Vec2(size.width/PTM_RATIO,
-                          size.height/PTM_RATIO), b2Vec2(size.width/PTM_RATIO, 0));
-    groundBody->CreateFixture(&boxShapeDef);
+    groundEdge.Set(b2Vec2(0,0), b2Vec2(windowSize.width/PTM_RATIO, 0));
+    _groundBody->CreateFixture(&boxShapeDef);
+    groundEdge.Set(b2Vec2(0,0), b2Vec2(0, windowSize.height/PTM_RATIO));
+    _groundBody->CreateFixture(&boxShapeDef);
+    groundEdge.Set(b2Vec2(0, windowSize.height/PTM_RATIO),
+                   b2Vec2(windowSize.width/PTM_RATIO, windowSize.height/PTM_RATIO));
+    _groundBody->CreateFixture(&boxShapeDef);
+    groundEdge.Set(b2Vec2(windowSize.width/PTM_RATIO,
+                          windowSize.height/PTM_RATIO), b2Vec2(windowSize.width/PTM_RATIO, 0));
+    _groundBody->CreateFixture(&boxShapeDef);
 }
 
-- (void) createHero: (CGPoint)p
+- (void) createHero: (CGSize)windowSize
 {
-    CCLOG(@"Add hero to %0.2f x %0.2f",p.x,p.y);
-    
     // Our hero.
     _hero = [Hero spriteWithFile:@"Hero.png"];
     
     // Add him to the layer.
     [self addChild:_hero];
+    
+    // Now we know the size of the sprite, work out it's position.
+    CGPoint p = ccp(windowSize.width/2, _hero.contentSize.height/2);
     
     // Position him where requested.
     _hero.position = ccp(p.x, p.y);
@@ -126,8 +127,15 @@
     heroShapeDef.shape = &heroShape;
     heroShapeDef.density = 1.0f;
     heroShapeDef.friction = 0.2f;
-    heroShapeDef.restitution = 0.8f;
+    heroShapeDef.restitution = 0.0f;
     heroBody->CreateFixture(&heroShapeDef);
+    
+    // Restrict our hero to only run along the bottom.
+    b2PrismaticJointDef jointDef;
+    b2Vec2 axis = b2Vec2(1.0f, 0.0f);
+    jointDef.collideConnected = true;
+    jointDef.Initialize(heroBody, _groundBody, heroBody->GetWorldCenter(), axis);
+    _world->CreateJoint(&jointDef);
     
     // Add the physics to the sprite.
 	[_hero setPhysicsBody:heroBody];
@@ -157,7 +165,7 @@
     b2FixtureDef sd;
     sd.shape = &s;
     sd.density = 1.0f;
-    sd.friction = 0.f;
+    sd.friction = 0.0f;
     sd.restitution = 0.8f;
     b->CreateFixture(&sd);
     
@@ -193,24 +201,31 @@
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    // Setup the gravity x & y coordinates.
-    float32 gravityX = acceleration.y * 15;
-    float32 gravityY = acceleration.x * 15;
-
-    // Alter the gravity based on the devices orientation.
-    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-    if ( orientation == UIInterfaceOrientationLandscapeLeft )
-    {
-        gravityY = gravityY * -1;
-    }
-    else if ( orientation == UIInterfaceOrientationLandscapeRight )
-    {
-        gravityX = gravityX * -1;
-    }
+    // Useful constants.
+    static const float32 maxVelocity = 10.0f;
+    static const int forceMagnifier = 5;
     
-    // Update the world with the new gravity.
-    b2Vec2 gravity(gravityX, gravityY);
-    _world->SetGravity(gravity);
+    if ( ABS(_hero.getPhysicsBody->GetLinearVelocity().x) <= maxVelocity )
+    {
+        // Setup the force x & y.
+        float32 forceX = acceleration.y * forceMagnifier;
+        float32 forceY = acceleration.x * forceMagnifier;
+
+        // Alter the force based on the devices orientation.
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        if ( orientation == UIInterfaceOrientationLandscapeLeft )
+        {
+            forceY = forceY * -1;
+        }
+        else if ( orientation == UIInterfaceOrientationLandscapeRight )
+        {
+            forceX = forceX * -1;
+        }
+    
+        // Apply the force to our hero.
+        b2Vec2 force(forceX, forceY);
+        _hero.getPhysicsBody->ApplyLinearImpulse(force, _hero.getPhysicsBody->GetWorldCenter());
+    }
 }
 
 - (void) addGameOverMenu: (CGSize) screenSize
