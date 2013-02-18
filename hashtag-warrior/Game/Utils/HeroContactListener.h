@@ -48,11 +48,11 @@ public:
      *
      * @return The vector of collisions.
      */
-    inline std::vector<Collision> const GetCollisions() const { return _collisions; };
+    inline std::vector<Collision>* const GetCollisions() const { return _collisions; };
     
 private:
     // A vector of collisions.
-    std::vector<Collision> _collisions;
+    std::vector<Collision>* _collisions;
     
     // Prevent.
     HeroContactListener(const HeroContactListener& rhs);

@@ -9,12 +9,14 @@
 #include "HeroContactListener.h"
 
 HeroContactListener::HeroContactListener()
-: _collisions()
+: _collisions(NULL)
 {
+    _collisions = new std::vector<Collision>();
 }
 
 HeroContactListener::~HeroContactListener()
 {
+    _collisions->clear();
 }
 
 void HeroContactListener::BeginContact(
@@ -23,7 +25,7 @@ void HeroContactListener::BeginContact(
     // We need to copy out the data because the b2Contact passed in
     // is reused.
     Collision collision = { contact->GetFixtureA(), contact->GetFixtureB() };
-    _collisions.push_back(collision);
+    _collisions->push_back(collision);
 }
 
 void HeroContactListener::EndContact(
@@ -32,10 +34,10 @@ void HeroContactListener::EndContact(
     Collision collision = { contact->GetFixtureA(), contact->GetFixtureB() };
     
     std::vector<Collision>::iterator pos;
-    pos = std::find(_collisions.begin(), _collisions.end(), collision);
-    if (pos != _collisions.end())
+    pos = std::find(_collisions->begin(), _collisions->end(), collision);
+    if (pos != _collisions->end())
     {
-        _collisions.erase(pos);
+        _collisions->erase(pos);
     }
 }
 

@@ -221,9 +221,9 @@
     b2Fixture* heroFixture = _hero.getPhysicsBody->GetFixtureList();
     b2Fixture* projectileFixture = _projectile.getPhysicsBody->GetFixtureList();
     
-    std::vector<Collision> tmp = _contactListener->GetCollisions();
+    std::vector<Collision>* tmp = _contactListener->GetCollisions();
     std::vector<Collision>::iterator pos;
-    for(pos = tmp.begin(); pos != tmp.end(); ++pos)
+    for(pos = tmp->begin(); pos != tmp->end(); ++pos)
     {
         Collision collision = *pos;
         
