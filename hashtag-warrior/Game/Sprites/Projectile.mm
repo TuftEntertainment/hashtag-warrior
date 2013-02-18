@@ -21,7 +21,18 @@
 
 - (void) dealloc
 {
+    // Nothing else to deallocate.
     [super dealloc];
+}
+
+- (void) setPhysicsBody:(b2Body*)body
+{
+	_body = body;
+}
+
+- (b2Body*) getPhysicsBody
+{
+	return _body;
 }
 
 @end

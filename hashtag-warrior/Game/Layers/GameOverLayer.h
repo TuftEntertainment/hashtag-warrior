@@ -9,12 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #import "cocos2d.h"
-#import "GameState.h"
 
 @interface GameOverLayer : CCLayer
 {
-    // The game state.
-    GameState *_state;
 }
 
 @end

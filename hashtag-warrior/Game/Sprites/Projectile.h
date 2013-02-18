@@ -13,7 +13,12 @@
 
 @interface Projectile : CCSprite
 {
+    b2Body *_body;
 }
+
+- (void) setPhysicsBody:(b2Body*)body;
+
+- (b2Body*) getPhysicsBody;
 
 @end
 

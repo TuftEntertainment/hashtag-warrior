@@ -48,19 +48,23 @@
         [self createHero:windowSize];
         
         // Create a ball.
-        [self createProjectile:ccp(windowSize.width/2, ADJUST_Y(100))];
+        [self createProjectile:ccp(0, windowSize.height)];
+        
+        // Create the contact listener.
+        [self createContactListener];
         
         // Schedule animations.
         [self schedule:@selector(tick:)];
-        
-        // Add the game over menu (so we can escape the layer until game logic is implemented)
-        [self addGameOverMenu:windowSize];
     }
     return self;
 }
 
 - (void) dealloc
 {
+    // Destroy the contact listener.
+    delete _contactListener;
+    _contactListener = NULL;
+    
     // Destroy the world.
     delete _world;
     _world = NULL;
@@ -153,12 +157,11 @@
     b2BodyDef bd;
     bd.type = b2_dynamicBody;
     bd.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    bd.userData = _projectile;
     
     // Create the body
     b2Body *b = _world->CreateBody(&bd);
     
-    // Create the shape and shape definition
+    // Create the shape and shape definition.
     b2CircleShape s;
     s.m_radius = (_projectile.contentSize.width/2)/PTM_RATIO;
 
@@ -166,36 +169,75 @@
     sd.shape = &s;
     sd.density = 1.0f;
     sd.friction = 0.0f;
-    sd.restitution = 0.8f;
+    sd.restitution = 1.0f;
     b->CreateFixture(&sd);
     
+    // Add the physics to the sprite.
+	[_projectile setPhysicsBody:b];
+    
     // Zoom
-    b2Vec2 force = b2Vec2(5, -10);
+    b2Vec2 force = b2Vec2(2.5f, -5.0f);
     b->ApplyLinearImpulse(force, bd.position);
 }
 
-- (void) tick: (ccTime) dt {
+- (void) createContactListener
+{
+    // Construct contact listener.
+    _contactListener = new HeroContactListener();
     
+    // Add it to the world.
+    _world->SetContactListener(_contactListener);
+}
+
+- (void) tick: (ccTime) dt
+{    
     int32 velocityIterations = 10;
     int32 positionIterations = 10;
     
     _world->Step(dt, velocityIterations, positionIterations);
     
-    for(b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
+    // For every body in the world.
+    for (b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
     {
+        // Update our hero's position.
         if (b == _hero.getPhysicsBody)
         {
             _hero.position = ccp(b->GetPosition().x * PTM_RATIO,
                                  b->GetPosition().y * PTM_RATIO);
             _hero.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
             
-        } else if(b->GetUserData() != NULL)
-        {
-            CCSprite *projectileData = (CCSprite*)b->GetUserData();
-            projectileData.position = ccp(b->GetPosition().x * PTM_RATIO,
-                                          b->GetPosition().y * PTM_RATIO);
-            projectileData.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
         }
+        // Update the projectiles position.
+        else if (b == _projectile.getPhysicsBody)
+        {
+            _projectile.position = ccp(b->GetPosition().x * PTM_RATIO,
+                                       b->GetPosition().y * PTM_RATIO);
+            _projectile.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+        }
+    }
+    
+    // Check for collisions.
+    bool collided = false;
+    b2Fixture* heroFixture = _hero.getPhysicsBody->GetFixtureList();
+    b2Fixture* projectileFixture = _projectile.getPhysicsBody->GetFixtureList();
+    
+    std::vector<Collision> tmp = _contactListener->GetCollisions();
+    std::vector<Collision>::iterator pos;
+    for(pos = tmp.begin(); pos != tmp.end(); ++pos)
+    {
+        Collision collision = *pos;
+        
+        if ((collision.fixtureA == projectileFixture && collision.fixtureB == heroFixture) ||
+            (collision.fixtureA == heroFixture && collision.fixtureB == projectileFixture))
+        {
+            collided = true;
+        }
+    }
+    
+    // If we collided, game over!
+    if ( collided )
+    {
+        [[CCDirector sharedDirector] replaceScene:[GameOverScene node]];
     }
 }
 
@@ -226,36 +268,6 @@
         b2Vec2 force(forceX, forceY);
         _hero.getPhysicsBody->ApplyLinearImpulse(force, _hero.getPhysicsBody->GetWorldCenter());
     }
-}
-
-- (void) addGameOverMenu: (CGSize) screenSize
-{
-    // Default font size will be 32 points.
-    [CCMenuItemFont setFontSize:32];
-    
-    // Win Button.
-    CCMenuItemLabel *win = [CCMenuItemFont itemWithString:NSLocalizedString(@"Win Game", nil) block:^(id sender)
-    {
-       _state._won = YES;
-       [[CCDirector sharedDirector] replaceScene:[CCTransitionRotoZoom transitionWithDuration:1.0
-                                                                                        scene:[GameOverScene node]]];
-    }];
-    
-    // Lose Button
-    CCMenuItemLabel *lose = [CCMenuItemFont itemWithString:NSLocalizedString(@"Lose Game", nil) block:^(id sender)
-    {
-        _state._won = NO;
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols transitionWithDuration:2.0
-                                                                                          scene:[GameOverScene node]]];
-    }];
-    
-    CCMenu *menu = [CCMenu menuWithItems:win, lose, nil];
-    
-    [menu alignItemsHorizontallyWithPadding:30.0f];
-    
-    [menu setPosition:ccp(screenSize.width/2, ADJUST_Y(270))];
-    
-    [self addChild: menu z:-1];
 }
 
 @end

@@ -20,6 +20,7 @@
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */; };
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
 		9F5D096216AA13B700600AD2 /* GameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F5D096116AA13B700600AD2 /* GameOverLayer.mm */; };
+		9F5FA24816D2D21500B1985F /* HeroContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */; };
 		9F63943C16AC2D6F00BAA9CF /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */; };
 		9F63944016AC2F8F00BAA9CF /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.m */; };
 		9F79C68616A9DA680040F204 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F79C68516A9DA680040F204 /* GameLayer.mm */; };
@@ -230,6 +231,8 @@
 		9F47BE1116AAC9B2001BE137 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		9F5D096016AA13B700600AD2 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		9F5D096116AA13B700600AD2 /* GameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameOverLayer.mm; sourceTree = "<group>"; };
+		9F5FA24616D2D1FC00B1985F /* HeroContactListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HeroContactListener.h; path = Utils/HeroContactListener.h; sourceTree = "<group>"; };
+		9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroContactListener.cpp; path = Utils/HeroContactListener.cpp; sourceTree = "<group>"; };
 		9F63943A16AC2D6F00BAA9CF /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		9F63943E16AC2F8F00BAA9CF /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
@@ -646,6 +649,7 @@
 				9F47BE0B16AAC6B9001BE137 /* Layers */,
 				9F47BE0C16AAC6D4001BE137 /* Sprites */,
 				9F7C1D7716AC21C50039EA64 /* State */,
+				9F5FA24A16D2E09F00B1985F /* Utils */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -695,6 +699,15 @@
 				37B3360E16C2F93400019D7A /* Projectile.mm */,
 			);
 			path = Sprites;
+			sourceTree = "<group>";
+		};
+		9F5FA24A16D2E09F00B1985F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9F5FA24616D2D1FC00B1985F /* HeroContactListener.h */,
+				9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		9F7C1D7216AC215A0039EA64 /* Optimized-Singleton */ = {
@@ -1547,6 +1560,7 @@
 				9FFEE43716B594F60033E140 /* AccelerometerSimulation.m in Sources */,
 				37B3360F16C2F93400019D7A /* Projectile.mm in Sources */,
 				37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */,
+				9F5FA24816D2D21500B1985F /* HeroContactListener.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
