@@ -26,13 +26,13 @@
         title.position = ccp(size.width/2, posY);
         posY -= 80;
         
-        CCLabelTTF *blurb = [CCLabelTTF labelWithString:@"Hashtag Warrior is an open source iOS game\npowered by cocos2D and Box2D."
+        CCLabelTTF *blurb = [CCLabelTTF labelWithString:NSLocalizedString(@"About Blurb", nil)
                                         fontName:@"Arial"
                                         fontSize:18];
         blurb.position = ccp(size.width/2, posY);
         posY -= 80;
         
-        CCLabelTTF *credits = [CCLabelTTF labelWithString:@"Developed by Ossum Games\nProgramming: Nick James & Daniel Wood\nWeb: Daniel Wood\nDigital Art: Heather Addley"
+        CCLabelTTF *credits = [CCLabelTTF labelWithString:NSLocalizedString(@"About Credits", nil)
                                           fontName:@"Arial"
                                           fontSize:14];
         credits.position = ccp(size.width/2, posY);
@@ -43,7 +43,7 @@
         
         // Add return to menu... menu
         [CCMenuItemFont setFontSize:18];
-        CCMenuItemLabel *home = [CCMenuItemFont itemWithString:@"Main menu" block:^(id sender)
+        CCMenuItemLabel *home = [CCMenuItemFont itemWithString:NSLocalizedString(@"Main Menu", nil) block:^(id sender)
                                   {
                                       [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
                                           scene:[MainMenuScene node]]];

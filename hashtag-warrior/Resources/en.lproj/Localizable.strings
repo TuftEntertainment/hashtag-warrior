@@ -7,4 +7,8 @@
 */
 
 "About" = "About";
+"About Blurb" = "Hashtag Warrior is an open source iOS game\npowered by cocos2D and Box2D.";
+"About Credits" = "Developed by Ossum Games\nProgramming: Nick James & Daniel Wood\nWeb: Daniel Wood\nDigital Art: Heather Addley";
+"Game Over" = "Game Over";
+"Main Menu" = "Main Menu";
 "New Game" = "New Game";

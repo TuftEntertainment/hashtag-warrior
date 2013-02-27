@@ -16,7 +16,7 @@
     if ((self=[super init]))
     { 
         // Create and initialize a label for the title.
-        CCLabelTTF *title = [CCLabelTTF labelWithString:@"Game Over!"
+        CCLabelTTF *title = [CCLabelTTF labelWithString:NSLocalizedString(@"Game Over", nil)
                                                fontName:@"Marker Felt"
                                                fontSize:64];
         
