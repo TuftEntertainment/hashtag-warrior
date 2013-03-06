@@ -7,6 +7,7 @@
 //
 
 #import "GameScene.h"
+#import "BackgroundLayer.h"
 #import "GameLayer.h"
 #import "StatusLayer.h"
 
@@ -17,7 +18,10 @@
 {
     if ((self = [super init]))
     {
-        // All this scene does upon initialization is init & add the layer class.
+        // All this scene does upon initialization is init & add the layer classes.
+        BackgroundLayer *bgLayer = [BackgroundLayer node];
+        [self addChild:bgLayer z:0];
+        
         GameLayer *layer = [GameLayer node];
         [self addChild:layer];
         

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */; };
+		373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CB16E7F43C00B7FCFD /* Background-hd.png */; };
+		373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CC16E7F43D00B7FCFD /* Background-ipad.png */; };
+		373D57D116E7F43D00B7FCFD /* Background-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */; };
+		373D57D216E7F43D00B7FCFD /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CE16E7F43D00B7FCFD /* Background.png */; };
 		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
 		37B3360F16C2F93400019D7A /* Projectile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37B3360E16C2F93400019D7A /* Projectile.mm */; };
@@ -208,6 +213,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		373D57C816E7EF3F00B7FCFD /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
+		373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundLayer.mm; sourceTree = "<group>"; };
+		373D57CB16E7F43C00B7FCFD /* Background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-hd.png"; sourceTree = "<group>"; };
+		373D57CC16E7F43D00B7FCFD /* Background-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipad.png"; sourceTree = "<group>"; };
+		373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipadhd.png"; sourceTree = "<group>"; };
+		373D57CE16E7F43D00B7FCFD /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		37AD94E516ACA48A00FBA15C /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		37AD94E616ACA48A00FBA15C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
 		37AD94E916ACA4FE00FBA15C /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
@@ -686,6 +697,8 @@
 				9F5D096116AA13B700600AD2 /* GameOverLayer.mm */,
 				37CFFF4016CC3F4F0075CAC8 /* StatusLayer.h */,
 				37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */,
+				373D57C816E7EF3F00B7FCFD /* BackgroundLayer.h */,
+				373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -778,6 +791,10 @@
 		9FD9BD2C16A3735100DBEB88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				373D57CB16E7F43C00B7FCFD /* Background-hd.png */,
+				373D57CC16E7F43D00B7FCFD /* Background-ipad.png */,
+				373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */,
+				373D57CE16E7F43D00B7FCFD /* Background.png */,
 				9F0EF90E16B8723C0007E929 /* Localizable.strings */,
 				9F79C69716A9E16B0040F204 /* Default.png */,
 				9F79C69816A9E16B0040F204 /* Default@2x.png */,
@@ -1387,6 +1404,10 @@
 				37B3361616C3036B00019D7A /* Projectile-ipad.png in Resources */,
 				37B3361716C3036B00019D7A /* Projectile-ipadhd.png in Resources */,
 				37B3361816C3036B00019D7A /* Projectile.png in Resources */,
+				373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */,
+				373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */,
+				373D57D116E7F43D00B7FCFD /* Background-ipadhd.png in Resources */,
+				373D57D216E7F43D00B7FCFD /* Background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1561,6 +1582,7 @@
 				37B3360F16C2F93400019D7A /* Projectile.mm in Sources */,
 				37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */,
 				9F5FA24816D2D21500B1985F /* HeroContactListener.cpp in Sources */,
+				373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
