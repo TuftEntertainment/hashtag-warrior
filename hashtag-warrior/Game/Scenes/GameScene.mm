@@ -18,7 +18,8 @@
 {
     if ((self = [super init]))
     {
-        // All this scene does upon initialization is init & add the layer classes.
+        [self addChild:[CCLayerColor layerWithColor:ccc4(142, 193, 218, 255)]];
+        
         BackgroundLayer *bgLayer = [BackgroundLayer node];
         [self addChild:bgLayer z:0];
         
