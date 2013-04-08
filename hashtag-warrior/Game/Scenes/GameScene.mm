@@ -18,9 +18,7 @@
 {
     if ((self = [super init]))
     {
-        [self addChild:[CCLayerColor layerWithColor:ccc4(142, 193, 218, 255)]];
-        
-        BackgroundLayer *bgLayer = [BackgroundLayer node];
+        BackgroundLayer *bgLayer = [[[BackgroundLayer alloc] initForGameplay] autorelease];
         [self addChild:bgLayer z:0];
         
         GameLayer *layer = [GameLayer node];

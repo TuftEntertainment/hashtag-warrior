@@ -8,6 +8,7 @@
 
 #import "GameOverScene.h"
 #import "GameOverLayer.h"
+#import "BackgroundLayer.h"
 
 
 @implementation GameOverScene
@@ -16,7 +17,9 @@
 {
     if ((self = [super init]))
     {
-        // All this scene does upon initialization is init & add the layer class.
+        BackgroundLayer *bgLayer = [BackgroundLayer node];
+        [self addChild:bgLayer z:0];
+        
         GameOverLayer *layer = [GameOverLayer node];
         [self addChild:layer];
     }

@@ -13,6 +13,17 @@
 -(id)init {
     self = [super init];
     if (self != nil) {
+        [self addChild:[CCLayerColor layerWithColor:ccc4(142, 193, 218, 255)]];
+    }
+    
+    return self;
+}
+
+-(id)initForGameplay {
+    self = [super init];
+    if (self != nil) {
+        [self init];
+        
         CCSprite *backgroundImage;
         
         backgroundImage = [CCSprite spriteWithFile:@"Background.png"];

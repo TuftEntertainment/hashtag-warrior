@@ -8,6 +8,7 @@
 
 #import "MainMenuScene.h"
 #import "MainMenuLayer.h"
+#import "BackgroundLayer.h"
 
 
 @implementation MainMenuScene
@@ -16,7 +17,9 @@
 {
     if ((self = [super init]))
     {
-        // All this scene does upon initialization is init & add the layer class.
+        BackgroundLayer *bgLayer = [BackgroundLayer node];
+        [self addChild:bgLayer z:0];
+        
         MainMenuLayer *layer = [MainMenuLayer node];
         [self addChild:layer];
     }

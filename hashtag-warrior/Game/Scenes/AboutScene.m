@@ -8,6 +8,7 @@
 
 #import "AboutScene.h"
 #import "AboutLayer.h"
+#import "BackgroundLayer.h"
 
 
 @implementation AboutScene
@@ -16,7 +17,9 @@
 {
     if ((self = [super init]))
     {
-        // All this scene does upon initialization is init & add the layer class.
+        BackgroundLayer *bgLayer = [BackgroundLayer node];
+        [self addChild:bgLayer z:0];
+        
         AboutLayer *layer = [AboutLayer node];
         [self addChild:layer];
     }

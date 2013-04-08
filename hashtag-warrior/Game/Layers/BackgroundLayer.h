@@ -13,4 +13,6 @@
 
 @interface BackgroundLayer : CCLayer
 
+-(id)initForGameplay;
+
 @end
