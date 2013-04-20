@@ -6,6 +6,7 @@
 //  Copyright 2013 Ossum Games. All rights reserved.
 //
 
+#import "Constants.h"
 #import "GameLayer.h"
 #import "GameOverScene.h"
 
@@ -168,8 +169,8 @@
     b2FixtureDef sd;
     sd.shape = &s;
     sd.density = 1.0f;
-    sd.friction = 0.0f;
-    sd.restitution = 1.0f;
+    sd.friction = 0.5f;
+    sd.restitution = 0.6f;
     b->CreateFixture(&sd);
     
     // Add the physics to the sprite.
@@ -243,15 +244,11 @@
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    // Useful constants.
-    static const float32 maxVelocity = 10.0f;
-    static const int forceMagnifier = 5;
-    
-    if ( ABS(_hero.getPhysicsBody->GetLinearVelocity().x) <= maxVelocity )
+    if ( ABS(_hero.getPhysicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
     {
         // Setup the force x & y.
-        float32 forceX = acceleration.y * forceMagnifier;
-        float32 forceY = acceleration.x * forceMagnifier;
+        float32 forceX = acceleration.y * kHWForceMagnifier;
+        float32 forceY = acceleration.x * kHWForceMagnifier;
 
         // Alter the force based on the devices orientation.
         UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
