@@ -40,11 +40,13 @@
         [[CCDirector sharedDirector] replaceScene:[CCTransitionShrinkGrow transitionWithDuration:1.0
                                                                                            scene:[GameScene node]]];
     }];
+    newGame.color = ccc3(8, 90, 124);
     CCMenuItemLabel *about = [CCMenuItemFont itemWithString:NSLocalizedString(@"About", nil) block:^(id aboutSender)
     {
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
                                                                     scene:[AboutScene node]]];
     }];
+    about.color = ccc3(8, 90, 124);
     
     // Create the main menu.
     CCMenu *menu = [CCMenu menuWithItems:newGame, about, nil];

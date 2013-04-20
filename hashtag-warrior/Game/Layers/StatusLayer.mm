@@ -21,10 +21,12 @@
         CCLabelTTF *hashtag = [CCLabelTTF labelWithString:@"#biebs4evalol"
                                                fontName:@"Marker Felt"
                                                fontSize:12];
+        hashtag.color = ccc3(8, 90, 124);
         
         CCLabelTTF *score = [CCLabelTTF labelWithString:@"1337"
                                          fontName:@"Marker Felt"
                                          fontSize:12];
+        score.color = ccc3(8, 90, 124);
         
         // Position the labels atop the screen
         CGSize size = [[CCDirector sharedDirector] winSize];

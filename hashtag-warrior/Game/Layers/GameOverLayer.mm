@@ -19,6 +19,7 @@
         CCLabelTTF *title = [CCLabelTTF labelWithString:NSLocalizedString(@"Game Over", nil)
                                                fontName:@"Marker Felt"
                                                fontSize:64];
+        title.color = ccc3(8, 90, 124);
         
         // Ask director for the window size.
         CGSize size = [[CCDirector sharedDirector] winSize];
