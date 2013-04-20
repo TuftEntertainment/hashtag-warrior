@@ -22,21 +22,21 @@
         // Add labels
         int posY = size.height-60;
         CCLabelTTF *title = [CCLabelTTF labelWithString:@"#Hashtag Warrior"
-                                        fontName:@"Marker Felt"
+                                        fontName:kHWTextHeadingFamily
                                         fontSize:48];
         title.position = ccp(size.width/2, posY);
         title.color = kHWTextColor;
         posY -= 80;
         
         CCLabelTTF *blurb = [CCLabelTTF labelWithString:NSLocalizedString(@"About Blurb", nil)
-                                        fontName:@"Arial"
+                                        fontName:kHWTextBodyFamily
                                         fontSize:18];
         blurb.position = ccp(size.width/2, posY);
         blurb.color = kHWTextColor;
         posY -= 80;
         
         CCLabelTTF *credits = [CCLabelTTF labelWithString:NSLocalizedString(@"About Credits", nil)
-                                          fontName:@"Arial"
+                                          fontName:kHWTextBodyFamily
                                           fontSize:14];
         credits.position = ccp(size.width/2, posY);
         credits.color = kHWTextColor;

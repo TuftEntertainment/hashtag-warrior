@@ -18,7 +18,7 @@
     { 
         // Create and initialize a label for the title.
         CCLabelTTF *title = [CCLabelTTF labelWithString:NSLocalizedString(@"Game Over", nil)
-                                               fontName:@"Marker Felt"
+                                               fontName:kHWTextHeadingFamily
                                                fontSize:64];
         title.color = kHWTextColor;
         

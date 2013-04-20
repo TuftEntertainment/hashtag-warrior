@@ -7,13 +7,14 @@
 //
 
 #import "BackgroundLayer.h"
+#import "Constants.h"
 
 @implementation BackgroundLayer
 
 -(id)init {
     self = [super init];
     if (self != nil) {
-        [self addChild:[CCLayerColor layerWithColor:ccc4(142, 193, 218, 255)]];
+        [self addChild:[CCLayerColor layerWithColor:kHWBackgroundColor]];
     }
     
     return self;

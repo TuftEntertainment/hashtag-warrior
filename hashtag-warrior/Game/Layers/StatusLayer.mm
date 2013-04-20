@@ -20,12 +20,12 @@
         
         // Create and initialize a label for the title.
         CCLabelTTF *hashtag = [CCLabelTTF labelWithString:@"#biebs4evalol"
-                                               fontName:@"Marker Felt"
+                                               fontName:kHWTextBodyFamily
                                                fontSize:12];
         hashtag.color = kHWTextColor;
         
         CCLabelTTF *score = [CCLabelTTF labelWithString:@"1337"
-                                         fontName:@"Marker Felt"
+                                         fontName:kHWTextBodyFamily
                                          fontSize:12];
         score.color = kHWTextColor;
         
