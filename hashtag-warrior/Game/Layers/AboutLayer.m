@@ -7,6 +7,7 @@
 //
 
 #import "AboutLayer.h"
+#import "Constants.h"
 #import "MainMenuScene.h"
 
 @implementation AboutLayer
@@ -24,21 +25,21 @@
                                         fontName:@"Marker Felt"
                                         fontSize:48];
         title.position = ccp(size.width/2, posY);
-        title.color = ccc3(8, 90, 124);
+        title.color = kHWTextColor;
         posY -= 80;
         
         CCLabelTTF *blurb = [CCLabelTTF labelWithString:NSLocalizedString(@"About Blurb", nil)
                                         fontName:@"Arial"
                                         fontSize:18];
         blurb.position = ccp(size.width/2, posY);
-        blurb.color = ccc3(8, 90, 124);
+        blurb.color = kHWTextColor;
         posY -= 80;
         
         CCLabelTTF *credits = [CCLabelTTF labelWithString:NSLocalizedString(@"About Credits", nil)
                                           fontName:@"Arial"
                                           fontSize:14];
         credits.position = ccp(size.width/2, posY);
-        credits.color = ccc3(8, 90, 124);
+        credits.color = kHWTextColor;
         
         [self addChild: title];
         [self addChild: blurb];
@@ -51,7 +52,7 @@
                                       [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
                                           scene:[MainMenuScene node]]];
                                   }];
-        home.color = ccc3(8, 90, 124);
+        home.color = kHWTextColor;
         CCMenu *menu = [CCMenu menuWithItems:home, nil];
         [menu alignItemsVertically];
         [menu setPosition:ccp(size.width/2, 20)];

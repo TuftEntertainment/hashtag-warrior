@@ -12,6 +12,7 @@
 		373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CC16E7F43D00B7FCFD /* Background-ipad.png */; };
 		373D57D116E7F43D00B7FCFD /* Background-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */; };
 		373D57D216E7F43D00B7FCFD /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CE16E7F43D00B7FCFD /* Background.png */; };
+		375C7FB81722FB5E00E76C9F /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 375C7FB61722FA9300E76C9F /* Constants.h */; };
 		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
 		37B3360F16C2F93400019D7A /* Projectile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37B3360E16C2F93400019D7A /* Projectile.mm */; };
@@ -219,6 +220,7 @@
 		373D57CC16E7F43D00B7FCFD /* Background-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipad.png"; sourceTree = "<group>"; };
 		373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipadhd.png"; sourceTree = "<group>"; };
 		373D57CE16E7F43D00B7FCFD /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		375C7FB61722FA9300E76C9F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		37AD94E516ACA48A00FBA15C /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		37AD94E616ACA48A00FBA15C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
 		37AD94E916ACA4FE00FBA15C /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
@@ -642,6 +644,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		375C7FB41722F94B00E76C9F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				375C7FB61722FA9300E76C9F /* Constants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		9F31739316A5DB99005145EC /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +666,7 @@
 		9F31739516A5DBE2005145EC /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				375C7FB41722F94B00E76C9F /* Constants */,
 				9F31739616A5DC37005145EC /* Scenes */,
 				9F47BE0B16AAC6B9001BE137 /* Layers */,
 				9F47BE0C16AAC6D4001BE137 /* Sprites */,
@@ -1328,6 +1339,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		375C7FB71722FB5600E76C9F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				375C7FB81722FB5E00E76C9F /* Constants.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		9FD9BD1416A3735100DBEB88 /* #Warrior */ = {
 			isa = PBXNativeTarget;
@@ -1336,6 +1358,7 @@
 				9FD9BD1116A3735100DBEB88 /* Sources */,
 				9FD9BD1216A3735100DBEB88 /* Frameworks */,
 				9FD9BD1316A3735100DBEB88 /* Resources */,
+				375C7FB71722FB5600E76C9F /* Headers */,
 			);
 			buildRules = (
 			);

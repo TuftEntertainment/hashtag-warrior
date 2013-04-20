@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Ossum Games. All rights reserved.
 //
 
+#import "Constants.h"
 #import "StatusLayer.h"
 
 @implementation StatusLayer
@@ -21,12 +22,12 @@
         CCLabelTTF *hashtag = [CCLabelTTF labelWithString:@"#biebs4evalol"
                                                fontName:@"Marker Felt"
                                                fontSize:12];
-        hashtag.color = ccc3(8, 90, 124);
+        hashtag.color = kHWTextColor;
         
         CCLabelTTF *score = [CCLabelTTF labelWithString:@"1337"
                                          fontName:@"Marker Felt"
                                          fontSize:12];
-        score.color = ccc3(8, 90, 124);
+        score.color = kHWTextColor;
         
         // Position the labels atop the screen
         CGSize size = [[CCDirector sharedDirector] winSize];

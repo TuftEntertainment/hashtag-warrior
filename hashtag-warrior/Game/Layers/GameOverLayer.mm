@@ -6,6 +6,7 @@
 //  Copyright 2013 Ossum Games. All rights reserved.
 //
 
+#import "Constants.h"
 #import "GameOverLayer.h"
 #import "MainMenuScene.h"
 
@@ -19,7 +20,7 @@
         CCLabelTTF *title = [CCLabelTTF labelWithString:NSLocalizedString(@"Game Over", nil)
                                                fontName:@"Marker Felt"
                                                fontSize:64];
-        title.color = ccc3(8, 90, 124);
+        title.color = kHWTextColor;
         
         // Ask director for the window size.
         CGSize size = [[CCDirector sharedDirector] winSize];
