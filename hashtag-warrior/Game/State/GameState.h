@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SynthesizeSingleton.h"
 #import "TwitterManager.h"
 
 #import "cocos2d.h"
@@ -26,10 +25,10 @@
     b2Vec2 _gravity;
 }
 
++(GameState*)sharedInstance;
+
 @property (readwrite) NSString *_hashtag;
 @property (readwrite) NSInteger _score;
 @property (readwrite) b2Vec2 _gravity;
-
-SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(GameState);
 
 @end
