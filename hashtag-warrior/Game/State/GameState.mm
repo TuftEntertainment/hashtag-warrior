@@ -36,7 +36,6 @@
     
     // lol
     TwitterManager *test = [[TwitterManager alloc] init];
-    NSLog(@"%@", [test getTrends]);
     
     return self;
 }

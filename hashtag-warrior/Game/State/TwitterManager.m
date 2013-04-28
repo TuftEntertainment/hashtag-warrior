@@ -10,9 +10,7 @@
 
 @implementation TwitterManager
 
-@synthesize trendsLastFetched;
 @synthesize twitterAccount;
-@synthesize trends;
 
 - (id)init
 {
@@ -20,22 +18,34 @@
         return nil;
     }
     
-    // Get first configured Twitter account
-    ACAccountStore *account = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [account accountTypeWithAccountTypeIdentifier: ACAccountTypeIdentifierTwitter];
+    // Initialise the account store.
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     
-    [account requestAccessToAccountsWithType: accountType
-                                     options: nil
-                                  completion: ^(BOOL granted, NSError *error) {
-                                      
-        if (granted == YES) {
-            NSArray *arrayOfAccounts = [account accountsWithAccountType: accountType];
-            
-            if ([arrayOfAccounts count] > 0) {
-                twitterAccount = [arrayOfAccounts lastObject];
+    // Set the account type to Twitter.
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    // Ask the user for permission to access their Twitter account(s).
+    [accountStore requestAccessToAccountsWithType:accountType
+                                          options:nil
+                                       completion:^(BOOL granted, NSError *error)
+    {
+        if (granted)
+        {
+            // Create an array of all the users Twitter accounts.
+            NSArray *accounts = [accountStore accountsWithAccountType:accountType];
+            if (accounts.count > 0)
+            {
+                // To keep it simple, just take the last Twitter account.
+                // In the future we should really provide a choice.
+                twitterAccount = [accounts lastObject];
                 
+                // Now we've got hold of a Twitter account, go get all the trends.
                 [self loadTrends];
             }
+        }
+        else
+        {
+            NSLog(@"No Twitter access granted");
         }
     }];
     
@@ -44,46 +54,66 @@
 
 - (void)loadTrends
 {
-    if(twitterAccount != nil) {
-        // Configure the request
-        // TODO locale-specific trends based on the WOEID
-        NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/trends/place.json?id=1"];
-        SLRequest *request = [SLRequest requestForServiceType: SLServiceTypeTwitter
-                                                requestMethod: SLRequestMethodGET
-                                                          URL: url
-                                                   parameters: nil];
-        request.account = twitterAccount;
+    // Make 100% sure we've got a Twitter account.
+    if ( twitterAccount != nil )
+    {
+        // The Twitter API URL for returning the top 10 trending topics for a specific WOEID,
+        // if trending information is available for it.
+        // https://dev.twitter.com/docs/api/1.1/get/trends/place
+        NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/trends/place.json"];
         
-        // Actually make the request
-        [request performRequestWithHandler: ^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-            
-            if(responseData) {
-                // Data is returned as JSON, parse it
-                NSError *jsonError;
-                NSArray *json = [NSJSONSerialization JSONObjectWithData: responseData
-                                                                         options: 0
-                                                                        error: &jsonError];
-                if(json) {
-                    trends = [[json objectAtIndex: 0] objectForKey: @"trends"];
-                    trendsLastFetched = [NSDate date];
-                    
-                } else {
-                    NSLog(@"Error during JSON parsing: %@", [jsonError localizedDescription]);
+        // Parameters for the above URL.
+        NSDictionary *params = @{@"id" : @"1"};
+        
+        // Build the Twitter request.
+        SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter
+                                                           requestMethod:SLRequestMethodGET
+                                                                     URL:url
+                                                              parameters:params];
+        
+        // Attach the Twitter account for authentication.
+        [twitterInfoRequest setAccount:twitterAccount];
+        
+        // Actually talk to Twitter.
+        [twitterInfoRequest performRequestWithHandler:^(NSData *responseData,
+                                                        NSHTTPURLResponse *urlResponse,
+                                                        NSError *error)
+        {
+            // Wait asynchronically so that we don't hold up other important processing. 
+            dispatch_async(dispatch_get_main_queue(), ^
+            {
+                // Ensure we've got some data.
+                if ( responseData )
+                {
+                    // Ensure we've got a valid response.
+                    if ( urlResponse.statusCode >= 200 && urlResponse.statusCode < 300 )
+                    {
+                        // Parse the JSON from the response.
+                        NSError *jsonError;
+                        NSDictionary *trendData = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                                  options:NSJSONReadingAllowFragments
+                                                                                    error:&jsonError];
+                        
+                        // Ensure the JSON parsed correctly.
+                        if ( trendData )
+                        {
+                            NSLog(@"Twitter Response: %@\n", trendData);
+                        }
+                        else
+                        {
+                            // The JSON deserialisation went wrong. Log the error.
+                            NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
+                        }
+                    }
+                    else
+                    {
+                        // Twitter was unhappy with us. Log the status code.
+                        NSLog(@"The response status code was %d", urlResponse.statusCode);
+                    }
                 }
-            } else {
-                NSLog(@"Network/API error: %@", [error localizedDescription]);
-            }
+            });
         }];
     }
-}
-
-- (NSArray*)getTrends
-{
-    if(trends == nil || [trendsLastFetched timeIntervalSinceNow] > 1800) {
-        [self loadTrends];
-    }
-    
-    return trends;
 }
 
 @end
