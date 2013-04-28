@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3716B66F172D610E00414C44 /* CommonProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 3716B66E172D610E00414C44 /* CommonProtocols.h */; };
+		3716B676172D671500414C44 /* GameObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3716B674172D671500414C44 /* GameObject.h */; };
+		3716B677172D671500414C44 /* GameObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3716B675172D671500414C44 /* GameObject.mm */; };
 		373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */; };
 		373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CB16E7F43C00B7FCFD /* Background-hd.png */; };
 		373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CC16E7F43D00B7FCFD /* Background-ipad.png */; };
@@ -216,6 +218,8 @@
 
 /* Begin PBXFileReference section */
 		3716B66E172D610E00414C44 /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
+		3716B674172D671500414C44 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
+		3716B675172D671500414C44 /* GameObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameObject.mm; sourceTree = "<group>"; };
 		373D57C816E7EF3F00B7FCFD /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundLayer.mm; sourceTree = "<group>"; };
 		373D57CB16E7F43C00B7FCFD /* Background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-hd.png"; sourceTree = "<group>"; };
@@ -653,6 +657,8 @@
 				9FB0E54716B5591B00A97DF2 /* Hero.mm */,
 				37B3361016C2F9A300019D7A /* Projectile.h */,
 				37B3360E16C2F93400019D7A /* Projectile.mm */,
+				3716B674172D671500414C44 /* GameObject.h */,
+				3716B675172D671500414C44 /* GameObject.mm */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -1349,6 +1355,7 @@
 			files = (
 				375C7FB81722FB5E00E76C9F /* Constants.h in Headers */,
 				3716B66F172D610E00414C44 /* CommonProtocols.h in Headers */,
+				3716B676172D671500414C44 /* GameObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1610,6 +1617,7 @@
 				37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */,
 				9F5FA24816D2D21500B1985F /* HeroContactListener.cpp in Sources */,
 				373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */,
+				3716B677172D671500414C44 /* GameObject.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,15 +10,13 @@
 
 #import "cocos2d.h"
 #import "Box2D.h"
+#import "GameObject.h"
 
-@interface Projectile : CCSprite
+@interface Projectile : GameObject
 {
-    b2Body *_body;
 }
 
-- (void) setPhysicsBody:(b2Body*)body;
 
-- (b2Body*) getPhysicsBody;
 
 @end
 

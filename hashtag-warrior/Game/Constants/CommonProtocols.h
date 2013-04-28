@@ -10,13 +10,15 @@
 #define hashtag_warrior_CommonProtocols_h
 
 typedef enum {
+    kStateSpawning,
     kStateIdle,
     kStateRunningLeft,
     kStateRunningRight,
     kStateDead
-} HeroStates;
+} GameObjectState;
 
 typedef enum {
+    kNullType,
     kTweetType,
     kTwooshType
 } GameObjectType;

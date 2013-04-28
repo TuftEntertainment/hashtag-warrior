@@ -201,7 +201,7 @@
     for (b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
     {
         // Update our hero's position.
-        if (b == _hero.getPhysicsBody)
+        if (b == _hero.physicsBody)
         {
             _hero.position = ccp(b->GetPosition().x * PTM_RATIO,
                                  b->GetPosition().y * PTM_RATIO);
@@ -209,7 +209,7 @@
             
         }
         // Update the projectiles position.
-        else if (b == _projectile.getPhysicsBody)
+        else if (b == _projectile.physicsBody)
         {
             _projectile.position = ccp(b->GetPosition().x * PTM_RATIO,
                                        b->GetPosition().y * PTM_RATIO);
@@ -219,8 +219,8 @@
     
     // Check for collisions.
     bool collided = false;
-    b2Fixture* heroFixture = _hero.getPhysicsBody->GetFixtureList();
-    b2Fixture* projectileFixture = _projectile.getPhysicsBody->GetFixtureList();
+    b2Fixture* heroFixture = _hero.physicsBody->GetFixtureList();
+    b2Fixture* projectileFixture = _projectile.physicsBody->GetFixtureList();
     
     std::vector<Collision>* tmp = _contactListener->GetCollisions();
     std::vector<Collision>::iterator pos;
@@ -244,7 +244,7 @@
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    if ( ABS(_hero.getPhysicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
+    if ( ABS(_hero.physicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
     {
         // Setup the force x & y.
         float32 forceX = acceleration.y * kHWForceMagnifier;
@@ -263,7 +263,7 @@
     
         // Apply the force to our hero.
         b2Vec2 force(forceX, forceY);
-        _hero.getPhysicsBody->ApplyLinearImpulse(force, _hero.getPhysicsBody->GetWorldCenter());
+        _hero.physicsBody->ApplyLinearImpulse(force, _hero.physicsBody->GetWorldCenter());
     }
 }
 
