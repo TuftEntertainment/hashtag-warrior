@@ -644,6 +644,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3716B66C172D44C000414C44 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				9FB0E54616B5591B00A97DF2 /* Hero.h */,
+				9FB0E54716B5591B00A97DF2 /* Hero.mm */,
+				37B3361016C2F9A300019D7A /* Projectile.h */,
+				37B3360E16C2F93400019D7A /* Projectile.mm */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		3716B66D172D4CAA00414C44 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				9F7C1D7816AC22340039EA64 /* GameState.h */,
+				9F7C1D7916AC22340039EA64 /* GameState.mm */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
 		375C7FB41722F94B00E76C9F /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,11 +686,11 @@
 		9F31739516A5DBE2005145EC /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				3716B66D172D4CAA00414C44 /* Singletons */,
+				3716B66C172D44C000414C44 /* Objects */,
 				375C7FB41722F94B00E76C9F /* Constants */,
 				9F31739616A5DC37005145EC /* Scenes */,
 				9F47BE0B16AAC6B9001BE137 /* Layers */,
-				9F47BE0C16AAC6D4001BE137 /* Sprites */,
-				9F7C1D7716AC21C50039EA64 /* State */,
 				9F5FA24A16D2E09F00B1985F /* Utils */,
 			);
 			path = Game;
@@ -714,17 +734,6 @@
 			path = Layers;
 			sourceTree = "<group>";
 		};
-		9F47BE0C16AAC6D4001BE137 /* Sprites */ = {
-			isa = PBXGroup;
-			children = (
-				9FB0E54616B5591B00A97DF2 /* Hero.h */,
-				9FB0E54716B5591B00A97DF2 /* Hero.mm */,
-				37B3361016C2F9A300019D7A /* Projectile.h */,
-				37B3360E16C2F93400019D7A /* Projectile.mm */,
-			);
-			path = Sprites;
-			sourceTree = "<group>";
-		};
 		9F5FA24A16D2E09F00B1985F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,15 +751,6 @@
 			);
 			name = "Optimized-Singleton";
 			path = "libs/Optimized-Singleton";
-			sourceTree = "<group>";
-		};
-		9F7C1D7716AC21C50039EA64 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				9F7C1D7816AC22340039EA64 /* GameState.h */,
-				9F7C1D7916AC22340039EA64 /* GameState.mm */,
-			);
-			path = State;
 			sourceTree = "<group>";
 		};
 		9FD9BD0A16A3735100DBEB88 = {
