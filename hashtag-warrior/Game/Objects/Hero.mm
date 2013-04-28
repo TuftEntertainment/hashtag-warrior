@@ -8,7 +8,6 @@
 
 #import "Hero.h"
 
-
 @implementation Hero
 
 - (id)init
@@ -16,6 +15,7 @@
     if ((self=[super init]))
     {
     }
+    
     return self;
 }
 
