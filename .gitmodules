@@ -1,6 +1,3 @@
-[submodule "hashtag-warrior/libs/Optimized-Singleton"]
-	path = hashtag-warrior/libs/Optimized-Singleton
-	url = git://github.com/verbitan/Objective-C-Optimized-Singleton.git
 [submodule "hashtag-warrior/libs/accelerometer-simulator"]
 	path = hashtag-warrior/libs/accelerometer-simulator
 	url = git://github.com/verbitan/accelerometer-simulator.git

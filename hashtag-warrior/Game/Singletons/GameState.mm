@@ -8,17 +8,23 @@
 
 #import "GameState.h"
 
-SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(GameState);
-
 @implementation GameState
 
 @synthesize _score;
 @synthesize _hashtag;
 @synthesize _gravity;
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(GameState);
++(GameState*)sharedInstance
+{
+    static GameState *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[GameState alloc] init];
+    });
+    return sharedInstance;
+}
 
-- (id)init
+-(id)init
 {
     if ((self=[super init]))
     {
