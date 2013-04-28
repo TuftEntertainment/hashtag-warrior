@@ -19,6 +19,7 @@ typedef enum {
 
 typedef enum {
     kNullType,
+    kHeroType,
     kTweetType,
     kTwooshType
 } GameObjectType;
