@@ -32,7 +32,7 @@ Cocos2d: http://www.cocos2d-iphone.org/
 Box2D by Erin Catto: http://box2d.org/
 
 
-With thanks to Keith Peters, developer of the original "Falling Balls" game for iOS, sadly no longer in development.
+With thanks to Keith Peters, developer of the original "Falling Balls" game for iOS for inspiration.
 
 License
 -------

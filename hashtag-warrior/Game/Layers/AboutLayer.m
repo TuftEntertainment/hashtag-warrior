@@ -7,6 +7,7 @@
 //
 
 #import "AboutLayer.h"
+#import "Constants.h"
 #import "MainMenuScene.h"
 
 @implementation AboutLayer
@@ -21,21 +22,24 @@
         // Add labels
         int posY = size.height-60;
         CCLabelTTF *title = [CCLabelTTF labelWithString:@"#Hashtag Warrior"
-                                        fontName:@"Marker Felt"
+                                        fontName:kHWTextHeadingFamily
                                         fontSize:48];
         title.position = ccp(size.width/2, posY);
+        title.color = kHWTextColor;
         posY -= 80;
         
-        CCLabelTTF *blurb = [CCLabelTTF labelWithString:@"Hashtag Warrior is an open source iOS game\npowered by cocos2D and Box2D."
-                                        fontName:@"Arial"
+        CCLabelTTF *blurb = [CCLabelTTF labelWithString:NSLocalizedString(@"About Blurb", nil)
+                                        fontName:kHWTextBodyFamily
                                         fontSize:18];
         blurb.position = ccp(size.width/2, posY);
+        blurb.color = kHWTextColor;
         posY -= 80;
         
-        CCLabelTTF *credits = [CCLabelTTF labelWithString:@"Developed by Ossum Games\nProgramming: Nick James & Daniel Wood\nWeb: Daniel Wood\nDigital Art: Heather Addley"
-                                          fontName:@"Arial"
+        CCLabelTTF *credits = [CCLabelTTF labelWithString:NSLocalizedString(@"About Credits", nil)
+                                          fontName:kHWTextBodyFamily
                                           fontSize:14];
         credits.position = ccp(size.width/2, posY);
+        credits.color = kHWTextColor;
         
         [self addChild: title];
         [self addChild: blurb];
@@ -43,11 +47,12 @@
         
         // Add return to menu... menu
         [CCMenuItemFont setFontSize:18];
-        CCMenuItemLabel *home = [CCMenuItemFont itemWithString:@"Main menu" block:^(id sender)
+        CCMenuItemLabel *home = [CCMenuItemFont itemWithString:NSLocalizedString(@"Main Menu", nil) block:^(id sender)
                                   {
                                       [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
                                           scene:[MainMenuScene node]]];
                                   }];
+        home.color = kHWTextColor;
         CCMenu *menu = [CCMenu menuWithItems:home, nil];
         [menu alignItemsVertically];
         [menu setPosition:ccp(size.width/2, 20)];
