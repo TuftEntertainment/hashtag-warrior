@@ -27,4 +27,7 @@
 #define kHWMaxVelocity 10.0f
 #define kHWForceMagnifier 5
 
+// Misc
+#define kHWIsDebug 0
+
 #endif
