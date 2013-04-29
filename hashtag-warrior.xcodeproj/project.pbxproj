@@ -238,8 +238,8 @@
 		9F0EF90D16B8723C0007E929 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF90F16B872450007E929 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF91016B872480007E929 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9F1AE56216C311EC00B2F8CB /* TwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterManager.h; sourceTree = "<group>"; };
-		9F1AE56316C311EC00B2F8CB /* TwitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterManager.m; sourceTree = "<group>"; };
+		9F1AE56216C311EC00B2F8CB /* TwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterManager.h; path = Twitter/TwitterManager.h; sourceTree = "<group>"; };
+		9F1AE56316C311EC00B2F8CB /* TwitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterManager.m; path = Twitter/TwitterManager.m; sourceTree = "<group>"; };
 		9F1AE56516C311FF00B2F8CB /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		9F1AE56916C3125500B2F8CB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
@@ -677,6 +677,7 @@
 				9F47BE0B16AAC6B9001BE137 /* Layers */,
 				9F47BE0C16AAC6D4001BE137 /* Sprites */,
 				9F7C1D7716AC21C50039EA64 /* State */,
+				9FD36674172EE14E00534A8A /* Twitter */,
 				9F5FA24A16D2E09F00B1985F /* Utils */,
 			);
 			path = Game;
@@ -745,10 +746,17 @@
 			children = (
 				9F7C1D7816AC22340039EA64 /* GameState.h */,
 				9F7C1D7916AC22340039EA64 /* GameState.mm */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		9FD36674172EE14E00534A8A /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
 				9F1AE56216C311EC00B2F8CB /* TwitterManager.h */,
 				9F1AE56316C311EC00B2F8CB /* TwitterManager.m */,
 			);
-			path = State;
+			name = Twitter;
 			sourceTree = "<group>";
 		};
 		9FD9BD0A16A3735100DBEB88 = {
