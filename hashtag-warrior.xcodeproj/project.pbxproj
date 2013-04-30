@@ -25,6 +25,8 @@
 		9F1AE56416C311EC00B2F8CB /* TwitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1AE56316C311EC00B2F8CB /* TwitterManager.m */; };
 		9F1AE56616C311FF00B2F8CB /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1AE56516C311FF00B2F8CB /* Accounts.framework */; };
 		9F1AE56A16C3125500B2F8CB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1AE56916C3125500B2F8CB /* Social.framework */; };
+		9F35C0C5172F1C6C0007F5DB /* TwitterTrendsPlace.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F35C0C3172F1C6C0007F5DB /* TwitterTrendsPlace.h */; };
+		9F35C0C6172F1C6C0007F5DB /* TwitterTrendsPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F35C0C4172F1C6C0007F5DB /* TwitterTrendsPlace.m */; };
 		9F47BE0816AAC679001BE137 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.mm */; };
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */; };
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
@@ -43,6 +45,8 @@
 		9FB0E54C16B5619200A97DF2 /* Hero-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0E54B16B5619200A97DF2 /* Hero-hd.png */; };
 		9FB0E54F16B5620200A97DF2 /* Hero-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0E54D16B5620200A97DF2 /* Hero-ipad.png */; };
 		9FB0E55016B5620200A97DF2 /* Hero-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0E54E16B5620200A97DF2 /* Hero-ipadhd.png */; };
+		9FC73EF81730441B00DB910C /* TwitterSearchTweets.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FC73EF61730441B00DB910C /* TwitterSearchTweets.h */; };
+		9FC73EF91730441B00DB910C /* TwitterSearchTweets.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC73EF71730441B00DB910C /* TwitterSearchTweets.m */; };
 		9FD9BD1A16A3735100DBEB88 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */; };
 		9FD9BD1C16A3735100DBEB88 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */; };
 		9FD9BD1E16A3735100DBEB88 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */; };
@@ -242,6 +246,9 @@
 		9F1AE56316C311EC00B2F8CB /* TwitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterManager.m; path = Twitter/TwitterManager.m; sourceTree = "<group>"; };
 		9F1AE56516C311FF00B2F8CB /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		9F1AE56916C3125500B2F8CB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		9F35C0C2172F1BD50007F5DB /* TwitterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TwitterProtocol.h; path = Twitter/API/TwitterProtocol.h; sourceTree = "<group>"; };
+		9F35C0C3172F1C6C0007F5DB /* TwitterTrendsPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterTrendsPlace.h; path = Twitter/API/TwitterTrendsPlace.h; sourceTree = "<group>"; };
+		9F35C0C4172F1C6C0007F5DB /* TwitterTrendsPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterTrendsPlace.m; path = Twitter/API/TwitterTrendsPlace.m; sourceTree = "<group>"; };
 		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		9F47BE0716AAC679001BE137 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
 		9F47BE0D16AAC83D001BE137 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
@@ -270,6 +277,8 @@
 		9FB0E54B16B5619200A97DF2 /* Hero-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-hd.png"; sourceTree = "<group>"; };
 		9FB0E54D16B5620200A97DF2 /* Hero-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-ipad.png"; sourceTree = "<group>"; };
 		9FB0E54E16B5620200A97DF2 /* Hero-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-ipadhd.png"; sourceTree = "<group>"; };
+		9FC73EF61730441B00DB910C /* TwitterSearchTweets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterSearchTweets.h; path = Twitter/API/TwitterSearchTweets.h; sourceTree = "<group>"; };
+		9FC73EF71730441B00DB910C /* TwitterSearchTweets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterSearchTweets.m; path = Twitter/API/TwitterSearchTweets.m; sourceTree = "<group>"; };
 		9FD9BD1516A3735100DBEB88 /* hashtag-warrior.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "hashtag-warrior.app"; path = "#Warrior.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -700,6 +709,18 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		9F35C0C1172F1B8D0007F5DB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9F35C0C2172F1BD50007F5DB /* TwitterProtocol.h */,
+				9FC73EF61730441B00DB910C /* TwitterSearchTweets.h */,
+				9FC73EF71730441B00DB910C /* TwitterSearchTweets.m */,
+				9F35C0C3172F1C6C0007F5DB /* TwitterTrendsPlace.h */,
+				9F35C0C4172F1C6C0007F5DB /* TwitterTrendsPlace.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		9F47BE0B16AAC6B9001BE137 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
@@ -753,6 +774,7 @@
 		9FD36674172EE14E00534A8A /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				9F35C0C1172F1B8D0007F5DB /* API */,
 				9F1AE56216C311EC00B2F8CB /* TwitterManager.h */,
 				9F1AE56316C311EC00B2F8CB /* TwitterManager.m */,
 			);
@@ -1352,6 +1374,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				375C7FB81722FB5E00E76C9F /* Constants.h in Headers */,
+				9F35C0C5172F1C6C0007F5DB /* TwitterTrendsPlace.h in Headers */,
+				9FC73EF81730441B00DB910C /* TwitterSearchTweets.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1613,6 +1637,8 @@
 				37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */,
 				9F5FA24816D2D21500B1985F /* HeroContactListener.cpp in Sources */,
 				373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */,
+				9F35C0C6172F1C6C0007F5DB /* TwitterTrendsPlace.m in Sources */,
+				9FC73EF91730441B00DB910C /* TwitterSearchTweets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

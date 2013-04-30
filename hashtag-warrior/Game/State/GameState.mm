@@ -34,9 +34,6 @@
         self._gravity = b2Vec2(0.0f, -10.0f);
     }
     
-    // lol
-    TwitterManager *test = [[TwitterManager alloc] init];
-    
     return self;
 }
 

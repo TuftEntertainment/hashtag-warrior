@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TwitterManager.h"
-
 #import "cocos2d.h"
 #import "Box2D.h"
 

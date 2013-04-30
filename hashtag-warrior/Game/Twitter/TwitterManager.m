@@ -10,11 +10,12 @@
 
 @implementation TwitterManager
 
-@synthesize twitterAccount;
+@synthesize _twitterAccount;
 
 - (id)init
 {
-    if(![super init]) {
+    if(![super init])
+    {
         return nil;
     }
     
@@ -37,10 +38,7 @@
             {
                 // To keep it simple, just take the last Twitter account.
                 // In the future we should really provide a choice.
-                twitterAccount = [accounts lastObject];
-                
-                // Now we've got hold of a Twitter account, go get all the trends.
-                [self loadTrends];
+                _twitterAccount = [accounts lastObject];
             }
         }
         else
@@ -52,27 +50,21 @@
     return self;
 }
 
-- (void)loadTrends
+- (bool)talkToTwitter:(NSObject<TwitterProtocol>*)protocol
 {
+    __block bool success = FALSE;
+    
     // Make 100% sure we've got a Twitter account.
-    if ( twitterAccount != nil )
+    if ( _twitterAccount != nil )
     {
-        // The Twitter API URL for returning the top 10 trending topics for a specific WOEID,
-        // if trending information is available for it.
-        // https://dev.twitter.com/docs/api/1.1/get/trends/place
-        NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/trends/place.json"];
-        
-        // Parameters for the above URL.
-        NSDictionary *params = @{@"id" : @"1"};
-        
         // Build the Twitter request.
         SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                                            requestMethod:SLRequestMethodGET
-                                                                     URL:url
-                                                              parameters:params];
+                                                                     URL:[protocol getURL]
+                                                              parameters:[protocol getParams]];
         
         // Attach the Twitter account for authentication.
-        [twitterInfoRequest setAccount:twitterAccount];
+        [twitterInfoRequest setAccount:_twitterAccount];
         
         // Actually talk to Twitter.
         [twitterInfoRequest performRequestWithHandler:^(NSData *responseData,
@@ -90,14 +82,14 @@
                     {
                         // Parse the JSON from the response.
                         NSError *jsonError;
-                        NSDictionary *trendData = [NSJSONSerialization JSONObjectWithData:responseData
-                                                                                  options:NSJSONReadingAllowFragments
-                                                                                    error:&jsonError];
+                        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                             options:NSJSONReadingAllowFragments
+                                                                               error:&jsonError];
                         
-                        // Ensure the JSON parsed correctly.
-                        if ( trendData )
+                        // Ensure the JSON deserialised correctly.
+                        if ( json )
                         {
-                            NSLog(@"Twitter Response: %@\n", trendData);
+                            success = [protocol parseResponse:json];
                         }
                         else
                         {
@@ -114,6 +106,8 @@
             });
         }];
     }
+    
+    return success;
 }
 
 @end

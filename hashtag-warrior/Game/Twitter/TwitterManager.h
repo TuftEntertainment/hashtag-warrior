@@ -10,12 +10,15 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 
-@interface TwitterManager : NSObject {
-    ACAccount* twitterAccount;
+#import <TwitterProtocol.h>
+
+@interface TwitterManager : NSObject
+{
+    ACAccount* _twitterAccount;
 }
 
-@property (retain) ACAccount* twitterAccount;
+@property (retain) ACAccount* _twitterAccount;
 
-- (void)loadTrends;
+- (bool)talkToTwitter:(NSObject<TwitterProtocol>*)protocol;
 
 @end
