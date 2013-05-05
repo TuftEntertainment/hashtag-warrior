@@ -15,16 +15,6 @@
 #define kHWTextHeadingFamily @"Marker Felt"
 #define kHWTextBodyFamily @"Arial"
 
-// Scene shortcuts
-typedef enum {
-    kHWNoScene=0,
-    kHWIntroScene=1,
-    kHWMainMenuScene=2,
-    kHWAboutScene=3,
-    kHWGameOverScene=4,
-    kHWGameScene=100
-} SceneTypes;
-
 // Gameplay
 #define kHWMinProjectileSize 2.0f          // TODO net yet used
 #define kHWMaxProjectileSize 10.0f         // TODO net yet used
@@ -36,6 +26,7 @@ typedef enum {
 // Environment
 #define kHWMaxVelocity 10.0f
 #define kHWForceMagnifier 5
+#define PTM_RATIO 32
 
 // Misc
 #define kHWIsDebug 0

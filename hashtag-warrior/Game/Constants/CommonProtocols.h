@@ -24,6 +24,19 @@ typedef enum {
     kTwooshType
 } GameObjectType;
 
+typedef enum {
+    kHWNoScene=0,
+    kHWIntroScene=1,
+    kHWMainMenuScene=2,
+    kHWAboutScene=3,
+    kHWGameOverScene=4,
+    kHWGameScene=100
+} SceneTypes;
+
+
+// TODO not convinced the below will be necessary - at the moment
+// only the GameLayer will be creating objects, and it's fine for
+// the GameLayer to know what it itself is doing..
 @protocol GameplayLayerDelegate
 -(void)createObjectOfType:(GameObjectType)objectType
                atLocation:(CGPoint)spawnLocation

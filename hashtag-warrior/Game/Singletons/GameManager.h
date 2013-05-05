@@ -14,7 +14,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Constants.h"
+#import "CommonProtocols.h"
 
 @interface GameManager : NSObject {
     SceneTypes currentScene;
