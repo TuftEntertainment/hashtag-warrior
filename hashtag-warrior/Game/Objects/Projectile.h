@@ -9,8 +9,8 @@
 #import "GameObject.h"
 
 @interface Projectile : GameObject
-{
-}
+
+- (id)initWithWorld:(b2World*)world atLocation:(CGPoint)location;
 
 @end
 

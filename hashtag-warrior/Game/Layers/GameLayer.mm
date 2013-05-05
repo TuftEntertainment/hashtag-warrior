@@ -104,8 +104,7 @@
 {
     // Create Hero
     CGPoint location = ccp(windowSize.width/2, 0);
-    _hero = [[[Hero alloc]
-             initWithWorld:_world atLocation:location] autorelease];
+    _hero = [[[Hero alloc] initWithWorld:_world atLocation:location] autorelease];
     [self addChild:_hero z:1 tag:1];
     
     // Restrict our hero to only run along the bottom.
@@ -120,35 +119,14 @@
 {
     CCLOG(@"Adding new projectile! %0.2f x %0.2f",p.x,p.y);
     
-    _projectile = [Projectile spriteWithFile:@"Projectile.png"];
+    // Create projectile
+    CGPoint location = ccp(p.x, p.y);
+    _projectile = [[[Projectile alloc] initWithWorld:_world atLocation:location] autorelease];
     [self addChild:_projectile];
-    _projectile.position = ccp(p.x, p.y);
     
-    // Create the body definition.
-    b2BodyDef bd;
-    bd.type = b2_dynamicBody;
-    bd.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    
-    // Create the body
-    b2Body *b = _world->CreateBody(&bd);
-    
-    // Create the shape and shape definition.
-    b2CircleShape s;
-    s.m_radius = (_projectile.contentSize.width/2)/PTM_RATIO;
-
-    b2FixtureDef sd;
-    sd.shape = &s;
-    sd.density = 1.0f;
-    sd.friction = 0.5f;
-    sd.restitution = 0.6f;
-    b->CreateFixture(&sd);
-    
-    // Add the physics to the sprite.
-	[_projectile setPhysicsBody:b];
-    
-    // Zoom
+    // Fire!
     b2Vec2 force = b2Vec2(2.5f, -5.0f);
-    b->ApplyLinearImpulse(force, bd.position);
+    _projectile.physicsBody->ApplyLinearImpulse(force, _projectile.physicsBody->GetWorldCenter());
 }
 
 - (void) createContactListener
