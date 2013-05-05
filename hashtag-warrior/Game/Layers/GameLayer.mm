@@ -6,11 +6,12 @@
 //  Copyright 2013 Ossum Games. All rights reserved.
 //
 
-#import "Constants.h"
-#import "GameLayer.h"
-#import "GameOverScene.h"
-
 #import "AccelerometerSimulation.h"
+
+#import "GameLayer.h"
+#import "Constants.h"
+#import "GameManager.h"
+
 
 // Define macros to convert from an iPhone ccp to iPad ccp.
 // Note: Not much use when using the size from the director (e.g. [[CCDirector sharedDirector] winSize].width) as this
@@ -70,7 +71,6 @@
     delete _world;
     _world = NULL;
     
-    // Nothing else to deallocate.
     [super dealloc];
 }
 
@@ -238,7 +238,7 @@
     // If we collided, game over!
     if ( collided )
     {
-        [[CCDirector sharedDirector] replaceScene:[GameOverScene node]];
+        [[GameManager sharedGameManager] runSceneWithID:kHWGameOverScene];
     }
 }
 

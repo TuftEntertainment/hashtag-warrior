@@ -7,9 +7,8 @@
 //
 
 #import "MainMenuLayer.h"
-#import "AboutScene.h"
 #import "Constants.h"
-#import "GameScene.h"
+#import "GameManager.h"
 
 
 @implementation MainMenuLayer
@@ -18,7 +17,6 @@
 {
     if ((self=[super init]))
     {
-        // Add the main menu.
         [self addMainMenu];
     }
     return self;
@@ -26,7 +24,6 @@
 
 - (void) dealloc
 {
-    // Nothing else to deallocate.
     [super dealloc];
 }
 
@@ -38,14 +35,12 @@
     // Menu items
     CCMenuItemLabel *newGame = [CCMenuItemFont itemWithString:NSLocalizedString(@"New Game", nil) block:^(id sender)
     {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionShrinkGrow transitionWithDuration:1.0
-                                                                                           scene:[GameScene node]]];
+        [[GameManager sharedGameManager] runSceneWithID:kHWGameScene];
     }];
     newGame.color = kHWTextColor;
     CCMenuItemLabel *about = [CCMenuItemFont itemWithString:NSLocalizedString(@"About", nil) block:^(id aboutSender)
     {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                                                    scene:[AboutScene node]]];
+        [[GameManager sharedGameManager] runSceneWithID:kHWAboutScene];
     }];
     about.color = kHWTextColor;
     

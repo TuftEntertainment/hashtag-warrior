@@ -6,9 +6,9 @@
 //  Copyright 2013 Ossum Games. All rights reserved.
 //
 
-#import "Constants.h"
 #import "GameOverLayer.h"
-#import "MainMenuScene.h"
+#import "GameManager.h"
+#import "Constants.h"
 
 @implementation GameOverLayer
 
@@ -39,15 +39,11 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-    // Go back to the game.
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                                                                 scene:[MainMenuScene node]
-                                                                             withColor:ccBLACK]];
+    [[GameManager sharedGameManager] runSceneWithID:kHWMainMenuScene];
 }
 
 - (void) dealloc
 {
-    // Nothing else to deallocate.
     [super dealloc];
 }
 

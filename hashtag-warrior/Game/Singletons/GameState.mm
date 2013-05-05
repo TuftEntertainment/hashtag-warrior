@@ -3,7 +3,7 @@
 //  hashtag-warrior
 //
 //  Created by Nick James on 20/01/2013.
-//
+//  Copyright (c) 2013 Ossum Games. All rights reserved.
 //
 
 #import "GameState.h"

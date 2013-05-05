@@ -2,8 +2,11 @@
 //  GameState.h
 //  hashtag-warrior
 //
-//  Created by Nick James on 20/01/2013.
+//  GameState retains information on the current state of the game,
+//  including saving/loading this information from disk.
 //
+//  Created by Nick James on 20/01/2013.
+//  Copyright (c) 2013 Ossum Games. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,13 +16,8 @@
 
 @interface GameState : NSObject <NSCoding>
 {
-    // Hashtag.
     NSString *_hashtag;
-    
-    // Score.
     NSInteger _score;
-    
-    // Gravity.
     b2Vec2 _gravity;
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "IntroLayer.h"
-#import "MainMenuScene.h"
+#import "GameManager.h"
 
 // GameLayer implementation
 @implementation IntroLayer
@@ -34,7 +34,6 @@
 
     background.position = ccp(size.width/2, size.height/2);
 
-    // add the label as a child to this Layer.
     [self addChild: background];
     
     // In one second transition to the new scene.
@@ -43,15 +42,11 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-    // Fade from the launch image into the application.
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                                                                 scene:[MainMenuScene node]
-                                                                             withColor:ccBLACK]];
+    [[GameManager sharedGameManager] runSceneWithID:kHWMainMenuScene];
 }
 
 - (void) dealloc
 {
-    // Nothing else to deallocate.
     [super dealloc];
 }
 @end
