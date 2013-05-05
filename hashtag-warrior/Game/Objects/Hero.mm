@@ -10,11 +10,16 @@
 
 @implementation Hero
 
-- (id)init
+- (id) initWithWorld:(b2World*)world atLocation:(CGPoint)location
 {
     if ((self=[super init]))
     {
         self.gameObjectType = kHeroType;
+        
+        // TODO show initial frame/animation instead
+        [self initWithFile:@"Hero.png"];
+        
+        [self createBodyWithWorld:world atLocation:location];
     }
     
     return self;
@@ -23,6 +28,32 @@
 - (void) dealloc
 {
     [super dealloc];
+}
+
+- (void) createBodyWithWorld:(b2World*)world atLocation:(CGPoint)location
+{
+    // Create the body definition first, position this
+    b2BodyDef heroBodyDef;
+    heroBodyDef.type = b2_dynamicBody;
+    heroBodyDef.position = b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO);
+    
+    // Create the body
+    b2Body *heroBody = world->CreateBody(&heroBodyDef);
+    heroBody->SetUserData(self);
+    [self setPhysicsBody:heroBody];
+    
+    // Create the shape
+    b2PolygonShape heroShape;
+    heroShape.SetAsBox(self.contentSize.width/PTM_RATIO/2,
+                       self.contentSize.height/PTM_RATIO/2);
+    
+    // Create the definition and add to body
+    b2FixtureDef heroFixtureDef;
+    heroFixtureDef.shape = &heroShape;
+    heroFixtureDef.density = 1.0f;
+    heroFixtureDef.friction = 0.2f;
+    heroFixtureDef.restitution = 0.0f;
+    heroBody->CreateFixture(&heroFixtureDef);
 }
 
 - (void) changeState:(GameObjectState)newState

@@ -13,6 +13,9 @@
 #import "GameManager.h"
 
 
+
+
+// TODO move these global?
 // Define macros to convert from an iPhone ccp to iPad ccp.
 // Note: Not much use when using the size from the director (e.g. [[CCDirector sharedDirector] winSize].width) as this
 //       returns the size of the current device.
@@ -28,35 +31,34 @@
 #define ADJUST_CCP(__p__)\
 (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? ccp( ADJUST_X(__p__.x), ADJUST_Y(__p__.y) ) : __p__)
 
+
+
+
 @implementation GameLayer
 
 - (id)init
 {
     if ((self=[super init]))
     {
-        // Enable the accelerometer.
         self.isAccelerometerEnabled = YES;
         
-        // Get an instance of the game state singleton.
         _state = [GameState sharedInstance];
-        
-        // Ask director for the window size.
         CGSize windowSize = [[CCDirector sharedDirector] winSize];
         
-        // Create the world.
         [self createWorld:windowSize];
         
-        // Create our hero.
-        [self createHero:windowSize];
+        // Schedule Box2D updates
+        [self schedule:@selector(tick:)];
+        //[self scheduleUpdate];
         
-        // Create a ball.
+        // TODO initialise SpriteBatchNode here,
+        // and add the hero/projectiles to it rather than the layer directly
+        // as this decreases the number of OpenGL calls.
+        
+        [self createHero:windowSize];
         [self createProjectile:ccp(0, windowSize.height)];
         
-        // Create the contact listener.
         [self createContactListener];
-        
-        // Schedule animations.
-        [self schedule:@selector(tick:)];
     }
     return self;
 }
@@ -100,50 +102,18 @@
 
 - (void) createHero: (CGSize)windowSize
 {
-    // Our hero.
-    _hero = [Hero spriteWithFile:@"Hero.png"];
-    
-    // Add him to the layer.
-    [self addChild:_hero];
-    
-    // Now we know the size of the sprite, work out it's position.
-    CGPoint p = ccp(windowSize.width/2, _hero.contentSize.height/2);
-    
-    // Position him where requested.
-    _hero.position = ccp(p.x, p.y);
-    
-    // Create the dynamic body definition.
-    b2BodyDef heroBodyDef;
-    heroBodyDef.type = b2_dynamicBody;
-    
-    // Position it where requested.
-    heroBodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    
-    // Create the body.
-    b2Body *heroBody = _world->CreateBody(&heroBodyDef);
-    
-    // Create the shape.
-    b2PolygonShape heroShape;
-    heroShape.SetAsBox(_hero.contentSize.width/PTM_RATIO/2,
-                       _hero.contentSize.height/PTM_RATIO/2);
-    
-    // Create the definition and add to body.
-    b2FixtureDef heroShapeDef;
-    heroShapeDef.shape = &heroShape;
-    heroShapeDef.density = 1.0f;
-    heroShapeDef.friction = 0.2f;
-    heroShapeDef.restitution = 0.0f;
-    heroBody->CreateFixture(&heroShapeDef);
+    // Create Hero
+    CGPoint location = ccp(windowSize.width/2, 0);
+    _hero = [[[Hero alloc]
+             initWithWorld:_world atLocation:location] autorelease];
+    [self addChild:_hero z:1 tag:1];
     
     // Restrict our hero to only run along the bottom.
     b2PrismaticJointDef jointDef;
     b2Vec2 axis = b2Vec2(1.0f, 0.0f);
     jointDef.collideConnected = true;
-    jointDef.Initialize(heroBody, _groundBody, heroBody->GetWorldCenter(), axis);
+    jointDef.Initialize(_hero.physicsBody, _groundBody, _hero.physicsBody->GetWorldCenter(), axis);
     _world->CreateJoint(&jointDef);
-    
-    // Add the physics to the sprite.
-	[_hero setPhysicsBody:heroBody];
 }
 
 - (void) createProjectile: (CGPoint)p
@@ -183,10 +153,7 @@
 
 - (void) createContactListener
 {
-    // Construct contact listener.
     _contactListener = new HeroContactListener();
-    
-    // Add it to the world.
     _world->SetContactListener(_contactListener);
 }
 

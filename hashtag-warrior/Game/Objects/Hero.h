@@ -9,7 +9,7 @@
 #import "GameObject.h"
 
 @interface Hero : GameObject
-{
-}
+
+- (id)initWithWorld:(b2World*)world atLocation:(CGPoint)location;
 
 @end
