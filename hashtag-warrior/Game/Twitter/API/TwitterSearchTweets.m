@@ -25,6 +25,9 @@
     // Initialise the search results array.
     _searchResults = [[NSMutableArray alloc] init];
     
+    // There are no results yet, mark as stale.
+    _stale = true;
+    
     return self;
 }
 
@@ -72,12 +75,12 @@
     NSArray* statuses = [json objectForKey:@"statuses"];
     
     // Did we get any statuses?
-    if ( statuses )
+    if ( statuses && [statuses count] > 0)
     {
         // Clear out any existing search results.
         [_searchResults removeAllObjects];
         
-        // We did! Now extract them all.
+        // Now extract them all.
         for ( int i = 0; i < statuses.count; ++i )
         {
             // Create a Tweet object for each.
@@ -86,6 +89,9 @@
             // Add it to the search results array.
             [_searchResults addObject:tweet];
         }
+        
+        // Mark as not stale.
+        _stale = false;
         
         NSLog(@"Successfully downloaded %i tweets.", [_searchResults count]);
     }
@@ -103,9 +109,17 @@
     _searchCriteria = criteria;
 }
 
--(NSMutableArray*)getSearchResults
+-(NSArray*)getSearchResults
 {
+    // The data bas been read, it's now stale.
+    _stale = true;
+    
     return _searchResults;
+}
+
+-(bool)isStale
+{
+    return _stale;
 }
 
 @end

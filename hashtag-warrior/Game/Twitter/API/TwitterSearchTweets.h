@@ -14,10 +14,12 @@
 {
     NSString* _searchCriteria;
     NSMutableArray* _searchResults;
+    bool _stale;
 }
 
 -(void)setSearchCriteria:(NSString*)criteria;
 
--(NSMutableArray*)getSearchResults;
+-(NSArray*)getSearchResults;
+-(bool)isStale;
 
 @end

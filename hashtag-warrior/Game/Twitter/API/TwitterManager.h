@@ -15,10 +15,12 @@
 @interface TwitterManager : NSObject
 {
     ACAccount* _twitterAccount;
+    __block bool _granted;
 }
 
 @property (retain) ACAccount* _twitterAccount;
 
+- (bool)twitterPermission;
 - (bool)talkToTwitter:(NSObject<TwitterProtocol>*)protocol;
 
 @end
