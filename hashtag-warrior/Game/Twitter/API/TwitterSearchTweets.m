@@ -8,6 +8,8 @@
 
 #import "TwitterSearchTweets.h"
 
+#import "Tweet.h"
+
 @implementation TwitterSearchTweets
 
 - (id)init
@@ -65,13 +67,8 @@
         // We did! Now extract them all.
         for ( int i = 0; i < statuses.count; ++i )
         {
-            // Pull out the user and their tweet.
-            NSDictionary* userDetails = [statuses[i] objectForKey:@"user"];
-            NSString* username = [userDetails objectForKey:@"screen_name"];
-            NSString* tweet = [statuses[i] objectForKey:@"text"];
-
-            // Log it to gloat of our success.
-            NSLog(@"\n\t%@ tweeted: '%@'", username, tweet);
+            // Create a Tweet object for each.
+            Tweet *tweet = [[Tweet alloc] initWithTweet:statuses[i]];
         }
     }
     else

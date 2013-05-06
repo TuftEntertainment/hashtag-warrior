@@ -32,6 +32,8 @@
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
 		9F5D096216AA13B700600AD2 /* GameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F5D096116AA13B700600AD2 /* GameOverLayer.mm */; };
 		9F5FA24816D2D21500B1985F /* HeroContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */; };
+		9F60555A1737C78A00907C00 /* Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6055581737C78A00907C00 /* Tweet.h */; };
+		9F60555B1737C78A00907C00 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6055591737C78A00907C00 /* Tweet.m */; };
 		9F63943C16AC2D6F00BAA9CF /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */; };
 		9F63944016AC2F8F00BAA9CF /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.m */; };
 		9F79C68616A9DA680040F204 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F79C68516A9DA680040F204 /* GameLayer.mm */; };
@@ -259,6 +261,8 @@
 		9F5D096116AA13B700600AD2 /* GameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameOverLayer.mm; sourceTree = "<group>"; };
 		9F5FA24616D2D1FC00B1985F /* HeroContactListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HeroContactListener.h; path = Utils/HeroContactListener.h; sourceTree = "<group>"; };
 		9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroContactListener.cpp; path = Utils/HeroContactListener.cpp; sourceTree = "<group>"; };
+		9F6055581737C78A00907C00 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Twitter/API/Tweet.h; sourceTree = "<group>"; };
+		9F6055591737C78A00907C00 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Twitter/API/Tweet.m; sourceTree = "<group>"; };
 		9F63943A16AC2D6F00BAA9CF /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		9F63943E16AC2F8F00BAA9CF /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
@@ -717,6 +721,8 @@
 				9FC73EF71730441B00DB910C /* TwitterSearchTweets.m */,
 				9F35C0C3172F1C6C0007F5DB /* TwitterTrendsPlace.h */,
 				9F35C0C4172F1C6C0007F5DB /* TwitterTrendsPlace.m */,
+				9F6055581737C78A00907C00 /* Tweet.h */,
+				9F6055591737C78A00907C00 /* Tweet.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -1376,6 +1382,7 @@
 				375C7FB81722FB5E00E76C9F /* Constants.h in Headers */,
 				9F35C0C5172F1C6C0007F5DB /* TwitterTrendsPlace.h in Headers */,
 				9FC73EF81730441B00DB910C /* TwitterSearchTweets.h in Headers */,
+				9F60555A1737C78A00907C00 /* Tweet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1639,6 +1646,7 @@
 				373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */,
 				9F35C0C6172F1C6C0007F5DB /* TwitterTrendsPlace.m in Sources */,
 				9FC73EF91730441B00DB910C /* TwitterSearchTweets.m in Sources */,
+				9F60555B1737C78A00907C00 /* Tweet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
