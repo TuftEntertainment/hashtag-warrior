@@ -13,8 +13,11 @@
 @interface TwitterSearchTweets : NSObject<TwitterProtocol>
 {
     NSString* _searchCriteria;
+    NSMutableArray* _searchResults;
 }
 
 -(void)setSearchCriteria:(NSString*)criteria;
+
+-(NSMutableArray*)getSearchResults;
 
 @end

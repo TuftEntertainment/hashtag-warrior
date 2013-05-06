@@ -34,8 +34,10 @@
     // Get the tweet text.
     _tweetText = [_tweet objectForKey:@"text"];
     
-    // Log it to gloat of our success.
-    NSLog(@"\n\t%@ tweeted: '%@'", [self getScreenName], [self getTweetText]);
+    // Get the tweet created at time.
+    NSDateFormatter* dateFormat = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormat setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
+    _tweetTime = [dateFormat dateFromString:[_tweet objectForKey:@"created_at"]];
 }
 
 - (NSString*)getScreenName
@@ -46,6 +48,11 @@
 - (NSString*)getTweetText
 {
     return _tweetText;
+}
+
+- (NSDate*)getTweetTime
+{
+    return _tweetTime;
 }
 
 @end

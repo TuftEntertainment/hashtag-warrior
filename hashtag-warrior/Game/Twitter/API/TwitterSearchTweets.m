@@ -22,7 +22,17 @@
     // Default the search criteria to us!
     _searchCriteria = @"#Warrior";
     
+    // Initialise the search results array.
+    _searchResults = [[NSMutableArray alloc] init];
+    
     return self;
+}
+
+- (void)dealloc
+{
+    [_searchResults release];
+    
+    [super dealloc];
 }
 
 -(NSURL*)getURL
@@ -64,12 +74,20 @@
     // Did we get any statuses?
     if ( statuses )
     {
+        // Clear out any existing search results.
+        [_searchResults removeAllObjects];
+        
         // We did! Now extract them all.
         for ( int i = 0; i < statuses.count; ++i )
         {
             // Create a Tweet object for each.
             Tweet *tweet = [[Tweet alloc] initWithTweet:statuses[i]];
+            
+            // Add it to the search results array.
+            [_searchResults addObject:tweet];
         }
+        
+        NSLog(@"Successfully downloaded %i tweets.", [_searchResults count]);
     }
     else
     {
@@ -83,6 +101,11 @@
 -(void)setSearchCriteria:(NSString*)criteria
 {
     _searchCriteria = criteria;
+}
+
+-(NSMutableArray*)getSearchResults
+{
+    return _searchResults;
 }
 
 @end

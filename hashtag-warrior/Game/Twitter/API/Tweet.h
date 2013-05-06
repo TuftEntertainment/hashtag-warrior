@@ -14,11 +14,13 @@
     
     NSString* _screenName;
     NSString* _tweetText;
+    NSDate* _tweetTime;
 }
 
 - (void)parseTweet:(NSDictionary*)tweet;
 
 - (NSString*)getScreenName;
 - (NSString*)getTweetText;
+- (NSDate*)getTweetTime;
 
 @end
