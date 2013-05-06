@@ -40,10 +40,6 @@
     return [self boundingBox];
 }
 
-
-
-
-// TODO not yet used, but will be helpful when we have animations
 -(CCAnimation*)loadPlistForAnimationWithName:(NSString*)animationName andClassName:(NSString*)className {
     
     CCAnimation *animationToReturn = nil;
@@ -82,25 +78,27 @@
     // 5: Get the delay value for the animation
     float animationDelay =
     [[animationSettings objectForKey:@"delay"] floatValue];
-    animationToReturn = [CCAnimation animation];
-    [animationToReturn setDelay:animationDelay];
     
     // 6: Add the frames to the animation
+    // TODO I'm not sure if the spriteFrames Mutable Array will be properly
+    // released.. I had to make some modifications to the animation loader
+    // code here, and this is the only solution which isn't deprecated
     NSString *animationFramePrefix =
     [animationSettings objectForKey:@"filenamePrefix"];
     NSString *animationFrames =
     [animationSettings objectForKey:@"animationFrames"];
-    NSArray *animationFrameNumbers =
-    [animationFrames componentsSeparatedByString:@","];
+    NSMutableArray *spriteFrames = [NSMutableArray arrayWithArray:[animationFrames componentsSeparatedByString:@","]];
     
-    for (NSString *frameNumber in animationFrameNumbers) {
+    for (NSUInteger i = 0; i < [spriteFrames count]; ++i) {
         NSString *frameName =
-        [NSString stringWithFormat:@"%@%@.png",
-         animationFramePrefix,frameNumber];
-        [animationToReturn addFrame:
-         [[CCSpriteFrameCache sharedSpriteFrameCache]
-          spriteFrameByName:frameName]];
+        [NSString stringWithFormat:@"%@%@.png", animationFramePrefix, [spriteFrames objectAtIndex:i]];
+        
+        [spriteFrames replaceObjectAtIndex:i
+                                withObject:[[CCSpriteFrameCache sharedSpriteFrameCache]
+                                                         spriteFrameByName:frameName]];
     }
+    
+    animationToReturn = [CCAnimation animationWithSpriteFrames:spriteFrames delay:animationDelay];
     
     return animationToReturn;
 }

@@ -17,7 +17,7 @@
 			<key>sourceSize</key>
 			<string>{256,256}</string>
 		</dict>
-		<key>hero_01.png</key>
+		<key>hero_1.png</key>
 		<dict>
 			<key>frame</key>
 			<string>{{2,514},{252,256}}</string>
@@ -30,7 +30,7 @@
 			<key>sourceSize</key>
 			<string>{256,256}</string>
 		</dict>
-		<key>hero_02.png</key>
+		<key>hero_2.png</key>
 		<dict>
 			<key>frame</key>
 			<string>{{2,260},{252,256}}</string>
@@ -43,7 +43,7 @@
 			<key>sourceSize</key>
 			<string>{256,256}</string>
 		</dict>
-		<key>hero_03.png</key>
+		<key>hero_3.png</key>
 		<dict>
 			<key>frame</key>
 			<string>{{260,2},{242,252}}</string>
@@ -56,7 +56,7 @@
 			<key>sourceSize</key>
 			<string>{256,256}</string>
 		</dict>
-		<key>hero_04.png</key>
+		<key>hero_4.png</key>
 		<dict>
 			<key>frame</key>
 			<string>{{260,256},{238,252}}</string>

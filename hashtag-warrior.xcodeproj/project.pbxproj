@@ -20,6 +20,7 @@
 		37216E001737F12000840D6F /* atlas-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFC1737F12000840D6F /* atlas-ipadhd.png */; };
 		37216E011737F12000840D6F /* atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFD1737F12000840D6F /* atlas.png */; };
 		37216E021737F12000840D6F /* atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFE1737F12000840D6F /* atlas-hd.png */; };
+		37216E041737FAB700840D6F /* Hero.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216E031737FAB700840D6F /* Hero.plist */; };
 		373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */; };
 		373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CB16E7F43C00B7FCFD /* Background-hd.png */; };
 		373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CC16E7F43D00B7FCFD /* Background-ipad.png */; };
@@ -231,6 +232,7 @@
 		37216DFC1737F12000840D6F /* atlas-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-ipadhd.png"; sourceTree = "<group>"; };
 		37216DFD1737F12000840D6F /* atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atlas.png; sourceTree = "<group>"; };
 		37216DFE1737F12000840D6F /* atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-hd.png"; sourceTree = "<group>"; };
+		37216E031737FAB700840D6F /* Hero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Hero.plist; sourceTree = "<group>"; };
 		373D57C816E7EF3F00B7FCFD /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundLayer.mm; sourceTree = "<group>"; };
 		373D57CB16E7F43C00B7FCFD /* Background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-hd.png"; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 				37216DF41737F0F000840D6F /* atlas-ipadhd.plist */,
 				37216DF51737F0F000840D6F /* atlas.plist */,
 				37216DF61737F0F000840D6F /* atlas-hd.plist */,
+				37216E031737FAB700840D6F /* Hero.plist */,
 			);
 			name = Plists;
 			sourceTree = "<group>";
@@ -1442,6 +1445,7 @@
 				37216E001737F12000840D6F /* atlas-ipadhd.png in Resources */,
 				37216E011737F12000840D6F /* atlas.png in Resources */,
 				37216E021737F12000840D6F /* atlas-hd.png in Resources */,
+				37216E041737FAB700840D6F /* Hero.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

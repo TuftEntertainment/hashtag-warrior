@@ -9,6 +9,12 @@
 #import "GameObject.h"
 
 @interface Hero : GameObject
+{
+    CCAnimation *walkingAnim;
+    CCAnimation *idleAnim;
+}
+@property (nonatomic, retain) CCAnimation *walkingAnim;
+@property (nonatomic, retain) CCAnimation *idleAnim;
 
 - (id)initWithWorld:(b2World*)world atLocation:(CGPoint)location;
 

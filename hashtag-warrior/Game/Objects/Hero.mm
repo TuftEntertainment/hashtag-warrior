@@ -9,6 +9,8 @@
 #import "Hero.h"
 
 @implementation Hero
+@synthesize walkingAnim;
+@synthesize idleAnim;
 
 - (id) initWithWorld:(b2World*)world atLocation:(CGPoint)location
 {
@@ -16,7 +18,9 @@
     {
         self.gameObjectType = kHeroType;
         
-        [self initWithSpriteFrameName:@"hero_01.png"];
+        [self initAnimations];
+        
+        [self initWithSpriteFrameName:@"hero_1.png"];
         
         [self createBodyWithWorld:world atLocation:location];
     }
@@ -26,6 +30,9 @@
 
 - (void) dealloc
 {
+    [walkingAnim release];
+    [idleAnim release];
+    
     [super dealloc];
 }
 
@@ -53,6 +60,14 @@
     heroFixtureDef.friction = 0.2f;
     heroFixtureDef.restitution = 0.0f;
     heroBody->CreateFixture(&heroFixtureDef);
+}
+
+- (void) initAnimations
+{
+    [self setWalkingAnim: [self loadPlistForAnimationWithName:@"walkingAnim"
+                                                 andClassName:NSStringFromClass([self class])]];
+    [self setIdleAnim: [self loadPlistForAnimationWithName:@"idleAnim"
+                                              andClassName:NSStringFromClass([self class])]];
 }
 
 - (void) changeState:(GameObjectState)newState
