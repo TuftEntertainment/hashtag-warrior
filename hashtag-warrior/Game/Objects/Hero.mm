@@ -16,8 +16,7 @@
     {
         self.gameObjectType = kHeroType;
         
-        // TODO show initial frame/animation instead
-        [self initWithFile:@"Hero.png"];
+        [self initWithSpriteFrameName:@"hero_01.png"];
         
         [self createBodyWithWorld:world atLocation:location];
     }

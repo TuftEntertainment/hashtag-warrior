@@ -12,6 +12,14 @@
 		3716B677172D671500414C44 /* GameObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3716B675172D671500414C44 /* GameObject.mm */; };
 		37216DF0173695AA00840D6F /* GameManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 37216DEE173695AA00840D6F /* GameManager.h */; };
 		37216DF1173695AA00840D6F /* GameManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37216DEF173695AA00840D6F /* GameManager.mm */; };
+		37216DF71737F0F000840D6F /* atlas-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216DF31737F0F000840D6F /* atlas-ipad.plist */; };
+		37216DF81737F0F000840D6F /* atlas-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216DF41737F0F000840D6F /* atlas-ipadhd.plist */; };
+		37216DF91737F0F000840D6F /* atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216DF51737F0F000840D6F /* atlas.plist */; };
+		37216DFA1737F0F000840D6F /* atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216DF61737F0F000840D6F /* atlas-hd.plist */; };
+		37216DFF1737F12000840D6F /* atlas-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFB1737F12000840D6F /* atlas-ipad.png */; };
+		37216E001737F12000840D6F /* atlas-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFC1737F12000840D6F /* atlas-ipadhd.png */; };
+		37216E011737F12000840D6F /* atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFD1737F12000840D6F /* atlas.png */; };
+		37216E021737F12000840D6F /* atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFE1737F12000840D6F /* atlas-hd.png */; };
 		373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */; };
 		373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CB16E7F43C00B7FCFD /* Background-hd.png */; };
 		373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CC16E7F43D00B7FCFD /* Background-ipad.png */; };
@@ -21,10 +29,6 @@
 		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
 		37B3360F16C2F93400019D7A /* Projectile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37B3360E16C2F93400019D7A /* Projectile.mm */; };
-		37B3361516C3036B00019D7A /* Projectile-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361116C3036B00019D7A /* Projectile-hd.png */; };
-		37B3361616C3036B00019D7A /* Projectile-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361216C3036B00019D7A /* Projectile-ipad.png */; };
-		37B3361716C3036B00019D7A /* Projectile-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361316C3036B00019D7A /* Projectile-ipadhd.png */; };
-		37B3361816C3036B00019D7A /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B3361416C3036B00019D7A /* Projectile.png */; };
 		37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */; };
 		9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F0EF90E16B8723C0007E929 /* Localizable.strings */; };
 		9F47BE0816AAC679001BE137 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.mm */; };
@@ -41,10 +45,6 @@
 		9F79C69A16A9E16B0040F204 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C69816A9E16B0040F204 /* Default@2x.png */; };
 		9F7C1D7A16AC22340039EA64 /* GameState.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F7C1D7916AC22340039EA64 /* GameState.mm */; };
 		9FB0E54816B5591B00A97DF2 /* Hero.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0E54716B5591B00A97DF2 /* Hero.mm */; };
-		9FB0E54A16B5612000A97DF2 /* Hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0E54916B5612000A97DF2 /* Hero.png */; };
-		9FB0E54C16B5619200A97DF2 /* Hero-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0E54B16B5619200A97DF2 /* Hero-hd.png */; };
-		9FB0E54F16B5620200A97DF2 /* Hero-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0E54D16B5620200A97DF2 /* Hero-ipad.png */; };
-		9FB0E55016B5620200A97DF2 /* Hero-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0E54E16B5620200A97DF2 /* Hero-ipadhd.png */; };
 		9FD9BD1A16A3735100DBEB88 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */; };
 		9FD9BD1C16A3735100DBEB88 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */; };
 		9FD9BD1E16A3735100DBEB88 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */; };
@@ -223,6 +223,14 @@
 		3716B675172D671500414C44 /* GameObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameObject.mm; sourceTree = "<group>"; };
 		37216DEE173695AA00840D6F /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		37216DEF173695AA00840D6F /* GameManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameManager.mm; sourceTree = "<group>"; };
+		37216DF31737F0F000840D6F /* atlas-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "atlas-ipad.plist"; sourceTree = "<group>"; };
+		37216DF41737F0F000840D6F /* atlas-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "atlas-ipadhd.plist"; sourceTree = "<group>"; };
+		37216DF51737F0F000840D6F /* atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = atlas.plist; sourceTree = "<group>"; };
+		37216DF61737F0F000840D6F /* atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "atlas-hd.plist"; sourceTree = "<group>"; };
+		37216DFB1737F12000840D6F /* atlas-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-ipad.png"; sourceTree = "<group>"; };
+		37216DFC1737F12000840D6F /* atlas-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-ipadhd.png"; sourceTree = "<group>"; };
+		37216DFD1737F12000840D6F /* atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atlas.png; sourceTree = "<group>"; };
+		37216DFE1737F12000840D6F /* atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-hd.png"; sourceTree = "<group>"; };
 		373D57C816E7EF3F00B7FCFD /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundLayer.mm; sourceTree = "<group>"; };
 		373D57CB16E7F43C00B7FCFD /* Background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-hd.png"; sourceTree = "<group>"; };
@@ -236,10 +244,6 @@
 		37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
 		37B3360E16C2F93400019D7A /* Projectile.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Projectile.mm; sourceTree = "<group>"; };
 		37B3361016C2F9A300019D7A /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
-		37B3361116C3036B00019D7A /* Projectile-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile-hd.png"; sourceTree = "<group>"; };
-		37B3361216C3036B00019D7A /* Projectile-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile-ipad.png"; sourceTree = "<group>"; };
-		37B3361316C3036B00019D7A /* Projectile-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile-ipadhd.png"; sourceTree = "<group>"; };
-		37B3361416C3036B00019D7A /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
 		37CFFF4016CC3F4F0075CAC8 /* StatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusLayer.h; sourceTree = "<group>"; };
 		37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatusLayer.mm; sourceTree = "<group>"; };
 		9F0EF90D16B8723C0007E929 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -269,10 +273,6 @@
 		9F7C1D7916AC22340039EA64 /* GameState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameState.mm; sourceTree = "<group>"; };
 		9FB0E54616B5591B00A97DF2 /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		9FB0E54716B5591B00A97DF2 /* Hero.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Hero.mm; sourceTree = "<group>"; };
-		9FB0E54916B5612000A97DF2 /* Hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hero.png; sourceTree = "<group>"; };
-		9FB0E54B16B5619200A97DF2 /* Hero-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-hd.png"; sourceTree = "<group>"; };
-		9FB0E54D16B5620200A97DF2 /* Hero-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-ipad.png"; sourceTree = "<group>"; };
-		9FB0E54E16B5620200A97DF2 /* Hero-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hero-ipadhd.png"; sourceTree = "<group>"; };
 		9FD9BD1516A3735100DBEB88 /* hashtag-warrior.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "hashtag-warrior.app"; path = "#Warrior.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -675,6 +675,17 @@
 			path = Singletons;
 			sourceTree = "<group>";
 		};
+		37216DF21737F0B400840D6F /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				37216DF31737F0F000840D6F /* atlas-ipad.plist */,
+				37216DF41737F0F000840D6F /* atlas-ipadhd.plist */,
+				37216DF51737F0F000840D6F /* atlas.plist */,
+				37216DF61737F0F000840D6F /* atlas-hd.plist */,
+			);
+			name = Plists;
+			sourceTree = "<group>";
+		};
 		375C7FB41722F94B00E76C9F /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,6 +806,7 @@
 				9FD9BF3416A3735400DBEB88 /* main.m */,
 				9F31739516A5DBE2005145EC /* Game */,
 				9F31739316A5DB99005145EC /* System */,
+				37216DF21737F0B400840D6F /* Plists */,
 				9FD9BD2C16A3735100DBEB88 /* Resources */,
 				9FD9BD4616A3735100DBEB88 /* libs */,
 			);
@@ -804,6 +816,10 @@
 		9FD9BD2C16A3735100DBEB88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37216DFB1737F12000840D6F /* atlas-ipad.png */,
+				37216DFC1737F12000840D6F /* atlas-ipadhd.png */,
+				37216DFD1737F12000840D6F /* atlas.png */,
+				37216DFE1737F12000840D6F /* atlas-hd.png */,
 				373D57CB16E7F43C00B7FCFD /* Background-hd.png */,
 				373D57CC16E7F43D00B7FCFD /* Background-ipad.png */,
 				373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */,
@@ -813,14 +829,6 @@
 				9F79C69816A9E16B0040F204 /* Default@2x.png */,
 				9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */,
 				9F79C68D16A9DF700040F204 /* Default-Landscape@2x~ipad.png */,
-				9FB0E54916B5612000A97DF2 /* Hero.png */,
-				9FB0E54B16B5619200A97DF2 /* Hero-hd.png */,
-				9FB0E54D16B5620200A97DF2 /* Hero-ipad.png */,
-				9FB0E54E16B5620200A97DF2 /* Hero-ipadhd.png */,
-				37B3361116C3036B00019D7A /* Projectile-hd.png */,
-				37B3361216C3036B00019D7A /* Projectile-ipad.png */,
-				37B3361316C3036B00019D7A /* Projectile-ipadhd.png */,
-				37B3361416C3036B00019D7A /* Projectile.png */,
 				9FD9BD3116A3735100DBEB88 /* fps_images.png */,
 				9FD9BD3316A3735100DBEB88 /* fps_images-hd.png */,
 				9FD9BD3516A3735100DBEB88 /* fps_images-ipadhd.png */,
@@ -1421,19 +1429,19 @@
 				9F79C69016A9DF700040F204 /* Default-Landscape~ipad.png in Resources */,
 				9F79C69916A9E16B0040F204 /* Default.png in Resources */,
 				9F79C69A16A9E16B0040F204 /* Default@2x.png in Resources */,
-				9FB0E54A16B5612000A97DF2 /* Hero.png in Resources */,
-				9FB0E54C16B5619200A97DF2 /* Hero-hd.png in Resources */,
-				9FB0E54F16B5620200A97DF2 /* Hero-ipad.png in Resources */,
-				9FB0E55016B5620200A97DF2 /* Hero-ipadhd.png in Resources */,
 				9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */,
-				37B3361516C3036B00019D7A /* Projectile-hd.png in Resources */,
-				37B3361616C3036B00019D7A /* Projectile-ipad.png in Resources */,
-				37B3361716C3036B00019D7A /* Projectile-ipadhd.png in Resources */,
-				37B3361816C3036B00019D7A /* Projectile.png in Resources */,
 				373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */,
 				373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */,
 				373D57D116E7F43D00B7FCFD /* Background-ipadhd.png in Resources */,
 				373D57D216E7F43D00B7FCFD /* Background.png in Resources */,
+				37216DF71737F0F000840D6F /* atlas-ipad.plist in Resources */,
+				37216DF81737F0F000840D6F /* atlas-ipadhd.plist in Resources */,
+				37216DF91737F0F000840D6F /* atlas.plist in Resources */,
+				37216DFA1737F0F000840D6F /* atlas-hd.plist in Resources */,
+				37216DFF1737F12000840D6F /* atlas-ipad.png in Resources */,
+				37216E001737F12000840D6F /* atlas-ipadhd.png in Resources */,
+				37216E011737F12000840D6F /* atlas.png in Resources */,
+				37216E021737F12000840D6F /* atlas-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

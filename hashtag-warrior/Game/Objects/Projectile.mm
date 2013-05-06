@@ -16,8 +16,7 @@
     {
         self.gameObjectType = kTweetType;
         
-        // TODO show initial frame/animation instead
-        [self initWithFile:@"Projectile.png"];
+        [self initWithSpriteFrameName:@"projectile.png"];
         
         [self createBodyWithWorld:world atLocation:location];
     }

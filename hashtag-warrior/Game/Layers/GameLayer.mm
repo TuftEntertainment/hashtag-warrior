@@ -45,20 +45,28 @@
         _state = [GameState sharedInstance];
         CGSize windowSize = [[CCDirector sharedDirector] winSize];
         
+        // Set up the world
         [self createWorld:windowSize];
+        [self createContactListener];
         
         // Schedule Box2D updates
         [self schedule:@selector(tick:)];
         //[self scheduleUpdate];
         
-        // TODO initialise SpriteBatchNode here,
-        // and add the hero/projectiles to it rather than the layer directly
-        // as this decreases the number of OpenGL calls.
+        // Initialise spritebatchnode, loading all the textures
+        // for the layer (excludes background)
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas-ipad.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas-ipad.png"];
+        } else {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas.png"];
+        }
+        [self addChild:sceneSpriteBatchNode];
         
+        // Set up players
         [self createHero:windowSize];
         [self createProjectile:ccp(0, windowSize.height)];
-        
-        [self createContactListener];
     }
     return self;
 }
@@ -105,7 +113,7 @@
     // Create Hero
     CGPoint location = ccp(windowSize.width/2, 0);
     _hero = [[[Hero alloc] initWithWorld:_world atLocation:location] autorelease];
-    [self addChild:_hero z:1 tag:1];
+    [sceneSpriteBatchNode addChild:_hero z:1 tag:1];
     
     // Restrict our hero to only run along the bottom.
     b2PrismaticJointDef jointDef;
@@ -122,7 +130,7 @@
     // Create projectile
     CGPoint location = ccp(p.x, p.y);
     _projectile = [[[Projectile alloc] initWithWorld:_world atLocation:location] autorelease];
-    [self addChild:_projectile];
+    [sceneSpriteBatchNode addChild:_projectile];
     
     // Fire!
     b2Vec2 force = b2Vec2(2.5f, -5.0f);
