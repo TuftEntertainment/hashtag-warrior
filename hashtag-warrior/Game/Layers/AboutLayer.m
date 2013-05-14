@@ -8,7 +8,7 @@
 
 #import "AboutLayer.h"
 #import "Constants.h"
-#import "MainMenuScene.h"
+#import "GameManager.h"
 
 @implementation AboutLayer
 
@@ -49,8 +49,7 @@
         [CCMenuItemFont setFontSize:18];
         CCMenuItemLabel *home = [CCMenuItemFont itemWithString:NSLocalizedString(@"Main Menu", nil) block:^(id sender)
                                   {
-                                      [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                          scene:[MainMenuScene node]]];
+                                      [[GameManager sharedGameManager] runSceneWithID:kHWMainMenuScene];
                                   }];
         home.color = kHWTextColor;
         CCMenu *menu = [CCMenu menuWithItems:home, nil];
@@ -60,11 +59,6 @@
         [self addChild: menu];
     }
     return self;
-}
-
-- (void) dealloc
-{
-    [super dealloc];
 }
 
 @end

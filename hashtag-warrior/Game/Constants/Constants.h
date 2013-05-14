@@ -26,5 +26,9 @@
 // Environment
 #define kHWMaxVelocity 10.0f
 #define kHWForceMagnifier 5
+#define PTM_RATIO 32
+
+// Misc
+#define kHWIsDebug 0
 
 #endif

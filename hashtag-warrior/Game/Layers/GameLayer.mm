@@ -6,12 +6,16 @@
 //  Copyright 2013 Ossum Games. All rights reserved.
 //
 
-#import "Constants.h"
-#import "GameLayer.h"
-#import "GameOverScene.h"
-
 #import "AccelerometerSimulation.h"
 
+#import "GameLayer.h"
+#import "Constants.h"
+#import "GameManager.h"
+
+
+
+
+// TODO move these global?
 // Define macros to convert from an iPhone ccp to iPad ccp.
 // Note: Not much use when using the size from the director (e.g. [[CCDirector sharedDirector] winSize].width) as this
 //       returns the size of the current device.
@@ -27,51 +31,44 @@
 #define ADJUST_CCP(__p__)\
 (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? ccp( ADJUST_X(__p__.x), ADJUST_Y(__p__.y) ) : __p__)
 
+
+
+
 @implementation GameLayer
 
 - (id)init
 {
     if ((self=[super init]))
     {
-        // Enable the accelerometer.
         self.isAccelerometerEnabled = YES;
         
-        // Get an instance of the game state singleton.
         _state = [GameState sharedInstance];
-        
-        // Ask director for the window size.
         CGSize windowSize = [[CCDirector sharedDirector] winSize];
         
-        // Create the world.
+        // Set up the world
         [self createWorld:windowSize];
-        
-        // Create our hero.
-        [self createHero:windowSize];
-        
-        // Create a ball.
-        [self createProjectile:ccp(0, windowSize.height)];
-        
-        // Create the contact listener.
         [self createContactListener];
         
-        // Schedule animations.
+        // Schedule Box2D updates
         [self schedule:@selector(tick:)];
+        //[self scheduleUpdate];
+        
+        // Initialise spritebatchnode, loading all the textures
+        // for the layer (excludes background)
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas-ipad.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas-ipad.png"];
+        } else {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas.png"];
+        }
+        [self addChild:sceneSpriteBatchNode];
+        
+        // Set up players
+        [self createHero:windowSize];
+        [self createProjectile:ccp(0, windowSize.height)];
     }
     return self;
-}
-
-- (void) dealloc
-{
-    // Destroy the contact listener.
-    delete _contactListener;
-    _contactListener = NULL;
-    
-    // Destroy the world.
-    delete _world;
-    _world = NULL;
-    
-    // Nothing else to deallocate.
-    [super dealloc];
 }
 
 - (void) createWorld: (CGSize)windowSize
@@ -100,93 +97,36 @@
 
 - (void) createHero: (CGSize)windowSize
 {
-    // Our hero.
-    _hero = [Hero spriteWithFile:@"Hero.png"];
-    
-    // Add him to the layer.
-    [self addChild:_hero];
-    
-    // Now we know the size of the sprite, work out it's position.
-    CGPoint p = ccp(windowSize.width/2, _hero.contentSize.height/2);
-    
-    // Position him where requested.
-    _hero.position = ccp(p.x, p.y);
-    
-    // Create the dynamic body definition.
-    b2BodyDef heroBodyDef;
-    heroBodyDef.type = b2_dynamicBody;
-    
-    // Position it where requested.
-    heroBodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    
-    // Create the body.
-    b2Body *heroBody = _world->CreateBody(&heroBodyDef);
-    
-    // Create the shape.
-    b2PolygonShape heroShape;
-    heroShape.SetAsBox(_hero.contentSize.width/PTM_RATIO/2,
-                       _hero.contentSize.height/PTM_RATIO/2);
-    
-    // Create the definition and add to body.
-    b2FixtureDef heroShapeDef;
-    heroShapeDef.shape = &heroShape;
-    heroShapeDef.density = 1.0f;
-    heroShapeDef.friction = 0.2f;
-    heroShapeDef.restitution = 0.0f;
-    heroBody->CreateFixture(&heroShapeDef);
+    // Create Hero
+    CGPoint location = ccp(windowSize.width/2, 0);
+    _hero = [[Hero alloc] initWithWorld:_world atLocation:location];
+    [sceneSpriteBatchNode addChild:_hero z:1 tag:1];
     
     // Restrict our hero to only run along the bottom.
     b2PrismaticJointDef jointDef;
     b2Vec2 axis = b2Vec2(1.0f, 0.0f);
     jointDef.collideConnected = true;
-    jointDef.Initialize(heroBody, _groundBody, heroBody->GetWorldCenter(), axis);
+    jointDef.Initialize(_hero.physicsBody, _groundBody, _hero.physicsBody->GetWorldCenter(), axis);
     _world->CreateJoint(&jointDef);
-    
-    // Add the physics to the sprite.
-	[_hero setPhysicsBody:heroBody];
 }
 
 - (void) createProjectile: (CGPoint)p
 {
     CCLOG(@"Adding new projectile! %0.2f x %0.2f",p.x,p.y);
     
-    _projectile = [Projectile spriteWithFile:@"Projectile.png"];
-    [self addChild:_projectile];
-    _projectile.position = ccp(p.x, p.y);
+    // Create projectile
+    CGPoint location = ccp(p.x, p.y);
+    _projectile = [[Projectile alloc] initWithWorld:_world atLocation:location];
+    [sceneSpriteBatchNode addChild:_projectile];
     
-    // Create the body definition.
-    b2BodyDef bd;
-    bd.type = b2_dynamicBody;
-    bd.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    
-    // Create the body
-    b2Body *b = _world->CreateBody(&bd);
-    
-    // Create the shape and shape definition.
-    b2CircleShape s;
-    s.m_radius = (_projectile.contentSize.width/2)/PTM_RATIO;
-
-    b2FixtureDef sd;
-    sd.shape = &s;
-    sd.density = 1.0f;
-    sd.friction = 0.5f;
-    sd.restitution = 0.6f;
-    b->CreateFixture(&sd);
-    
-    // Add the physics to the sprite.
-	[_projectile setPhysicsBody:b];
-    
-    // Zoom
+    // Fire!
     b2Vec2 force = b2Vec2(2.5f, -5.0f);
-    b->ApplyLinearImpulse(force, bd.position);
+    _projectile.physicsBody->ApplyLinearImpulse(force, _projectile.physicsBody->GetWorldCenter());
 }
 
 - (void) createContactListener
 {
-    // Construct contact listener.
     _contactListener = new HeroContactListener();
-    
-    // Add it to the world.
     _world->SetContactListener(_contactListener);
 }
 
@@ -201,7 +141,7 @@
     for (b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
     {
         // Update our hero's position.
-        if (b == _hero.getPhysicsBody)
+        if (b == _hero.physicsBody)
         {
             _hero.position = ccp(b->GetPosition().x * PTM_RATIO,
                                  b->GetPosition().y * PTM_RATIO);
@@ -209,7 +149,7 @@
             
         }
         // Update the projectiles position.
-        else if (b == _projectile.getPhysicsBody)
+        else if (b == _projectile.physicsBody)
         {
             _projectile.position = ccp(b->GetPosition().x * PTM_RATIO,
                                        b->GetPosition().y * PTM_RATIO);
@@ -219,8 +159,8 @@
     
     // Check for collisions.
     bool collided = false;
-    b2Fixture* heroFixture = _hero.getPhysicsBody->GetFixtureList();
-    b2Fixture* projectileFixture = _projectile.getPhysicsBody->GetFixtureList();
+    b2Fixture* heroFixture = _hero.physicsBody->GetFixtureList();
+    b2Fixture* projectileFixture = _projectile.physicsBody->GetFixtureList();
     
     std::vector<Collision>* tmp = _contactListener->GetCollisions();
     std::vector<Collision>::iterator pos;
@@ -238,13 +178,13 @@
     // If we collided, game over!
     if ( collided )
     {
-        [[CCDirector sharedDirector] replaceScene:[GameOverScene node]];
+        [[GameManager sharedGameManager] runSceneWithID:kHWGameOverScene];
     }
 }
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    if ( ABS(_hero.getPhysicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
+    if ( ABS(_hero.physicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
     {
         // Setup the force x & y.
         float32 forceX = acceleration.y * kHWForceMagnifier;
@@ -263,7 +203,7 @@
     
         // Apply the force to our hero.
         b2Vec2 force(forceX, forceY);
-        _hero.getPhysicsBody->ApplyLinearImpulse(force, _hero.getPhysicsBody->GetWorldCenter());
+        _hero.physicsBody->ApplyLinearImpulse(force, _hero.physicsBody->GetWorldCenter());
     }
 }
 
