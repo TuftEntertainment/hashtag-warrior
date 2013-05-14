@@ -31,13 +31,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_searchResults release];
-    
-    [super dealloc];
-}
-
 -(NSURL*)getURL
 {
     // The Twitter API URL for searching for Tweets with a specific criteria.

@@ -38,7 +38,7 @@
             {
                 // To keep it simple, just take the last Twitter account.
                 // In the future we should really provide a choice.
-                _twitterAccount = [[accounts lastObject] retain];
+                _twitterAccount = [accounts lastObject];
                 
                 // Store if we've been granted permission for later.
                 _granted = granted;

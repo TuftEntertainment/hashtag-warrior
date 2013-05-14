@@ -17,6 +17,8 @@
     NSDate* _tweetTime;
 }
 
+- (id)initWithTweet:(NSDictionary*)tweet;
+
 - (void)parseTweet:(NSDictionary*)tweet;
 
 - (NSString*)getScreenName;

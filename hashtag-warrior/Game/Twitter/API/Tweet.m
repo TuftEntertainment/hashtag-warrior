@@ -35,7 +35,7 @@
     _tweetText = [_tweet objectForKey:@"text"];
     
     // Get the tweet created at time.
-    NSDateFormatter* dateFormat = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
     _tweetTime = [dateFormat dateFromString:[_tweet objectForKey:@"created_at"]];
 }

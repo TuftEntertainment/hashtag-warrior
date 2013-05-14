@@ -31,6 +31,8 @@
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
 		37B3360F16C2F93400019D7A /* Projectile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37B3360E16C2F93400019D7A /* Projectile.mm */; };
 		37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */; };
+		9F0EB27B1742EBB4009E3F7B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0EB27A1742EBB4009E3F7B /* Accounts.framework */; };
+		9F0EB27D1742EBBC009E3F7B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0EB27C1742EBBC009E3F7B /* Social.framework */; };
 		9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F0EF90E16B8723C0007E929 /* Localizable.strings */; };
 		9F12ED8E1742D03600CFD000 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F12ED1F1742CFC800CFD000 /* libbox2d.a */; };
 		9F12ED8F1742D03600CFD000 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F12ED231742CFC800CFD000 /* libcocos2d.a */; };
@@ -520,6 +522,8 @@
 		37B3361016C2F9A300019D7A /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		37CFFF4016CC3F4F0075CAC8 /* StatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusLayer.h; sourceTree = "<group>"; };
 		37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatusLayer.mm; sourceTree = "<group>"; };
+		9F0EB27A1742EBB4009E3F7B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		9F0EB27C1742EBBC009E3F7B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9F0EF90D16B8723C0007E929 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF90F16B872450007E929 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF91016B872480007E929 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -601,6 +605,8 @@
 			files = (
 				9F12ED8F1742D03600CFD000 /* libcocos2d.a in Frameworks */,
 				9F12ED8E1742D03600CFD000 /* libbox2d.a in Frameworks */,
+				9F0EB27B1742EBB4009E3F7B /* Accounts.framework in Frameworks */,
+				9F0EB27D1742EBBC009E3F7B /* Social.framework in Frameworks */,
 				9FD9BD1A16A3735100DBEB88 /* QuartzCore.framework in Frameworks */,
 				9FD9BD1C16A3735100DBEB88 /* OpenGLES.framework in Frameworks */,
 				9FD9BD1E16A3735100DBEB88 /* OpenAL.framework in Frameworks */,
@@ -853,6 +859,8 @@
 		9FD9BD1816A3735100DBEB88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F0EB27A1742EBB4009E3F7B /* Accounts.framework */,
+				9F0EB27C1742EBBC009E3F7B /* Social.framework */,
 				9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */,
 				9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */,
 				9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */,
