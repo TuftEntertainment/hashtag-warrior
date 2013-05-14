@@ -42,9 +42,4 @@
     [[GameManager sharedGameManager] runSceneWithID:kHWMainMenuScene];
 }
 
-- (void) dealloc
-{
-    [super dealloc];
-}
-
 @end

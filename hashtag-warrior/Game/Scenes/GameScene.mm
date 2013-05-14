@@ -18,7 +18,7 @@
 {
     if ((self = [super init]))
     {
-        BackgroundLayer *bgLayer = [[[BackgroundLayer alloc] initForGameplay] autorelease];
+        BackgroundLayer *bgLayer = [[BackgroundLayer alloc] initForGameplay];
         [self addChild:bgLayer z:0];
         
         GameLayer *layer = [GameLayer node];
@@ -29,11 +29,6 @@
     }
     
     return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
 }
 
 @end

@@ -22,11 +22,6 @@
     return self;
 }
 
-- (void) dealloc
-{
-    [super dealloc];
-}
-
 - (void) addMainMenu
 {
     // Default font size will be 32 points.

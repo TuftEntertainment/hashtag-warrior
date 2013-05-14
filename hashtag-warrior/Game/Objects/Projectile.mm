@@ -12,21 +12,13 @@
 
 - (id) initWithWorld:(b2World*)world atLocation:(CGPoint)location
 {
-    if ((self=[super init]))
+    if (self=[self initWithSpriteFrameName:@"projectile.png"])
     {
         self.gameObjectType = kTweetType;
-        
-        [self initWithSpriteFrameName:@"projectile.png"];
-        
         [self createBodyWithWorld:world atLocation:location];
     }
     
     return self;
-}
-
-- (void) dealloc
-{
-    [super dealloc];
 }
 
 - (void) createBodyWithWorld:(b2World*)world atLocation:(CGPoint)location
@@ -38,7 +30,7 @@
     
     // Create the body
     b2Body *projectileBody = world->CreateBody(&projectileBodyDef);
-    projectileBody->SetUserData(self);
+    projectileBody->SetUserData((__bridge void*)self);
     [self setPhysicsBody:projectileBody];
     
     // Create the shape

@@ -14,26 +14,14 @@
 
 - (id) initWithWorld:(b2World*)world atLocation:(CGPoint)location
 {
-    if ((self=[super init]))
+    if (self=[self initWithSpriteFrameName:@"hero_1.png"])
     {
         self.gameObjectType = kHeroType;
-        
         [self initAnimations];
-        
-        [self initWithSpriteFrameName:@"hero_1.png"];
-        
         [self createBodyWithWorld:world atLocation:location];
     }
     
     return self;
-}
-
-- (void) dealloc
-{
-    [walkingAnim release];
-    [idleAnim release];
-    
-    [super dealloc];
 }
 
 - (void) createBodyWithWorld:(b2World*)world atLocation:(CGPoint)location
@@ -45,7 +33,7 @@
     
     // Create the body
     b2Body *heroBody = world->CreateBody(&heroBodyDef);
-    heroBody->SetUserData(self);
+    heroBody->SetUserData((__bridge void*)self);
     [self setPhysicsBody:heroBody];
     
     // Create the shape

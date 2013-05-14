@@ -71,19 +71,6 @@
     return self;
 }
 
-- (void) dealloc
-{
-    // Destroy the contact listener.
-    delete _contactListener;
-    _contactListener = NULL;
-    
-    // Destroy the world.
-    delete _world;
-    _world = NULL;
-    
-    [super dealloc];
-}
-
 - (void) createWorld: (CGSize)windowSize
 {
     // Create our world.
@@ -112,7 +99,7 @@
 {
     // Create Hero
     CGPoint location = ccp(windowSize.width/2, 0);
-    _hero = [[[Hero alloc] initWithWorld:_world atLocation:location] autorelease];
+    _hero = [[Hero alloc] initWithWorld:_world atLocation:location];
     [sceneSpriteBatchNode addChild:_hero z:1 tag:1];
     
     // Restrict our hero to only run along the bottom.
@@ -129,7 +116,7 @@
     
     // Create projectile
     CGPoint location = ccp(p.x, p.y);
-    _projectile = [[[Projectile alloc] initWithWorld:_world atLocation:location] autorelease];
+    _projectile = [[Projectile alloc] initWithWorld:_world atLocation:location];
     [sceneSpriteBatchNode addChild:_projectile];
     
     // Fire!
