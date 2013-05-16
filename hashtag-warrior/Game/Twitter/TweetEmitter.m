@@ -51,6 +51,9 @@
             // Flag that we've started the tweet stream.
             _started = true;
             
+            // Set the hashtag.
+            [_tst setSearchCriteria:hashtag];
+            
             // Get some tweets!
             [self processStream];
         }
@@ -88,6 +91,10 @@
 {
     // Flag that we've stopped the tweet stream.
     _started = false;
+    
+    // Clear the timer.
+    [_timer invalidate];
+    _timer = nil;
 }
 
 - (void)processStream
@@ -163,10 +170,8 @@
 
 - (void)timeout
 {
-    // Invalidate the timer.
+    // Clear the timer.
     [_timer invalidate];
-    
-    // Set it to nil.
     _timer = nil;
     
     // Do some work.
