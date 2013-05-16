@@ -18,6 +18,7 @@
     if ((self=[super init]))
     {
         [self addMainMenu];
+        [self addTestTweetStream];
     }
     return self;
 }
@@ -51,6 +52,34 @@
     
     // Add to the layer.
     [self addChild: menu];
+}
+
+- (void)addTestTweetStream
+{
+    // Initialise the tweet emitter.
+    _tweetEmitter = [[TweetEmitter alloc] initWithDelegate:self];
+    
+    // Start the tweet stream.
+    [_tweetEmitter startTweetStream:@"#Warrior"];
+    
+    // Make a label.
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    _tweet = [CCLabelTTF labelWithString:@"#Warrior"
+                              dimensions:CGSizeMake(size.width, 50)
+                               alignment:CCTextAlignmentCenter
+                                fontName:kHWTextBodyFamily
+                                fontSize:12];
+    
+    _tweet.color = kHWTextColor;
+    
+    // Add the label to the layer.
+    _tweet.position = ccp(size.width/2, [_tweet boundingBox].size.height-20);
+    [self addChild: _tweet];
+}
+
+- (void)newTweet:(Tweet*)tweet
+{
+    [_tweet setString:[tweet getTweetText]];
 }
 
 @end
