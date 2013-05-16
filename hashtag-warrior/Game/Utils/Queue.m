@@ -10,6 +10,19 @@
 
 @implementation Queue
 
+- (id)init
+{
+    if(![super init])
+    {
+        return nil;
+    }
+    
+    // Initialise the mutable array.
+    _items = [[NSMutableArray alloc] init];
+    
+    return self;
+}
+
 - (void)addToQueue:(id)item
 {
     [_items addObject:item];
@@ -35,7 +48,10 @@
     id item = [self peekQueue];
     
     // If we got something back, remove it from the queue.
-    [_items removeObjectAtIndex:0];
+    if ( item )
+    {
+        [_items removeObjectAtIndex:0];
+    }
     
     return item;
 }

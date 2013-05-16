@@ -24,6 +24,8 @@
     
     bool _started;
     int _retryCount;
+    
+    NSTimer* _timer;
 }
 
 - (id)initWithDelegate:(id)delegate;
@@ -32,6 +34,8 @@
 - (void)startTweetStream:(NSString*)hashtag;
 - (void)stopTweetStream;
 - (void)processStream;
+
+- (void)timeout;
 
 @end
 

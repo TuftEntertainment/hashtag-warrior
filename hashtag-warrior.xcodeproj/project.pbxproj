@@ -48,8 +48,6 @@
 		9F26C1451742DF7400CF0956 /* TwitterTrendsPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F26C13C1742DF7400CF0956 /* TwitterTrendsPlace.m */; };
 		9F26C1481742DF7F00CF0956 /* TweetEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F26C1461742DF7F00CF0956 /* TweetEmitter.h */; };
 		9F26C1491742DF7F00CF0956 /* TweetEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F26C1471742DF7F00CF0956 /* TweetEmitter.m */; };
-		9F4541F91742E213009796D0 /* Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F4541F71742E213009796D0 /* Queue.h */; };
-		9F4541FA1742E213009796D0 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4541F81742E213009796D0 /* Queue.m */; };
 		9F47BE0816AAC679001BE137 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.mm */; };
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */; };
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
@@ -57,6 +55,8 @@
 		9F5FA24816D2D21500B1985F /* HeroContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */; };
 		9F63943C16AC2D6F00BAA9CF /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */; };
 		9F63944016AC2F8F00BAA9CF /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.m */; };
+		9F6B14B317456867001481B7 /* Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6B14B217456867001481B7 /* Queue.h */; };
+		9F6B14EE17456873001481B7 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B14ED17456873001481B7 /* Queue.m */; };
 		9F79C68616A9DA680040F204 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F79C68516A9DA680040F204 /* GameLayer.mm */; };
 		9F79C68F16A9DF700040F204 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C68D16A9DF700040F204 /* Default-Landscape@2x~ipad.png */; };
 		9F79C69016A9DF700040F204 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */; };
@@ -539,8 +539,6 @@
 		9F26C13C1742DF7400CF0956 /* TwitterTrendsPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterTrendsPlace.m; path = Twitter/API/TwitterTrendsPlace.m; sourceTree = "<group>"; };
 		9F26C1461742DF7F00CF0956 /* TweetEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetEmitter.h; path = Twitter/TweetEmitter.h; sourceTree = "<group>"; };
 		9F26C1471742DF7F00CF0956 /* TweetEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetEmitter.m; path = Twitter/TweetEmitter.m; sourceTree = "<group>"; };
-		9F4541F71742E213009796D0 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
-		9F4541F81742E213009796D0 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		9F47BE0716AAC679001BE137 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
 		9F47BE0D16AAC83D001BE137 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
@@ -555,6 +553,8 @@
 		9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		9F63943E16AC2F8F00BAA9CF /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
+		9F6B14B217456867001481B7 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = Utils/Queue.h; sourceTree = "<group>"; };
+		9F6B14ED17456873001481B7 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = Utils/Queue.m; sourceTree = "<group>"; };
 		9F79C68416A9DA680040F204 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		9F79C68516A9DA680040F204 /* GameLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLayer.mm; sourceTree = "<group>"; };
 		9F79C68D16A9DF700040F204 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -833,8 +833,8 @@
 			children = (
 				9F5FA24616D2D1FC00B1985F /* HeroContactListener.h */,
 				9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */,
-				9F4541F71742E213009796D0 /* Queue.h */,
-				9F4541F81742E213009796D0 /* Queue.m */,
+				9F6B14B217456867001481B7 /* Queue.h */,
+				9F6B14ED17456873001481B7 /* Queue.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -955,7 +955,7 @@
 				9F26C1421742DF7400CF0956 /* TwitterSearchTweets.h in Headers */,
 				9F26C1441742DF7400CF0956 /* TwitterTrendsPlace.h in Headers */,
 				9F26C1481742DF7F00CF0956 /* TweetEmitter.h in Headers */,
-				9F4541F91742E213009796D0 /* Queue.h in Headers */,
+				9F6B14B317456867001481B7 /* Queue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1486,7 +1486,7 @@
 				9F26C1431742DF7400CF0956 /* TwitterSearchTweets.m in Sources */,
 				9F26C1451742DF7400CF0956 /* TwitterTrendsPlace.m in Sources */,
 				9F26C1491742DF7F00CF0956 /* TweetEmitter.m in Sources */,
-				9F4541FA1742E213009796D0 /* Queue.m in Sources */,
+				9F6B14EE17456873001481B7 /* Queue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

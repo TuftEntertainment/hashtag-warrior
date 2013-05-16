@@ -10,7 +10,7 @@
 
 #define MAX_RETRY 5
 #define RETRY_DELAY_MS 500.00
-#define MIN_TWEET_LEVEL 10
+#define MIN_TWEET_LEVEL 25
 
 @implementation TweetEmitter
 
@@ -92,51 +92,85 @@
 
 - (void)processStream
 {
-    NSTimeInterval secondsBetween = 1.0;
-    
-    // Get the next tweet.
-    Tweet* nextTweet = [_tweetCache popQueue];
-    
-    // Get the future tweet.
-    Tweet* futureTweet = [_tweetCache peekQueue];
-    
-    // Ensure there is a next tweet.
-    if ( nextTweet )
+    // Prevent us doing all this if we've already got an active timer.
+    if ( !_timer )
     {
-        // Send the next tweet to the delegate.
-        [_delegate newTweet:nextTweet];
+        // Default time interval if there are not enough tweets in the cache.
+        NSTimeInterval interval = 2.0;
         
-        // Queue up the next tweet.
-        secondsBetween = [[futureTweet getTweetTime] timeIntervalSinceDate:[nextTweet getTweetTime]];
-    }
-    
-    // Check we've still got enough Tweets in the cache.
-    if ( [_tweetCache count] < MIN_TWEET_LEVEL )
-    {
-        // Check if we've got some data back from a previous request.
-        if ( [_tst isStale] )
+        // Check we've still got enough Tweets in the cache.
+        // The health of the cache is our main priority. If we don't have enough tweets to meet the required
+        // minimum, we must to get more before returning any to the delegate.
+        if ( [_tweetCache count] < MIN_TWEET_LEVEL )
         {
-            // Get some more tweets.
-            [_tm talkToTwitter:_tst];
+            // Log the cache level.
+            NSLog(@"Tweet cache count: %i", [_tweetCache count]);
+            
+            // Check if we've got some data back from a previous request.
+            if ( [_tst isStale] )
+            {
+                // Log the request for more tweets.
+                NSLog(@"Requesting more tweets");
+                
+                // Get some more tweets.
+                [_tm talkToTwitter:_tst];
+            }
+            else
+            {
+                // Get the latest results.
+                NSArray* results = [_tst getSearchResults];
+                
+                // Log the number of tweets we managed to get.
+                NSLog(@"Adding %i tweets to the cache", results.count);
+                
+                // Add them all to the cache.
+                for ( int i = 0; i < results.count; ++i )
+                {
+                    [_tweetCache addToQueue:results[i]];
+                }
+                
+                // Log the new cache level.
+                NSLog(@"Tweet cache count: %i", [_tweetCache count]);
+            }
         }
         else
         {
-            NSArray* results = [_tst getSearchResults];
+            // Get the next tweet.
+            Tweet* nextTweet = [_tweetCache popQueue];
             
-            // Add them all to the cache.
-            for ( int i = 0; i < results.count; ++i )
+            // Get the future tweet.
+            Tweet* futureTweet = [_tweetCache peekQueue];
+            
+            // Ensure there is a next tweet and a future tweet.
+            if ( nextTweet && futureTweet )
             {
-                [_tweetCache addToQueue:results[i]];
+                // Send the next tweet to the delegate.
+                [_delegate newTweet:nextTweet];
+                
+                // Queue up the future tweet.
+                interval = [[nextTweet getTweetTime] timeIntervalSinceDate:[futureTweet getTweetTime]];
             }
         }
+
+        // Queue up the next go around.
+        _timer = [NSTimer scheduledTimerWithTimeInterval:interval
+                                                  target:self
+                                                selector:@selector(timeout)
+                                                userInfo:nil
+                                                 repeats:NO];
     }
+}
+
+- (void)timeout
+{
+    // Invalidate the timer.
+    [_timer invalidate];
     
-    // Queue up the next go around.
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)secondsBetween);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
-    {
-        [self processStream];
-    });
+    // Set it to nil.
+    _timer = nil;
+    
+    // Do some work.
+    [self processStream];
 }
 
 @end
