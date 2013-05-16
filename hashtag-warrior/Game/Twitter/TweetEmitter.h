@@ -26,6 +26,8 @@
     int _retryCount;
 }
 
+- (id)initWithDelegate:(id)delegate;
+
 - (void)startTweetStream;
 - (void)startTweetStream:(NSString*)hashtag;
 - (void)stopTweetStream;

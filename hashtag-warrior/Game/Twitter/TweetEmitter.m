@@ -72,6 +72,16 @@
             }
         }
     }
+    else if ( !_delegate )
+    {
+        // Log the missing delegate.
+        NSLog(@"Tried to start tweet sream without delegate");
+    }
+    else if ( _started )
+    {
+        // Log the duplicate start attempt.
+        NSLog(@"Tweet stream already started");
+    }
 }
 
 - (void)stopTweetStream

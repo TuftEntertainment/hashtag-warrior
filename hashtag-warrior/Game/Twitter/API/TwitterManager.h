@@ -14,8 +14,11 @@
 
 @interface TwitterManager : NSObject
 {
-    ACAccount* _twitterAccount;
-    __block bool _granted;
+    ACAccountStore* _accountStore;
+    ACAccountType*  _accountType;
+    ACAccount*      _twitterAccount;
+    
+    bool _granted;
 }
 
 @property (retain) ACAccount* _twitterAccount;

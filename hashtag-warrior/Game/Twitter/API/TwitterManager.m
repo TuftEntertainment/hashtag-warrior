@@ -20,20 +20,20 @@
     }
     
     // Initialise the account store.
-    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    _accountStore = [[ACAccountStore alloc] init];
     
     // Set the account type to Twitter.
-    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    _accountType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
     // Ask the user for permission to access their Twitter account(s).
-    [accountStore requestAccessToAccountsWithType:accountType
-                                          options:nil
-                                       completion:^(BOOL granted, NSError *error)
+    [_accountStore requestAccessToAccountsWithType:_accountType
+                                           options:nil
+                                        completion:^(BOOL granted, NSError *error)
     {
         if (granted)
         {
             // Create an array of all the users Twitter accounts.
-            NSArray *accounts = [accountStore accountsWithAccountType:accountType];
+            NSArray *accounts = [_accountStore accountsWithAccountType:_accountType];
             if (accounts.count > 0)
             {
                 // To keep it simple, just take the last Twitter account.
