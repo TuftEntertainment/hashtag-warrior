@@ -65,7 +65,7 @@
     bool parseOk = FALSE;
 
     // Get the statuses.
-    NSArray* statuses = [json objectForKey:@"statuses"];
+    NSArray* statuses = json[@"statuses"];
     
     // Did we get any statuses?
     if ( statuses && [statuses count] > 0)

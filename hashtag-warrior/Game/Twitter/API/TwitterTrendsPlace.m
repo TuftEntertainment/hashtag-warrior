@@ -49,7 +49,7 @@
     for ( int i = 0; i < json.count && !trends; ++i )
     {
         // Try and get the trends.
-        trends = [json[i] objectForKey:@"trends"];
+        trends = (json[i])[@"trends"];
     }
     
     // Did we get any trends?
@@ -59,7 +59,7 @@
         for ( int i = 0; i < trends.count; ++i )
         {
             // Pull out the trend name, that's the only bit we care about.
-            NSString* trend = [trends[i] objectForKey:@"name"];
+            NSString* trend = (trends[i])[@"name"];
             
             // Log it to gloat of our success.
             NSLog(@"\n\tTrend: %@", trend);

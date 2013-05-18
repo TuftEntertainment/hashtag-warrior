@@ -36,7 +36,7 @@
     if ( [_items count] > 0 )
     {
         // There is, take it from the queue.
-        item = [_items objectAtIndex:0];
+        item = _items[0];
     }
     
     return item;

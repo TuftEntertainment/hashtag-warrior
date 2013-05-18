@@ -28,16 +28,16 @@
     _tweet = tweet;
     
     // Parse the user block.
-    NSDictionary* userDetails = [_tweet objectForKey:@"user"];
-    _screenName = [userDetails objectForKey:@"screen_name"];
+    NSDictionary* userDetails = _tweet[@"user"];
+    _screenName = userDetails[@"screen_name"];
     
     // Get the tweet text.
-    _tweetText = [_tweet objectForKey:@"text"];
+    _tweetText = _tweet[@"text"];
     
     // Get the tweet created at time.
     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
-    _tweetTime = [dateFormat dateFromString:[_tweet objectForKey:@"created_at"]];
+    _tweetTime = [dateFormat dateFromString:_tweet[@"created_at"]];
 }
 
 - (NSString*)getScreenName
