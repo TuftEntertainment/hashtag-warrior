@@ -32,7 +32,6 @@
 		37B3360F16C2F93400019D7A /* Projectile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37B3360E16C2F93400019D7A /* Projectile.mm */; };
 		37CFFF4216CC3F4F0075CAC8 /* StatusLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */; };
 		9F0EB27B1742EBB4009E3F7B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0EB27A1742EBB4009E3F7B /* Accounts.framework */; };
-		9F0EB27D1742EBBC009E3F7B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0EB27C1742EBBC009E3F7B /* Social.framework */; };
 		9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F0EF90E16B8723C0007E929 /* Localizable.strings */; };
 		9F12ED8E1742D03600CFD000 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F12ED1F1742CFC800CFD000 /* libbox2d.a */; };
 		9F12ED8F1742D03600CFD000 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F12ED231742CFC800CFD000 /* libcocos2d.a */; };
@@ -48,6 +47,7 @@
 		9F26C1451742DF7400CF0956 /* TwitterTrendsPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F26C13C1742DF7400CF0956 /* TwitterTrendsPlace.m */; };
 		9F26C1481742DF7F00CF0956 /* TweetEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F26C1461742DF7F00CF0956 /* TweetEmitter.h */; };
 		9F26C1491742DF7F00CF0956 /* TweetEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F26C1471742DF7F00CF0956 /* TweetEmitter.m */; };
+		9F2E4868174818960080D433 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2E4867174818960080D433 /* Twitter.framework */; };
 		9F47BE0816AAC679001BE137 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0716AAC679001BE137 /* GameScene.mm */; };
 		9F47BE0F16AAC83D001BE137 /* GameOverScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */; };
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
@@ -523,7 +523,6 @@
 		37CFFF4016CC3F4F0075CAC8 /* StatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusLayer.h; sourceTree = "<group>"; };
 		37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatusLayer.mm; sourceTree = "<group>"; };
 		9F0EB27A1742EBB4009E3F7B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		9F0EB27C1742EBBC009E3F7B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9F0EF90D16B8723C0007E929 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF90F16B872450007E929 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF91016B872480007E929 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -539,6 +538,7 @@
 		9F26C13C1742DF7400CF0956 /* TwitterTrendsPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterTrendsPlace.m; path = Twitter/API/TwitterTrendsPlace.m; sourceTree = "<group>"; };
 		9F26C1461742DF7F00CF0956 /* TweetEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetEmitter.h; path = Twitter/TweetEmitter.h; sourceTree = "<group>"; };
 		9F26C1471742DF7F00CF0956 /* TweetEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetEmitter.m; path = Twitter/TweetEmitter.m; sourceTree = "<group>"; };
+		9F2E4867174818960080D433 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		9F47BE0616AAC679001BE137 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		9F47BE0716AAC679001BE137 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
 		9F47BE0D16AAC83D001BE137 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
@@ -606,7 +606,7 @@
 				9F12ED8F1742D03600CFD000 /* libcocos2d.a in Frameworks */,
 				9F12ED8E1742D03600CFD000 /* libbox2d.a in Frameworks */,
 				9F0EB27B1742EBB4009E3F7B /* Accounts.framework in Frameworks */,
-				9F0EB27D1742EBBC009E3F7B /* Social.framework in Frameworks */,
+				9F2E4868174818960080D433 /* Twitter.framework in Frameworks */,
 				9FD9BD1A16A3735100DBEB88 /* QuartzCore.framework in Frameworks */,
 				9FD9BD1C16A3735100DBEB88 /* OpenGLES.framework in Frameworks */,
 				9FD9BD1E16A3735100DBEB88 /* OpenAL.framework in Frameworks */,
@@ -860,7 +860,7 @@
 			isa = PBXGroup;
 			children = (
 				9F0EB27A1742EBB4009E3F7B /* Accounts.framework */,
-				9F0EB27C1742EBBC009E3F7B /* Social.framework */,
+				9F2E4867174818960080D433 /* Twitter.framework */,
 				9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */,
 				9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */,
 				9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */,
@@ -1522,7 +1522,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1543,7 +1543,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

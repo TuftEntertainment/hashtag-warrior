@@ -8,6 +8,8 @@
 
 #import "TwitterManager.h"
 
+#import <Twitter/Twitter.h>
+
 @implementation TwitterManager
 
 @synthesize _twitterAccount;
@@ -27,8 +29,7 @@
     
     // Ask the user for permission to access their Twitter account(s).
     [_accountStore requestAccessToAccountsWithType:_accountType
-                                           options:nil
-                                        completion:^(BOOL granted, NSError *error)
+                             withCompletionHandler:^(BOOL granted, NSError *error)
     {
         if (granted)
         {
@@ -66,14 +67,13 @@
     if ( _twitterAccount != nil )
     {
         // Build the Twitter request.
-        SLRequest *twitterInfoRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter
-                                                           requestMethod:SLRequestMethodGET
-                                                                     URL:[protocol getURL]
-                                                              parameters:[protocol getParams]];
-        
+        TWRequest* twitterInfoRequest = [[TWRequest alloc] initWithURL:[protocol getURL]
+                                                            parameters:[protocol getParams]
+                                                         requestMethod:TWRequestMethodGET];
+
         // Attach the Twitter account for authentication.
         [twitterInfoRequest setAccount:_twitterAccount];
-        
+              
         // Actually talk to Twitter.
         [twitterInfoRequest performRequestWithHandler:^(NSData *responseData,
                                                         NSHTTPURLResponse *urlResponse,
