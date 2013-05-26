@@ -99,7 +99,7 @@
     // Create Hero
     CGPoint location = ccp(windowSize.width/2, 0);
     _hero = [[Hero alloc] initWithWorld:_world atLocation:location];
-    [sceneSpriteBatchNode addChild:_hero z:1 tag:1];
+    [sceneSpriteBatchNode addChild:_hero z:1 tag:kHeroTagValue];
     
     // Restrict our hero to only run along the bottom.
     b2PrismaticJointDef jointDef;
@@ -176,6 +176,12 @@
     for (GameObject *obj in listOfGameObjects)
     {
         [obj updateStateWithDeltaTime:dt andListOfGameObjects:listOfGameObjects];
+    }
+    
+    // Check to see if the Hero is dead
+    GameObject *obj = (GameObject*)[sceneSpriteBatchNode getChildByTag:kHeroTagValue];
+    if (([obj state] == kStateDead) && ([obj numberOfRunningActions] == 0)) {
+        [[GameManager sharedGameManager] runSceneWithID:kHWGameOverScene];
     }
 }
 

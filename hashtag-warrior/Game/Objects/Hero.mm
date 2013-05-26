@@ -69,9 +69,7 @@
     {
         case kStateIdle:
             // TODO show the idle frame (facing player)
-            [self setDisplayFrame:[[CCSpriteFrameCache
-                                    sharedSpriteFrameCache]
-                                   spriteFrameByName:@"hero_1.png"]];
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: idleAnim]];
             break;
             
         case kStateRunningLeft:
@@ -86,6 +84,7 @@
             
         case kStateDead:
             // TODO show the splat frame or animation
+            // currently this is part of the gameover sprite
             break;
             
         default:
@@ -104,12 +103,25 @@
         return;
     }
     
-    // TODO move collision detection here
-    // 1. Get own adjusted bounding box
-    // 2. Loop through listOfGameObjects
-    // 3. If the object is Hero, continue
-    // 4. If not, get the adjusted bounding box of the object, and check for a collision
-    // 5. If there is a collision, set the Hero to kStateDead and break
+    // Check for collisions
+    // TODO reintegrate the HeroContactListener
+    CGRect myBoundingBox = [self adjustedBoundingBox];
+    for (GameObject *obj in listOfGameObjects) {
+        // No need to check collision with one's self
+        if ([obj tag] == kHeroTagValue) {
+            continue;
+        }
+        
+        CGRect characterBox = [obj adjustedBoundingBox];
+        if (CGRectIntersectsRect(myBoundingBox, characterBox)) {
+            if ([obj gameObjectType] == kTweetType) {
+                [self changeState:kStateDead];
+                break;
+            }
+        }
+    }
+    
+    // TODO check/clamp X position to prevent falling off screen
     
     // TODO this is probably where we change state between
     // kStateIdle, kStateRunningLeft and kStateRunningRight, depending on the accelerometer
