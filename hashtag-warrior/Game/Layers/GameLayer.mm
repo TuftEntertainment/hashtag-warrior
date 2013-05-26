@@ -74,6 +74,7 @@
 {
     // Create our world.
     _world = new b2World(_state._gravity);
+    _world->SetAllowSleeping(TRUE);
     
     // Create edges around the entire screen.
     b2BodyDef groundBodyDef;
@@ -187,27 +188,7 @@
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    if ( ABS(_hero.physicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
-    {
-        // Setup the force x & y.
-        float32 forceX = acceleration.y * kHWForceMagnifier;
-        float32 forceY = acceleration.x * kHWForceMagnifier;
-
-        // Alter the force based on the devices orientation.
-        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-        if ( orientation == UIInterfaceOrientationLandscapeLeft )
-        {
-            forceY = forceY * -1;
-        }
-        else if ( orientation == UIInterfaceOrientationLandscapeRight )
-        {
-            forceX = forceX * -1;
-        }
-    
-        // Apply the force to our hero.
-        b2Vec2 force(forceX, forceY);
-        _hero.physicsBody->ApplyLinearImpulse(force, _hero.physicsBody->GetWorldCenter());
-    }
+    [_hero accelerometer:accelerometer didAccelerate:acceleration];
 }
 
 @end

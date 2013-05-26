@@ -17,5 +17,7 @@
 @property (nonatomic, retain) CCAnimation *idleAnim;
 
 - (id)initWithWorld:(b2World*)world atLocation:(CGPoint)location;
+- (void)accelerometer:(UIAccelerometer*)accelerometer
+        didAccelerate:(UIAcceleration*)acceleration;
 
 @end

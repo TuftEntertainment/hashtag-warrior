@@ -14,11 +14,12 @@
 
 - (id) initWithWorld:(b2World*)world atLocation:(CGPoint)location
 {
-    if (self=[self initWithSpriteFrameName:@"hero_1.png"])
+    if (self=[self initWithSpriteFrameName:@"hero_3.png"])
     {
         self.gameObjectType = kHeroType;
         [self initAnimations];
         [self createBodyWithWorld:world atLocation:location];
+        [self changeState:kStateIdle];
     }
     
     return self;
@@ -45,7 +46,7 @@
     b2FixtureDef heroFixtureDef;
     heroFixtureDef.shape = &heroShape;
     heroFixtureDef.density = 1.0f;
-    heroFixtureDef.friction = 0.2f;
+    heroFixtureDef.friction = 1.0f;
     heroFixtureDef.restitution = 0.0f;
     heroBody->CreateFixture(&heroFixtureDef);
 }
@@ -60,25 +61,27 @@
 
 - (void) changeState:(GameObjectState)newState
 {
+    if(newState == self.state) {
+        return;
+    }
+    
     [self stopAllActions];
     [self setState:newState];
     
-    id action = nil; // the state machine below will decide if/what action to run
-    
+    id action = nil;
     switch(newState)
     {
         case kStateIdle:
-            // TODO show the idle frame (facing player)
             action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: idleAnim]];
             break;
             
         case kStateRunningLeft:
-            // TODO show the frame/animation for running, and ensure it is facing left
+            [self setFlipX:YES];
             action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: walkingAnim]];
             break;
             
         case kStateRunningRight:
-            // TODO show the frame/animation for running, and ensure it is facing right
+            [self setFlipX:NO];
             action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: walkingAnim]];
             break;
             
@@ -116,15 +119,51 @@
         if (CGRectIntersectsRect(myBoundingBox, characterBox)) {
             if ([obj gameObjectType] == kTweetType) {
                 [self changeState:kStateDead];
-                break;
+                return;
             }
         }
     }
     
     // TODO check/clamp X position to prevent falling off screen
     
-    // TODO this is probably where we change state between
-    // kStateIdle, kStateRunningLeft and kStateRunningRight, depending on the accelerometer
+    if(!self.physicsBody->IsAwake()) {
+        // Not moving? Idle
+        [self changeState:kStateIdle];
+        
+    } else {
+        // If we're moving, ensure the state reflects which direction
+        b2Vec2 velocity = self.physicsBody->GetLinearVelocity();
+        if(velocity.x > 0) {
+            [self changeState:kStateRunningRight];
+        } else {
+            [self changeState:kStateRunningLeft];
+        }
+    }
+}
+
+- (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{
+    if ( ABS(self.physicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
+    {
+        // Setup the force x & y.
+        float32 forceX = acceleration.y * kHWForceMagnifier;
+        float32 forceY = acceleration.x * kHWForceMagnifier;
+        
+        // Alter the force based on the devices orientation.
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        if ( orientation == UIInterfaceOrientationLandscapeLeft )
+        {
+            forceY = forceY * -1;
+        }
+        else if ( orientation == UIInterfaceOrientationLandscapeRight )
+        {
+            forceX = forceX * -1;
+        }
+        
+        // Apply the force to our hero.
+        b2Vec2 force(forceX, forceY);
+        self.physicsBody->ApplyLinearImpulse(force, self.physicsBody->GetWorldCenter());
+    }
 }
 
 @end
