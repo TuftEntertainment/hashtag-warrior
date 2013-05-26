@@ -69,14 +69,25 @@
     {
         case kStateIdle:
             // TODO show the idle frame (facing player)
+            [self setDisplayFrame:[[CCSpriteFrameCache
+                                    sharedSpriteFrameCache]
+                                   spriteFrameByName:@"hero_1.png"]];
             break;
+            
         case kStateRunningLeft:
             // TODO show the frame/animation for running, and ensure it is facing left
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: walkingAnim]];
+            break;
+            
         case kStateRunningRight:
             // TODO show the frame/animation for running, and ensure it is facing right
+            action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: walkingAnim]];
+            break;
+            
         case kStateDead:
             // TODO show the splat frame or animation
             break;
+            
         default:
             CCLOG(@"Unrecognised state!");
             break;
