@@ -29,7 +29,7 @@
     // Create the body definition first, position this
     b2BodyDef heroBodyDef;
     heroBodyDef.type = b2_dynamicBody;
-    heroBodyDef.position = b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO);
+    heroBodyDef.position = b2Vec2(location.x/PTM_RATIO, location.y+(self.contentSize.height/2)/PTM_RATIO);
     
     // Create the body
     b2Body *heroBody = world->CreateBody(&heroBodyDef);
