@@ -30,7 +30,6 @@
     {
         self._score = 0;
         self._hashtag = @"foo";
-        
         self._gravity = b2Vec2(0.0f, -10.0f);
     }
     
