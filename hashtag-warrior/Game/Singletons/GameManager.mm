@@ -36,7 +36,7 @@ static GameManager* _sharedGameManager = nil;
     @synchronized ([GameManager class])
     {
         NSAssert(_sharedGameManager == nil,
-                 @"Attempted to allocated a second instance of the Game Manager singleton");
+                 @"Attempted to allocate a second instance of the Game Manager singleton");
         _sharedGameManager = [super alloc];
         return _sharedGameManager;
     }
@@ -75,7 +75,6 @@ static GameManager* _sharedGameManager = nil;
 {
     self = [super init];
     if (self != nil) {
-        CCLOG(@"Game Manager intialised");
         currentScene = kHWNoScene;
     }
     return self;
@@ -121,9 +120,8 @@ static GameManager* _sharedGameManager = nil;
         [[CCDirector sharedDirector] runWithScene:sceneToRun];
         
     } else {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                                                                     scene:sceneToRun]];
-    }    
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:sceneToRun]];
+    }
 }
 
 @end

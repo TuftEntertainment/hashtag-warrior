@@ -50,8 +50,7 @@
         [self createContactListener];
         
         // Schedule Box2D updates
-        [self schedule:@selector(tick:)];
-        //[self scheduleUpdate];
+        [self scheduleUpdate];
         
         // Initialise spritebatchnode, loading all the textures
         // for the layer (excludes background)
@@ -75,6 +74,7 @@
 {
     // Create our world.
     _world = new b2World(_state._gravity);
+    _world->SetAllowSleeping(TRUE);
     
     // Create edges around the entire screen.
     b2BodyDef groundBodyDef;
@@ -100,7 +100,7 @@
     // Create Hero
     CGPoint location = ccp(windowSize.width/2, 0);
     _hero = [[Hero alloc] initWithWorld:_world atLocation:location];
-    [sceneSpriteBatchNode addChild:_hero z:1 tag:1];
+    [sceneSpriteBatchNode addChild:_hero z:1 tag:kHeroTagValue];
     
     // Restrict our hero to only run along the bottom.
     b2PrismaticJointDef jointDef;
@@ -130,16 +130,31 @@
     _world->SetContactListener(_contactListener);
 }
 
-- (void) tick: (ccTime) dt
-{    
-    int32 velocityIterations = 10;
-    int32 positionIterations = 10;
+-(void)update:(ccTime)dt {
+    // TODO probably move these to constants
+    static double UPDATE_INTERVAL = 1.0f/60.0f;
+    static double MAX_CYCLES_PER_FRAME = 5;
     
-    _world->Step(dt, velocityIterations, positionIterations);
+    // Use a fixed timestep - Box2D works better with this
+    static double timeAccumulator = 0;
+    timeAccumulator += dt;
+    if (timeAccumulator > (MAX_CYCLES_PER_FRAME * UPDATE_INTERVAL)) {
+        timeAccumulator = UPDATE_INTERVAL;
+    }
     
-    // For every body in the world.
-    for (b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
+    int32 velocityIterations = 3;
+    int32 positionIterations = 2;
+    while (timeAccumulator >= UPDATE_INTERVAL)
     {
+        timeAccumulator -= UPDATE_INTERVAL;
+        _world->Step(UPDATE_INTERVAL,
+                    velocityIterations, positionIterations);
+    }
+    
+    // Update sprite positions from world
+    for(b2Body *b=_world->GetBodyList(); b!=NULL; b=b->GetNext())
+    {
+        // TODO should be able to get these from the bodies themselves
         // Update our hero's position.
         if (b == _hero.physicsBody)
         {
@@ -157,54 +172,23 @@
         }
     }
     
-    // Check for collisions.
-    bool collided = false;
-    b2Fixture* heroFixture = _hero.physicsBody->GetFixtureList();
-    b2Fixture* projectileFixture = _projectile.physicsBody->GetFixtureList();
-    
-    std::vector<Collision>* tmp = _contactListener->GetCollisions();
-    std::vector<Collision>::iterator pos;
-    for(pos = tmp->begin(); pos != tmp->end(); ++pos)
+    // Instruct the objects to update themselves
+    CCArray *listOfGameObjects = [sceneSpriteBatchNode children];
+    for (GameObject *obj in listOfGameObjects)
     {
-        Collision collision = *pos;
-        
-        if ((collision.fixtureA == projectileFixture && collision.fixtureB == heroFixture) ||
-            (collision.fixtureA == heroFixture && collision.fixtureB == projectileFixture))
-        {
-            collided = true;
-        }
+        [obj updateStateWithDeltaTime:dt andListOfGameObjects:listOfGameObjects];
     }
     
-    // If we collided, game over!
-    if ( collided )
-    {
+    // Check to see if the Hero is dead
+    GameObject *obj = (GameObject*)[sceneSpriteBatchNode getChildByTag:kHeroTagValue];
+    if (([obj state] == kStateDead) && ([obj numberOfRunningActions] == 0)) {
         [[GameManager sharedGameManager] runSceneWithID:kHWGameOverScene];
     }
 }
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    if ( ABS(_hero.physicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
-    {
-        // Setup the force x & y.
-        float32 forceX = acceleration.y * kHWForceMagnifier;
-        float32 forceY = acceleration.x * kHWForceMagnifier;
-
-        // Alter the force based on the devices orientation.
-        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-        if ( orientation == UIInterfaceOrientationLandscapeLeft )
-        {
-            forceY = forceY * -1;
-        }
-        else if ( orientation == UIInterfaceOrientationLandscapeRight )
-        {
-            forceX = forceX * -1;
-        }
-    
-        // Apply the force to our hero.
-        b2Vec2 force(forceX, forceY);
-        _hero.physicsBody->ApplyLinearImpulse(force, _hero.physicsBody->GetWorldCenter());
-    }
+    [_hero accelerometer:accelerometer didAccelerate:acceleration];
 }
 
 @end
