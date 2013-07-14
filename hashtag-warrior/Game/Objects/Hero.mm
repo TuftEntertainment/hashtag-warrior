@@ -124,8 +124,6 @@
         }
     }
     
-    // TODO check/clamp X position to prevent falling off screen
-    
     if(!self.physicsBody->IsAwake()) {
         // Not moving? Idle
         [self changeState:kStateIdle];

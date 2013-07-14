@@ -80,9 +80,6 @@
     [[animationSettings objectForKey:@"delay"] floatValue];
     
     // 6: Add the frames to the animation
-    // TODO I'm not sure if the spriteFrames Mutable Array will be properly
-    // released.. I had to make some modifications to the animation loader
-    // code here, and this is the only solution which isn't deprecated
     NSString *animationFramePrefix =
     [animationSettings objectForKey:@"filenamePrefix"];
     NSString *animationFrames =

@@ -33,16 +33,4 @@ typedef enum {
     kHWGameScene=100
 } SceneTypes;
 
-
-// TODO not convinced the below will be necessary - at the moment
-// only the GameLayer will be creating objects, and it's fine for
-// the GameLayer to know what it itself is doing..
-@protocol GameplayLayerDelegate
--(void)createObjectOfType:(GameObjectType)objectType
-               atLocation:(CGPoint)spawnLocation
-           withStartAngle:(int)startAngle
-        withStartVelocity:(float)startVelocity
-               withZValue:(int)zValue;
-@end
-
 #endif
