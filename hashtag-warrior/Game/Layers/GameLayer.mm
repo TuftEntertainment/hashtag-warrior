@@ -131,7 +131,6 @@
 }
 
 -(void)update:(ccTime)dt {
-    // TODO probably move these to constants
     static double UPDATE_INTERVAL = 1.0f/60.0f;
     static double MAX_CYCLES_PER_FRAME = 5;
     
