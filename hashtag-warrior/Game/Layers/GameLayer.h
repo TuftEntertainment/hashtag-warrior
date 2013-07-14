@@ -10,6 +10,7 @@
 
 #import "cocos2d.h"
 #import "Box2D.h"
+#import "GLES-Render.h"
 
 #import "GameState.h"
 
@@ -20,6 +21,7 @@
 
 @interface GameLayer : CCLayer
 {
+    GLESDebugDraw *_debugDraw;
     GameState *_state;
     b2World *_world;
     b2Body *_groundBody;

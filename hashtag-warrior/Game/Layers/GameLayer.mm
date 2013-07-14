@@ -47,6 +47,9 @@
         
         // Set up the world
         [self createWorld:windowSize];
+        if(kHWIsDebug) {
+            [self setupDebugDraw];
+        }
         [self createContactListener];
         
         // Schedule Box2D updates
@@ -68,6 +71,13 @@
         [self createProjectile:ccp(0, windowSize.height)];
     }
     return self;
+}
+
+- (void) setupDebugDraw
+{
+    _debugDraw = new GLESDebugDraw(PTM_RATIO);
+    _world->SetDebugDraw(_debugDraw);
+    _debugDraw->SetFlags(GLESDebugDraw::e_shapeBit | GLESDebugDraw::e_centerOfMassBit | GLESDebugDraw::e_aabbBit);
 }
 
 - (void) createWorld: (CGSize)windowSize
@@ -130,7 +140,16 @@
     _world->SetContactListener(_contactListener);
 }
 
--(void)update:(ccTime)dt {
+- (void) draw
+{
+    glDisable(GL_TEXTURE_2D);
+    
+    _world->DrawDebugData();
+    
+    glEnable(GL_TEXTURE_2D);
+}
+
+- (void) update:(ccTime)dt {
     static double UPDATE_INTERVAL = 1.0f/60.0f;
     static double MAX_CYCLES_PER_FRAME = 5;
     
