@@ -46,7 +46,7 @@
     b2FixtureDef heroFixtureDef;
     heroFixtureDef.shape = &heroShape;
     heroFixtureDef.density = 1.0f;
-    heroFixtureDef.friction = 1.0f;
+    heroFixtureDef.friction = 8.0f;
     heroFixtureDef.restitution = 0.0f;
     heroBody->CreateFixture(&heroFixtureDef);
 }
@@ -130,11 +130,14 @@
         
     } else {
         // If we're moving, ensure the state reflects which direction
+        // (threshold the velocity to a sensible value)
         b2Vec2 velocity = self.physicsBody->GetLinearVelocity();
-        if(velocity.x > 0) {
+        if(velocity.x > 1.0f) {
             [self changeState:kStateRunningRight];
-        } else {
+        } else if(velocity.x < -1.0f) {
             [self changeState:kStateRunningLeft];
+        } else {
+            [self changeState:kStateIdle];
         }
     }
 }
