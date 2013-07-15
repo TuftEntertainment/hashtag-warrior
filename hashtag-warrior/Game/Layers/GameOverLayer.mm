@@ -40,9 +40,29 @@
         mainMenu.color = kHWTextColor;
         CCMenuItemLabel *shareIt = [CCMenuItemFont itemWithString:NSLocalizedString(@"Share", nil) block:^(id sender)
                                      {
-                                         // TODO share score to Twitter
-                                         // For example: "@fooface just scored 3,339 on #Warrior against #Biebs4EvaLol. Try your luck at is.gd/hashtagwarrior"
-                                         CCLOG(@"Haha, sharing doesn't actually work yet.");
+                                         // First check if we are able to send a Tweet.
+                                         if ( [TWTweetComposeViewController canSendTweet] )
+                                         {
+                                             // We are! Now create the Tweet Sheet.
+                                             TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+                                             
+                                             // Set the initial text.
+                                             NSString *tweetText = [NSString stringWithFormat:NSLocalizedString(@"Glory Tweet", nil), [GameState sharedInstance]._score, [GameState sharedInstance]._hashtag];
+                                             [tweetSheet setInitialText:tweetText];
+                                             
+                                             // Popup the Tweet Sheet for Tweeting with.
+                                             [[CCDirector sharedDirector] presentModalViewController:tweetSheet animated:YES];
+                                         }
+                                         else
+                                         {
+                                             // Alert the user to our inability to Tweet anything.
+                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tweetastrophe", nil)
+                                                                                                 message:NSLocalizedString(@"No Twitter", nil)
+                                                                                                delegate:nil
+                                                                                       cancelButtonTitle:NSLocalizedString(@"Dismiss", nil)
+                                                                                       otherButtonTitles:nil];
+                                             [alertView show];
+                                         }
                                      }];
         shareIt.color = kHWTextColor;
         CCMenu *menu = [CCMenu menuWithItems:playAgain, mainMenu, shareIt, nil];
