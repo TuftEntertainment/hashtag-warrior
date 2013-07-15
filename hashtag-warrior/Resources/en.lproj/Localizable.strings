@@ -11,8 +11,9 @@
 "About" = "About";
 "Dismiss" = "Dismiss";
 "Game Over" = "Game Over";
-"Glory Tweet" = "I just scored %i against #%@ in #Warrior! Try your luck at http://verbitan.github.io/hashtag-warrior/";
+"Glory Tweet" = "I just scored %i against #%@ in #Warrior! Think you can do better?";
 "Main Menu" = "Main Menu";
 "New Game" = "New Game";
 "No Twitter" = "We're having trouble speaking to Twitter right now.\nSorry about that...";
 "Tweetastrophe" = "Tweetastrophe!";
+"URL" = "http://verbitan.github.io/hashtag-warrior/";

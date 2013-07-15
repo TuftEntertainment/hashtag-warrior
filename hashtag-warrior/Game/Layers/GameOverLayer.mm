@@ -50,6 +50,10 @@
                                              NSString *tweetText = [NSString stringWithFormat:NSLocalizedString(@"Glory Tweet", nil), [GameState sharedInstance]._score, [GameState sharedInstance]._hashtag];
                                              [tweetSheet setInitialText:tweetText];
                                              
+                                             // Attach our URL.
+                                             NSURL *url = [[NSURL alloc] initWithString:NSLocalizedString(@"URL", nil)];
+                                             [tweetSheet addURL:url];
+                                             
                                              // Popup the Tweet Sheet for Tweeting with.
                                              [[CCDirector sharedDirector] presentModalViewController:tweetSheet animated:YES];
                                          }
