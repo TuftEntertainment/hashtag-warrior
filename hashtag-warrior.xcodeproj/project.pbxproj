@@ -490,6 +490,20 @@
 			remoteGlobalIDString = E0EA56A5134B9CA800F212C8;
 			remoteInfo = Bug1159;
 		};
+		9F8ADABB1795D3CE002F3CC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F12ECE01742CFC700CFD000 /* cocos2d-ios.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5042256F0FC0B39C00B992F7;
+			remoteInfo = box2d;
+		};
+		9F8ADABD1795D3CE002F3CC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F12ECE01742CFC700CFD000 /* cocos2d-ios.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5018F24C0DFDEAC400C013A5;
+			remoteInfo = cocos2d;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -974,6 +988,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				9F8ADABE1795D3CE002F3CC0 /* PBXTargetDependency */,
+				9F8ADABC1795D3CE002F3CC0 /* PBXTargetDependency */,
 			);
 			name = "#Warrior";
 			productName = "hashtag-warrior";
@@ -1491,6 +1507,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F8ADABC1795D3CE002F3CC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = box2d;
+			targetProxy = 9F8ADABB1795D3CE002F3CC0 /* PBXContainerItemProxy */;
+		};
+		9F8ADABE1795D3CE002F3CC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = cocos2d;
+			targetProxy = 9F8ADABD1795D3CE002F3CC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9F0EF90E16B8723C0007E929 /* Localizable.strings */ = {
