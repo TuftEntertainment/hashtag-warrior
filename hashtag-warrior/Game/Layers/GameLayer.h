@@ -10,6 +10,7 @@
 
 #import "cocos2d.h"
 #import "Box2D.h"
+#import "GLES-Render.h"
 
 #import "GameState.h"
 
@@ -18,31 +19,18 @@
 
 #import <HeroContactListener.h>
 
-//Pixel to metres ratio. Box2D uses metres as the unit for measurement.
-//This ratio defines how many pixels correspond to 1 Box2D "metre"
-//Box2D is optimized for objects of 1x1 metre therefore it makes sense
-//to define the ratio so that your most common object type is 1x1 metre.
-#define PTM_RATIO 32
-
 @interface GameLayer : CCLayer
 {
-    // The game state.
+    GLESDebugDraw *_debugDraw;
     GameState *_state;
-    
-    // The world.
     b2World *_world;
-    
-    // The ground.
     b2Body *_groundBody;
-    
-    // Our hero.
-    Hero *_hero;
-    
-    // A ball.
-    Projectile *_projectile;
-    
-    // The contact listener.
+    CCSpriteBatchNode *sceneSpriteBatchNode;
     HeroContactListener *_contactListener;
+    
+    // TODO possibly these will move into the SpriteBatchNode
+    Hero *_hero;
+    Projectile *_projectile;
 }
 
 @end

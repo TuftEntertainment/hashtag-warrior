@@ -1,11 +1,11 @@
-hashtag-warrior
+\#Warrior
 ===============
 
 Open-source iOS game powered by cocos2d and Box2D.
 
 Requirements
 ------------
-To build Hashtag Warrior for yourself, you'll need:
+To build #Warrior for yourself, you'll need:
 * A Mac
 * Git
 * XCode 4+

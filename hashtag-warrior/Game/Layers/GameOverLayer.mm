@@ -6,49 +6,80 @@
 //  Copyright 2013 Ossum Games. All rights reserved.
 //
 
-#import "Constants.h"
 #import "GameOverLayer.h"
-#import "MainMenuScene.h"
+#import "GameManager.h"
+#import "GameState.h"
+#import "Constants.h"
 
 @implementation GameOverLayer
 
 - (id)init
 {
     if ((self=[super init]))
-    { 
-        // Create and initialize a label for the title.
-        CCLabelTTF *title = [CCLabelTTF labelWithString:NSLocalizedString(@"Game Over", nil)
+    {
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        // Create title
+        CCLabelTTF *title = [CCLabelTTF labelWithString:NSLocalizedString(@"Game Over!", nil)
                                                fontName:kHWTextHeadingFamily
                                                fontSize:64];
         title.color = kHWTextColor;
-        
-        // Ask director for the window size.
-        CGSize size = [[CCDirector sharedDirector] winSize];
-        
-        // Position the labels on the center of the screen.
-        title.position = ccp(size.width /2 , size.height/2);
-        
-        // Add the labels as a child to this Layer.
+        title.position = ccp(size.width/2 , size.height/2);
         [self addChild: title];
         
-        // In three seconds transition to the new scene.
-        [self scheduleOnce:@selector(makeTransition:) delay:1];
+        // Create menu
+        CCMenuItemLabel *playAgain = [CCMenuItemFont itemWithString:NSLocalizedString(@"Play again", nil) block:^(id sender)
+                                    {
+                                        [[GameManager sharedGameManager] runSceneWithID:kHWGameScene];
+                                    }];
+        playAgain.color = kHWTextColor;
+        CCMenuItemLabel *mainMenu = [CCMenuItemFont itemWithString:NSLocalizedString(@"Main menu", nil) block:^(id sender)
+                                  {
+                                      [[GameManager sharedGameManager] runSceneWithID:kHWMainMenuScene];
+                                  }];
+        mainMenu.color = kHWTextColor;
+        CCMenuItemLabel *shareIt = [CCMenuItemFont itemWithString:NSLocalizedString(@"Share", nil) block:^(id sender)
+                                     {
+                                         // First check if we are able to send a Tweet.
+                                         if ( [TWTweetComposeViewController canSendTweet] )
+                                         {
+                                             // We are! Now create the Tweet Sheet.
+                                             TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+                                             
+                                             // Set the initial text.
+                                             NSString *tweetText = [NSString stringWithFormat:NSLocalizedString(@"Glory Tweet", nil), [GameState sharedInstance]._score, [GameState sharedInstance]._hashtag];
+                                             [tweetSheet setInitialText:tweetText];
+                                             
+                                             // Attach our URL.
+                                             NSURL *url = [[NSURL alloc] initWithString:NSLocalizedString(@"URL", nil)];
+                                             [tweetSheet addURL:url];
+                                             
+                                             // Popup the Tweet Sheet for Tweeting with.
+                                             [[CCDirector sharedDirector] presentModalViewController:tweetSheet animated:YES];
+                                         }
+                                         else
+                                         {
+                                             // Alert the user to our inability to Tweet anything.
+                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Tweetastrophe", nil)
+                                                                                                 message:NSLocalizedString(@"No Twitter", nil)
+                                                                                                delegate:nil
+                                                                                       cancelButtonTitle:NSLocalizedString(@"Dismiss", nil)
+                                                                                       otherButtonTitles:nil];
+                                             [alertView show];
+                                         }
+                                     }];
+        shareIt.color = kHWTextColor;
+        CCMenu *menu = [CCMenu menuWithItems:playAgain, mainMenu, shareIt, nil];
+        [menu alignItemsHorizontally];
+        menu.position = ccp(size.width/2, size.height - 200);
+        [self addChild: menu];
     }
     return self;
 }
 
--(void) makeTransition:(ccTime)dt
+-(void) backToMain:(ccTime)dt
 {
-    // Go back to the game.
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                                                                 scene:[MainMenuScene node]
-                                                                             withColor:ccBLACK]];
-}
-
-- (void) dealloc
-{
-    // Nothing else to deallocate.
-    [super dealloc];
+    [[GameManager sharedGameManager] runSceneWithID:kHWMainMenuScene];
 }
 
 @end

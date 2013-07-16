@@ -27,10 +27,4 @@
     return self;
 }
 
-- (void)dealloc
-{
-    // Nothing else to deallocate.
-    [super dealloc];
-}
-
 @end

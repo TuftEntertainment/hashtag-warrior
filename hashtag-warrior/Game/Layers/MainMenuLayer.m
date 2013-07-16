@@ -7,9 +7,8 @@
 //
 
 #import "MainMenuLayer.h"
-#import "AboutScene.h"
 #import "Constants.h"
-#import "GameScene.h"
+#import "GameManager.h"
 
 
 @implementation MainMenuLayer
@@ -18,16 +17,10 @@
 {
     if ((self=[super init]))
     {
-        // Add the main menu.
         [self addMainMenu];
+        [self addTestTweetStream];
     }
     return self;
-}
-
-- (void) dealloc
-{
-    // Nothing else to deallocate.
-    [super dealloc];
 }
 
 - (void) addMainMenu
@@ -38,14 +31,12 @@
     // Menu items
     CCMenuItemLabel *newGame = [CCMenuItemFont itemWithString:NSLocalizedString(@"New Game", nil) block:^(id sender)
     {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionShrinkGrow transitionWithDuration:1.0
-                                                                                           scene:[GameScene node]]];
+        [[GameManager sharedGameManager] runSceneWithID:kHWGameScene];
     }];
     newGame.color = kHWTextColor;
     CCMenuItemLabel *about = [CCMenuItemFont itemWithString:NSLocalizedString(@"About", nil) block:^(id aboutSender)
     {
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
-                                                                    scene:[AboutScene node]]];
+        [[GameManager sharedGameManager] runSceneWithID:kHWAboutScene];
     }];
     about.color = kHWTextColor;
     
@@ -61,6 +52,34 @@
     
     // Add to the layer.
     [self addChild: menu];
+}
+
+- (void)addTestTweetStream
+{
+    // Initialise the tweet emitter.
+    _tweetEmitter = [[TweetEmitter alloc] initWithDelegate:self];
+    
+    // Start the tweet stream.
+    [_tweetEmitter startTweetStream:@"#Warrior"];
+    
+    // Make a label.
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    _tweet = [CCLabelTTF labelWithString:@"#Warrior"
+                              dimensions:CGSizeMake(size.width, 50)
+                               alignment:CCTextAlignmentCenter
+                                fontName:kHWTextBodyFamily
+                                fontSize:12];
+    
+    _tweet.color = kHWTextColor;
+    
+    // Add the label to the layer.
+    _tweet.position = ccp(size.width/2, [_tweet boundingBox].size.height-20);
+    [self addChild: _tweet];
+}
+
+- (void)newTweet:(Tweet*)tweet
+{
+    [_tweet setString:[tweet getTweetText]];
 }
 
 @end
