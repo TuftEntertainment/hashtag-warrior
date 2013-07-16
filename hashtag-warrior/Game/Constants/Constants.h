@@ -16,6 +16,7 @@
 #define kHWTextBodyFamily @"Arial"
 
 // Gameplay
+#define kHeroTagValue 0
 #define kHWMinProjectileSize 2.0f          // TODO net yet used
 #define kHWMaxProjectileSize 10.0f         // TODO net yet used
 #define kHWMinProjectileStartVelocity 2.0f // TODO net yet used
@@ -26,5 +27,9 @@
 // Environment
 #define kHWMaxVelocity 10.0f
 #define kHWForceMagnifier 5
+#define PTM_RATIO 32
+
+// Misc
+#define kHWIsDebug 1
 
 #endif

@@ -7,9 +7,8 @@
 //
 
 #import "cocos2d.h"
-
 #import "AppDelegate.h"
-#import "IntroScene.h"
+#import "GameManager.h"
 
 @implementation AppController
 
@@ -75,7 +74,7 @@
     [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
     
     // And add the scene to the stack. The director will run it when it automatically when the view is displayed.
-    [director_ pushScene: [IntroScene node]];
+    [[GameManager sharedGameManager] runSceneWithID:kHWIntroScene];
     
     // Create a Navigation Controller with the Director
     navController_ = [[UINavigationController alloc] initWithRootViewController:director_];
@@ -141,12 +140,5 @@
     [[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
-- (void) dealloc
-{
-    [window_ release];
-    [navController_ release];
-    
-    [super dealloc];
-}
 @end
 

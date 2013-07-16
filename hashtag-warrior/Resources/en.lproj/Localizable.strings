@@ -6,9 +6,14 @@
   Copyright (c) 2013 Ossum Games. All rights reserved.
 */
 
-"About" = "About";
 "About Blurb" = "Hashtag Warrior is an open source iOS game\npowered by cocos2D and Box2D.";
 "About Credits" = "Developed by Ossum Games\nProgramming: Nick James & Daniel Wood\nWeb: Daniel Wood\nDigital Art: Heather Addley";
+"About" = "About";
+"Dismiss" = "Dismiss";
 "Game Over" = "Game Over";
+"Glory Tweet" = "I just scored %i against #%@ in #Warrior! Think you can do better?";
 "Main Menu" = "Main Menu";
 "New Game" = "New Game";
+"No Twitter" = "We're having trouble speaking to Twitter right now.\nSorry about that...";
+"Tweetastrophe" = "Tweetastrophe!";
+"URL" = "http://verbitan.github.io/hashtag-warrior/";

@@ -21,10 +21,8 @@
 }
 
 -(id)initForGameplay {
-    self = [super init];
+    self = [self init];
     if (self != nil) {
-        [self init];
-        
         CCSprite *backgroundImage;
         
         backgroundImage = [CCSprite spriteWithFile:@"Background.png"];

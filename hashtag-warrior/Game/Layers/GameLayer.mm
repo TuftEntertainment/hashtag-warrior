@@ -6,12 +6,16 @@
 //  Copyright 2013 Ossum Games. All rights reserved.
 //
 
-#import "Constants.h"
-#import "GameLayer.h"
-#import "GameOverScene.h"
-
 #import "AccelerometerSimulation.h"
 
+#import "GameLayer.h"
+#import "Constants.h"
+#import "GameManager.h"
+
+
+
+
+// TODO move these global?
 // Define macros to convert from an iPhone ccp to iPad ccp.
 // Note: Not much use when using the size from the director (e.g. [[CCDirector sharedDirector] winSize].width) as this
 //       returns the size of the current device.
@@ -27,57 +31,60 @@
 #define ADJUST_CCP(__p__)\
 (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? ccp( ADJUST_X(__p__.x), ADJUST_Y(__p__.y) ) : __p__)
 
+
+
+
 @implementation GameLayer
 
 - (id)init
 {
     if ((self=[super init]))
     {
-        // Enable the accelerometer.
         self.isAccelerometerEnabled = YES;
         
-        // Get an instance of the game state singleton.
         _state = [GameState sharedInstance];
-        
-        // Ask director for the window size.
         CGSize windowSize = [[CCDirector sharedDirector] winSize];
         
-        // Create the world.
+        // Set up the world
         [self createWorld:windowSize];
-        
-        // Create our hero.
-        [self createHero:windowSize];
-        
-        // Create a ball.
-        [self createProjectile:ccp(0, windowSize.height)];
-        
-        // Create the contact listener.
+        if(kHWIsDebug) {
+            [self setupDebugDraw];
+        }
         [self createContactListener];
         
-        // Schedule animations.
-        [self schedule:@selector(tick:)];
+        // Schedule Box2D updates
+        [self scheduleUpdate];
+        
+        // Initialise spritebatchnode, loading all the textures
+        // for the layer (excludes background)
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas-ipad.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas-ipad.png"];
+        } else {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas.png"];
+        }
+        [self addChild:sceneSpriteBatchNode];
+        
+        // Set up players
+        [self createHero:windowSize];
+        [self createProjectile:ccp(0, windowSize.height)];
     }
     return self;
 }
 
-- (void) dealloc
+- (void) setupDebugDraw
 {
-    // Destroy the contact listener.
-    delete _contactListener;
-    _contactListener = NULL;
-    
-    // Destroy the world.
-    delete _world;
-    _world = NULL;
-    
-    // Nothing else to deallocate.
-    [super dealloc];
+    _debugDraw = new GLESDebugDraw(PTM_RATIO);
+    _world->SetDebugDraw(_debugDraw);
+    _debugDraw->SetFlags(GLESDebugDraw::e_shapeBit | GLESDebugDraw::e_centerOfMassBit | GLESDebugDraw::e_aabbBit);
 }
 
 - (void) createWorld: (CGSize)windowSize
 {
     // Create our world.
     _world = new b2World(_state._gravity);
+    _world->SetAllowSleeping(TRUE);
     
     // Create edges around the entire screen.
     b2BodyDef groundBodyDef;
@@ -100,108 +107,74 @@
 
 - (void) createHero: (CGSize)windowSize
 {
-    // Our hero.
-    _hero = [Hero spriteWithFile:@"Hero.png"];
-    
-    // Add him to the layer.
-    [self addChild:_hero];
-    
-    // Now we know the size of the sprite, work out it's position.
-    CGPoint p = ccp(windowSize.width/2, _hero.contentSize.height/2);
-    
-    // Position him where requested.
-    _hero.position = ccp(p.x, p.y);
-    
-    // Create the dynamic body definition.
-    b2BodyDef heroBodyDef;
-    heroBodyDef.type = b2_dynamicBody;
-    
-    // Position it where requested.
-    heroBodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    
-    // Create the body.
-    b2Body *heroBody = _world->CreateBody(&heroBodyDef);
-    
-    // Create the shape.
-    b2PolygonShape heroShape;
-    heroShape.SetAsBox(_hero.contentSize.width/PTM_RATIO/2,
-                       _hero.contentSize.height/PTM_RATIO/2);
-    
-    // Create the definition and add to body.
-    b2FixtureDef heroShapeDef;
-    heroShapeDef.shape = &heroShape;
-    heroShapeDef.density = 1.0f;
-    heroShapeDef.friction = 0.2f;
-    heroShapeDef.restitution = 0.0f;
-    heroBody->CreateFixture(&heroShapeDef);
+    // Create Hero
+    CGPoint location = ccp(windowSize.width/2, 0);
+    _hero = [[Hero alloc] initWithWorld:_world atLocation:location];
+    [sceneSpriteBatchNode addChild:_hero z:1 tag:kHeroTagValue];
     
     // Restrict our hero to only run along the bottom.
     b2PrismaticJointDef jointDef;
     b2Vec2 axis = b2Vec2(1.0f, 0.0f);
     jointDef.collideConnected = true;
-    jointDef.Initialize(heroBody, _groundBody, heroBody->GetWorldCenter(), axis);
+    jointDef.Initialize(_hero.physicsBody, _groundBody, _hero.physicsBody->GetWorldCenter(), axis);
     _world->CreateJoint(&jointDef);
-    
-    // Add the physics to the sprite.
-	[_hero setPhysicsBody:heroBody];
 }
 
 - (void) createProjectile: (CGPoint)p
 {
     CCLOG(@"Adding new projectile! %0.2f x %0.2f",p.x,p.y);
     
-    _projectile = [Projectile spriteWithFile:@"Projectile.png"];
-    [self addChild:_projectile];
-    _projectile.position = ccp(p.x, p.y);
+    // Create projectile
+    CGPoint location = ccp(p.x, p.y);
+    _projectile = [[Projectile alloc] initWithWorld:_world atLocation:location];
+    [sceneSpriteBatchNode addChild:_projectile];
     
-    // Create the body definition.
-    b2BodyDef bd;
-    bd.type = b2_dynamicBody;
-    bd.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    
-    // Create the body
-    b2Body *b = _world->CreateBody(&bd);
-    
-    // Create the shape and shape definition.
-    b2CircleShape s;
-    s.m_radius = (_projectile.contentSize.width/2)/PTM_RATIO;
-
-    b2FixtureDef sd;
-    sd.shape = &s;
-    sd.density = 1.0f;
-    sd.friction = 0.5f;
-    sd.restitution = 0.6f;
-    b->CreateFixture(&sd);
-    
-    // Add the physics to the sprite.
-	[_projectile setPhysicsBody:b];
-    
-    // Zoom
+    // Fire!
     b2Vec2 force = b2Vec2(2.5f, -5.0f);
-    b->ApplyLinearImpulse(force, bd.position);
+    _projectile.physicsBody->ApplyLinearImpulse(force, _projectile.physicsBody->GetWorldCenter());
 }
 
 - (void) createContactListener
 {
-    // Construct contact listener.
     _contactListener = new HeroContactListener();
-    
-    // Add it to the world.
     _world->SetContactListener(_contactListener);
 }
 
-- (void) tick: (ccTime) dt
-{    
-    int32 velocityIterations = 10;
-    int32 positionIterations = 10;
+- (void) draw
+{
+    glDisable(GL_TEXTURE_2D);
     
-    _world->Step(dt, velocityIterations, positionIterations);
+    _world->DrawDebugData();
     
-    // For every body in the world.
-    for (b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
+    glEnable(GL_TEXTURE_2D);
+}
+
+- (void) update:(ccTime)dt {
+    static double UPDATE_INTERVAL = 1.0f/60.0f;
+    static double MAX_CYCLES_PER_FRAME = 5;
+    
+    // Use a fixed timestep - Box2D works better with this
+    static double timeAccumulator = 0;
+    timeAccumulator += dt;
+    if (timeAccumulator > (MAX_CYCLES_PER_FRAME * UPDATE_INTERVAL)) {
+        timeAccumulator = UPDATE_INTERVAL;
+    }
+    
+    int32 velocityIterations = 3;
+    int32 positionIterations = 2;
+    while (timeAccumulator >= UPDATE_INTERVAL)
     {
+        timeAccumulator -= UPDATE_INTERVAL;
+        _world->Step(UPDATE_INTERVAL,
+                    velocityIterations, positionIterations);
+    }
+    
+    // Update sprite positions from world
+    for(b2Body *b=_world->GetBodyList(); b!=NULL; b=b->GetNext())
+    {
+        // TODO should be able to get these from the bodies themselves
         // Update our hero's position.
-        if (b == _hero.getPhysicsBody)
+        if (b == _hero.physicsBody)
         {
             _hero.position = ccp(b->GetPosition().x * PTM_RATIO,
                                  b->GetPosition().y * PTM_RATIO);
@@ -209,7 +182,7 @@
             
         }
         // Update the projectiles position.
-        else if (b == _projectile.getPhysicsBody)
+        else if (b == _projectile.physicsBody)
         {
             _projectile.position = ccp(b->GetPosition().x * PTM_RATIO,
                                        b->GetPosition().y * PTM_RATIO);
@@ -217,54 +190,23 @@
         }
     }
     
-    // Check for collisions.
-    bool collided = false;
-    b2Fixture* heroFixture = _hero.getPhysicsBody->GetFixtureList();
-    b2Fixture* projectileFixture = _projectile.getPhysicsBody->GetFixtureList();
-    
-    std::vector<Collision>* tmp = _contactListener->GetCollisions();
-    std::vector<Collision>::iterator pos;
-    for(pos = tmp->begin(); pos != tmp->end(); ++pos)
+    // Instruct the objects to update themselves
+    CCArray *listOfGameObjects = [sceneSpriteBatchNode children];
+    for (GameObject *obj in listOfGameObjects)
     {
-        Collision collision = *pos;
-        
-        if ((collision.fixtureA == projectileFixture && collision.fixtureB == heroFixture) ||
-            (collision.fixtureA == heroFixture && collision.fixtureB == projectileFixture))
-        {
-            collided = true;
-        }
+        [obj updateStateWithDeltaTime:dt andListOfGameObjects:listOfGameObjects];
     }
     
-    // If we collided, game over!
-    if ( collided )
-    {
-        [[CCDirector sharedDirector] replaceScene:[GameOverScene node]];
+    // Check to see if the Hero is dead
+    GameObject *obj = (GameObject*)[sceneSpriteBatchNode getChildByTag:kHeroTagValue];
+    if (([obj state] == kStateDead) && ([obj numberOfRunningActions] == 0)) {
+        [[GameManager sharedGameManager] runSceneWithID:kHWGameOverScene];
     }
 }
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    if ( ABS(_hero.getPhysicsBody->GetLinearVelocity().x) <= kHWMaxVelocity )
-    {
-        // Setup the force x & y.
-        float32 forceX = acceleration.y * kHWForceMagnifier;
-        float32 forceY = acceleration.x * kHWForceMagnifier;
-
-        // Alter the force based on the devices orientation.
-        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
-        if ( orientation == UIInterfaceOrientationLandscapeLeft )
-        {
-            forceY = forceY * -1;
-        }
-        else if ( orientation == UIInterfaceOrientationLandscapeRight )
-        {
-            forceX = forceX * -1;
-        }
-    
-        // Apply the force to our hero.
-        b2Vec2 force(forceX, forceY);
-        _hero.getPhysicsBody->ApplyLinearImpulse(force, _hero.getPhysicsBody->GetWorldCenter());
-    }
+    [_hero accelerometer:accelerometer didAccelerate:acceleration];
 }
 
 @end

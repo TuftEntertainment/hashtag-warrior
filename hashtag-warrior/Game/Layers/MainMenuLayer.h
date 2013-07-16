@@ -10,8 +10,15 @@
 
 #import "cocos2d.h"
 
+#import "Tweet.h"
+#import "TweetEmitter.h"
+
 @interface MainMenuLayer : CCLayer
-{    
+{
+    TweetEmitter* _tweetEmitter;
+    CCLabelTTF* _tweet;
 }
+
+- (void)newTweet:(Tweet*)tweet;
 
 @end
