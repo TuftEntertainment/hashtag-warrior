@@ -8,6 +8,8 @@
 
 #import "AccelerometerSimulation.h"
 
+#include <stdlib.h>
+
 #import "GameLayer.h"
 #import "Constants.h"
 #import "GameManager.h"
@@ -65,6 +67,9 @@
             sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas.png"];
         }
         [self addChild:sceneSpriteBatchNode];
+        
+        // Reset the score.
+        _state._score = 0;
         
         // Set up players
         [self createHero:windowSize];
@@ -202,6 +207,10 @@
     if (([obj state] == kStateDead) && ([obj numberOfRunningActions] == 0)) {
         [[GameManager sharedGameManager] runSceneWithID:kHWGameOverScene];
     }
+    
+    // Update the score randomly for now until we've got many balls and can score correctly.
+    int r = arc4random() % 25;
+    _state._score = _state._score + r;
 }
 
 - (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration

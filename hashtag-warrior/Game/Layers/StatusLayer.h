@@ -14,6 +14,8 @@
 @interface StatusLayer : CCLayer
 {
     GameState *_state;
+    
+    CCLabelTTF *_score;
 }
 
 @end
