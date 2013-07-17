@@ -6,7 +6,7 @@
   Copyright (c) 2013 Ossum Games. All rights reserved.
 */
 
-"About Blurb" = "Hashtag Warrior is an open source iOS game\npowered by cocos2D and Box2D.";
+"About Blurb" = "#Warrior is an open source iOS game\npowered by cocos2D and Box2D.";
 "About Credits" = "Developed by Ossum Games\nProgramming: Nick James & Daniel Wood\nWeb: Daniel Wood\nDigital Art: Heather Addley";
 "About" = "About";
 "Dismiss" = "Dismiss";

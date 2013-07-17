@@ -21,7 +21,7 @@
         
         // Add labels
         int posY = size.height-60;
-        CCLabelTTF *title = [CCLabelTTF labelWithString:@"#Hashtag Warrior"
+        CCLabelTTF *title = [CCLabelTTF labelWithString:@"#Warrior"
                                         fontName:kHWTextHeadingFamily
                                         fontSize:48];
         title.position = ccp(size.width/2, posY);
