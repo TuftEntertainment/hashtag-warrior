@@ -49,8 +49,8 @@
     
     // 1: Get the Path to the plist file
     NSString *rootPath =
-    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                         NSUserDomainMask, YES) objectAtIndex:0];
+    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                         NSUserDomainMask, YES)[0];
     plistPath = [rootPath stringByAppendingPathComponent:fullFileName];
     if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
         plistPath = [[NSBundle mainBundle]
@@ -69,7 +69,7 @@
     
     // 4: Get just the mini-dictionary for this animation
     NSDictionary *animationSettings =
-    [plistDictionary objectForKey:animationName];
+    plistDictionary[animationName];
     if (animationSettings == nil) {
         CCLOG(@"Could not locate AnimationWithName:%@",animationName);
         return nil;
@@ -77,22 +77,21 @@
     
     // 5: Get the delay value for the animation
     float animationDelay =
-    [[animationSettings objectForKey:@"delay"] floatValue];
+    [animationSettings[@"delay"] floatValue];
     
     // 6: Add the frames to the animation
     NSString *animationFramePrefix =
-    [animationSettings objectForKey:@"filenamePrefix"];
+    animationSettings[@"filenamePrefix"];
     NSString *animationFrames =
-    [animationSettings objectForKey:@"animationFrames"];
+    animationSettings[@"animationFrames"];
     NSMutableArray *spriteFrames = [NSMutableArray arrayWithArray:[animationFrames componentsSeparatedByString:@","]];
     
     for (NSUInteger i = 0; i < [spriteFrames count]; ++i) {
         NSString *frameName =
-        [NSString stringWithFormat:@"%@%@.png", animationFramePrefix, [spriteFrames objectAtIndex:i]];
+        [NSString stringWithFormat:@"%@%@.png", animationFramePrefix, spriteFrames[i]];
         
-        [spriteFrames replaceObjectAtIndex:i
-                                withObject:[[CCSpriteFrameCache sharedSpriteFrameCache]
-                                                         spriteFrameByName:frameName]];
+        spriteFrames[i] = [[CCSpriteFrameCache sharedSpriteFrameCache]
+                                                         spriteFrameByName:frameName];
     }
     
     animationToReturn = [CCAnimation animationWithSpriteFrames:spriteFrames delay:animationDelay];
