@@ -59,13 +59,8 @@
         
         // Initialise spritebatchnode, loading all the textures
         // for the layer (excludes background)
-        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas-ipad.plist"];
-            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas-ipad.png"];
-        } else {
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas.plist"];
-            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas.png"];
-        }
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"atlas.plist"];
+        sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"atlas.png"];
         [self addChild:sceneSpriteBatchNode];
         
         // Reset the score.
