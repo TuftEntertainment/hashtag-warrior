@@ -15,6 +15,13 @@
 #define kHWTextHeadingFamily @"Marker Felt"
 #define kHWTextBodyFamily @"Arial"
 
+// Define macros to position items according to percentages on screen
+#define PCT_FROM_TOP(__f__)\
+[[CCDirector sharedDirector] winSize].height - [[CCDirector sharedDirector] winSize].height * __f__
+
+#define PCT_FROM_LEFT(__f__)\
+[[CCDirector sharedDirector] winSize].width - [[CCDirector sharedDirector] winSize].width * __f__
+
 // Define macros to convert from an iPhone ccp to iPad ccp.
 // Note: Not much use when using the size from the director
 // (e.g. [[CCDirector sharedDirector] winSize].width) as this returns size of current device
