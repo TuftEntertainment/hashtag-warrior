@@ -14,28 +14,6 @@
 #import "Constants.h"
 #import "GameManager.h"
 
-
-
-
-// TODO move these global?
-// Define macros to convert from an iPhone ccp to iPad ccp.
-// Note: Not much use when using the size from the director (e.g. [[CCDirector sharedDirector] winSize].width) as this
-//       returns the size of the current device.
-#define kXoffsetiPad        64
-#define kYoffsetiPad        32
-
-#define ADJUST_X(__x__)\
-(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? (__x__ * 2) + kXoffsetiPad : __x__)
-
-#define ADJUST_Y(__y__)\
-(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? (__y__ * 2) + kYoffsetiPad : __y__)
-
-#define ADJUST_CCP(__p__)\
-(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? ccp( ADJUST_X(__p__.x), ADJUST_Y(__p__.y) ) : __p__)
-
-
-
-
 @implementation GameLayer
 
 - (id)init
