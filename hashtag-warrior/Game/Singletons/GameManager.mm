@@ -9,6 +9,7 @@
 #import "GameManager.h"
 #import "AboutScene.h"
 #import "GameOverScene.h"
+#import "ChooseHashtagScene.h"
 #import "GameScene.h"
 #import "IntroScene.h"
 #import "MainMenuScene.h"
@@ -62,6 +63,9 @@ static GameManager* _sharedGameManager = nil;
         case kHWGameOverScene:
             result = @"kHWGameOverScene";
             break;
+        case kHWChooseHashtagScene:
+            result = @"kHWChooseHashtagScene";
+            break;
         case kHWGameScene:
             result = @"kHWGameScene";
             break;
@@ -98,6 +102,9 @@ static GameManager* _sharedGameManager = nil;
             break;
         case kHWGameOverScene:
             sceneToRun = [GameOverScene node];
+            break;
+        case kHWChooseHashtagScene:
+            sceneToRun = [ChooseHashtagScene node];
             break;
         case kHWGameScene:
             sceneToRun = [GameScene node];

@@ -30,7 +30,8 @@ typedef enum {
     kHWMainMenuScene=2,
     kHWAboutScene=3,
     kHWGameOverScene=4,
-    kHWGameScene=100
+    kHWChooseHashtagScene=100,
+    kHWGameScene=101
 } SceneTypes;
 
 #endif

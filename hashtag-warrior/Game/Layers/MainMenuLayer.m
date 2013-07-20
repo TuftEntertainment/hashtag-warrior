@@ -31,7 +31,7 @@
     // Menu items
     CCMenuItemLabel *newGame = [CCMenuItemFont itemWithString:NSLocalizedString(@"New Game", nil) block:^(id sender)
     {
-        [[GameManager sharedGameManager] runSceneWithID:kHWGameScene];
+        [[GameManager sharedGameManager] runSceneWithID:kHWChooseHashtagScene];
     }];
     newGame.color = kHWTextColor;
     CCMenuItemLabel *about = [CCMenuItemFont itemWithString:NSLocalizedString(@"About", nil) block:^(id aboutSender)

@@ -14,6 +14,7 @@
 "Glory Tweet" = "I just scored %i against #%@ in #Warrior! Think you can do better?";
 "Main Menu" = "Main Menu";
 "New Game" = "New Game";
+"Pick hashtag" = "Trending near you right now:";
 "No Twitter" = "We're having trouble speaking to Twitter right now.\nSorry about that...";
 "Tweetastrophe" = "Tweetastrophe!";
 "URL" = "http://verbitan.github.io/hashtag-warrior/";

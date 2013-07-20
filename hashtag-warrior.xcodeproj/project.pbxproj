@@ -21,6 +21,10 @@
 		37216E011737F12000840D6F /* atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFD1737F12000840D6F /* atlas.png */; };
 		37216E021737F12000840D6F /* atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFE1737F12000840D6F /* atlas-hd.png */; };
 		37216E041737FAB700840D6F /* Hero.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216E031737FAB700840D6F /* Hero.plist */; };
+		3730E33A179B0AEE00A43F12 /* ChooseHashtagScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 3730E338179B0AEE00A43F12 /* ChooseHashtagScene.h */; };
+		3730E33B179B0AEE00A43F12 /* ChooseHashtagScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3730E339179B0AEE00A43F12 /* ChooseHashtagScene.mm */; };
+		3730E375179B0E4C00A43F12 /* ChooseHashtagLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3730E373179B0E4C00A43F12 /* ChooseHashtagLayer.h */; };
+		3730E376179B0E4C00A43F12 /* ChooseHashtagLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3730E374179B0E4C00A43F12 /* ChooseHashtagLayer.mm */; };
 		373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */; };
 		373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CB16E7F43C00B7FCFD /* Background-hd.png */; };
 		373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CC16E7F43D00B7FCFD /* Background-ipad.png */; };
@@ -521,6 +525,10 @@
 		37216DFD1737F12000840D6F /* atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atlas.png; sourceTree = "<group>"; };
 		37216DFE1737F12000840D6F /* atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-hd.png"; sourceTree = "<group>"; };
 		37216E031737FAB700840D6F /* Hero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Hero.plist; path = Plists/Hero.plist; sourceTree = "<group>"; };
+		3730E338179B0AEE00A43F12 /* ChooseHashtagScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseHashtagScene.h; sourceTree = "<group>"; };
+		3730E339179B0AEE00A43F12 /* ChooseHashtagScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChooseHashtagScene.mm; sourceTree = "<group>"; };
+		3730E373179B0E4C00A43F12 /* ChooseHashtagLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseHashtagLayer.h; sourceTree = "<group>"; };
+		3730E374179B0E4C00A43F12 /* ChooseHashtagLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChooseHashtagLayer.mm; sourceTree = "<group>"; };
 		373D57C816E7EF3F00B7FCFD /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundLayer.mm; sourceTree = "<group>"; };
 		373D57CB16E7F43C00B7FCFD /* Background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-hd.png"; sourceTree = "<group>"; };
@@ -817,6 +825,8 @@
 				9F47BE0716AAC679001BE137 /* GameScene.mm */,
 				9F47BE0D16AAC83D001BE137 /* GameOverScene.h */,
 				9F47BE0E16AAC83D001BE137 /* GameOverScene.mm */,
+				3730E338179B0AEE00A43F12 /* ChooseHashtagScene.h */,
+				3730E339179B0AEE00A43F12 /* ChooseHashtagScene.mm */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -838,6 +848,8 @@
 				37CFFF4116CC3F4F0075CAC8 /* StatusLayer.mm */,
 				373D57C816E7EF3F00B7FCFD /* BackgroundLayer.h */,
 				373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */,
+				3730E373179B0E4C00A43F12 /* ChooseHashtagLayer.h */,
+				3730E374179B0E4C00A43F12 /* ChooseHashtagLayer.mm */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -970,6 +982,8 @@
 				9F26C1441742DF7400CF0956 /* TwitterTrendsPlace.h in Headers */,
 				9F26C1481742DF7F00CF0956 /* TweetEmitter.h in Headers */,
 				9F6B14B317456867001481B7 /* Queue.h in Headers */,
+				3730E33A179B0AEE00A43F12 /* ChooseHashtagScene.h in Headers */,
+				3730E375179B0E4C00A43F12 /* ChooseHashtagLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1503,6 +1517,8 @@
 				9F26C1451742DF7400CF0956 /* TwitterTrendsPlace.m in Sources */,
 				9F26C1491742DF7F00CF0956 /* TweetEmitter.m in Sources */,
 				9F6B14EE17456873001481B7 /* Queue.m in Sources */,
+				3730E33B179B0AEE00A43F12 /* ChooseHashtagScene.mm in Sources */,
+				3730E376179B0E4C00A43F12 /* ChooseHashtagLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
