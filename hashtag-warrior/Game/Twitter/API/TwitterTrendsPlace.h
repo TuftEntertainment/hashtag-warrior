@@ -11,5 +11,14 @@
 #import "TwitterProtocol.h"
 
 @interface TwitterTrendsPlace : NSObject<TwitterProtocol>
+{
+    NSString* _location;
+    NSDate* _lastFetched;
+    NSMutableArray* _results;
+}
+
+-(void)setLocation:(NSString*)woeid;
+-(NSArray*)getResults;
+-(bool)isStale;
 
 @end

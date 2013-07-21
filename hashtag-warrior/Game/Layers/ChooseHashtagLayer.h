@@ -7,7 +7,12 @@
 //
 
 #import "cocos2d.h"
+#import "TrendFinder.h"
 
 @interface ChooseHashtagLayer : CCLayer
+{
+    int _retryCount;
+    TrendFinder* _tf;
+}
 
 @end

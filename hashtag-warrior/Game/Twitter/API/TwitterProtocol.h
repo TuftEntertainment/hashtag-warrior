@@ -12,7 +12,6 @@
 
 -(NSURL*)getURL;
 -(NSDictionary*)getParams;
-
 -(bool)parseResponse:(NSData*)json;
 
 @end

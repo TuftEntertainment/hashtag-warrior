@@ -73,7 +73,7 @@
 
         // Attach the Twitter account for authentication.
         [twitterInfoRequest setAccount:_twitterAccount];
-              
+    
         // Actually talk to Twitter.
         [twitterInfoRequest performRequestWithHandler:^(NSData *responseData,
                                                         NSHTTPURLResponse *urlResponse,
