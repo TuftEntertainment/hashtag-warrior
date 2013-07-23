@@ -11,7 +11,7 @@
 "About" = "About";
 "Dismiss" = "Dismiss";
 "Game Over" = "Game Over";
-"Glory Tweet" = "I just scored %i against #%@ in #Warrior! Think you can do better?";
+"Glory Tweet" = "I just scored %i against %@ in #Warrior! Think you can do better?";
 "Main Menu" = "Main Menu";
 "New Game" = "New Game";
 "Pick hashtag" = "Trending near you right now:";
