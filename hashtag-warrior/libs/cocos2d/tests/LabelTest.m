@@ -7,6 +7,9 @@
 // cocos import
 #import "cocos2d.h"
 
+
+#import "CCFontDefinition.h"
+
 // local import
 #import "LabelTest.h"
 static int sceneIdx=-1;
@@ -26,11 +29,13 @@ static NSString *transitions[] = {
 	@"LabelBMFontHD",
 	@"LabelAtlasHD",
 	@"LabelGlyphDesigner",
+	@"LabelBMFontBounds",
 	@"LabelTTFTest",
 	@"LabelTTFMultiline",
 	@"LabelTTFMultiline2",
 	@"LabelTTFA8Test",
 	@"LabelTTFLineBreak",
+    @"LabelTTFShadowStroke",
 	@"BMFontOneAtlas",
 	@"BMFontUnicode",
     @"BMFontInit",
@@ -314,7 +319,9 @@ Class restartAction()
 
 		id fade = [CCFadeOut actionWithDuration:1.0f];
 		id fade_in = [fade reverse];
-		id seq = [CCSequence actions:fade, fade_in, nil];
+		id call = [CCCallBlock actionWithBlock:^(void) { CCLOG(@"Action finished"); }];
+		id seq = [CCSequence actions:fade, fade_in, call, nil];
+
 		id repeat = [CCRepeatForever actionWithAction:seq];
 		[label2 runAction:repeat];
 
@@ -360,17 +367,17 @@ Class restartAction()
 	if( (self=[super init] )) {
         CGSize s = [[CCDirector sharedDirector] winSize];
         
-        CCLabelTTF* ttf0 = [CCLabelTTF labelWithString:@"Alignment 0\nnew line" dimensions:CGSizeMake(256, 32) hAlignment:0 fontName:@"Helvetica" fontSize:12];
+        CCLabelTTF* ttf0 = [CCLabelTTF labelWithString:@"Alignment 0\nnew line" fontName:@"Helvetica" fontSize:12 dimensions:CGSizeMake(256, 32) hAlignment:0];
         ttf0.position = ccp(s.width/2,(s.height/6)*2);
         ttf0.anchorPoint = ccp(0.5f,0.5f);
         [self addChild:ttf0];
         
-        CCLabelTTF* ttf1 = [CCLabelTTF labelWithString:@"Alignment 1\nnew line" dimensions:CGSizeMake(245, 32) hAlignment:1 fontName:@"Helvetica" fontSize:12];
+        CCLabelTTF* ttf1 = [CCLabelTTF labelWithString:@"Alignment 1\nnew line" fontName:@"Helvetica" fontSize:12 dimensions:CGSizeMake(245, 32) hAlignment:1];
         ttf1.position = ccp(s.width/2,(s.height/6)*3);
         ttf1.anchorPoint = ccp(0.5f,0.5f);
         [self addChild:ttf1];
         
-        CCLabelTTF* ttf2 = [CCLabelTTF labelWithString:@"Alignment 2\nnew line" dimensions:CGSizeMake(245, 32) hAlignment:2 fontName:@"Helvetica" fontSize:12];
+        CCLabelTTF* ttf2 = [CCLabelTTF labelWithString:@"Alignment 2\nnew line" fontName:@"Helvetica" fontSize:12 dimensions:CGSizeMake(245, 32) hAlignment:2];
         ttf2.position = ccp(s.width/2,(s.height/6)*4);
         ttf2.anchorPoint = ccp(0.5f,0.5f);
         [self addChild:ttf2];
@@ -633,7 +640,7 @@ Class restartAction()
 {
 	if( (self=[super init]) ) {
 
-		CGSize s = [[CCDirector sharedDirector] winSize];
+        CGSize s = [[CCDirector sharedDirector] winSize];
 
 		CCLabelBMFont *label = nil;
 		label = [CCLabelBMFont labelWithString:@"FaFeFiFoFu" fntFile:@"bitmapFontTest5.fnt"];
@@ -877,9 +884,9 @@ static float menuItemPaddingCenter = 50;
 	if( (self=[super init])) {
 
 #ifdef __CC_PLATFORM_IOS
-        self.isTouchEnabled = YES;
+        self.touchEnabled = YES;
 #elif defined(__CC_PLATFORM_MAC)
-		self.isMouseEnabled = YES;
+		self.mouseEnabled = YES;
 #endif
 
 		// ask director the the window size
@@ -1241,6 +1248,60 @@ static float menuItemPaddingCenter = 50;
 @end
 
 #pragma mark -
+#pragma mark LabelBMFontBounds
+
+@implementation LabelBMFontBounds
+-(id) init
+{
+	if( (self=[super init]) ) {
+        
+		CGSize s = [[CCDirector sharedDirector] winSize];
+        
+		CCLayerColor *layer = [CCLayerColor layerWithColor:ccc4(128,128,128,255)];
+		[self addChild:layer z:-10];
+        
+		// CCLabelBMFont
+		label1 = [CCLabelBMFont labelWithString:@"Testing Glyph Designer" fntFile:@"boundsTestFont.fnt"];
+        
+		[self addChild:label1];
+		[label1 setPosition: ccp(s.width/2, s.height/2)];
+        
+	}
+    
+	return self;
+}
+
+- (void)draw
+{
+    CGSize labelSize = [label1 contentSize];
+    CGSize origin = [[CCDirector sharedDirector] winSize];
+    
+    origin.width = origin.width / 2 - (labelSize.width / 2);
+    origin.height = origin.height / 2 - (labelSize.height / 2);
+    
+    CGPoint vertices[4]={
+        ccp(origin.width, origin.height),
+        ccp(labelSize.width + origin.width, origin.height),
+        ccp(labelSize.width + origin.width, labelSize.height + origin.height),
+        ccp(origin.width, labelSize.height + origin.height)
+    };
+    ccDrawPoly(vertices, 4, YES);
+    
+}
+
+-(NSString*) title
+{
+	return @"Testing LabelBMFont Bounds";
+}
+
+-(NSString *) subtitle
+{
+	return @"You should see string enclosed by a box";
+}
+
+@end
+
+#pragma mark -
 #pragma mark LabelGlyphDesigner
 
 @implementation LabelGlyphDesigner
@@ -1255,9 +1316,10 @@ static float menuItemPaddingCenter = 50;
 
 		// CCLabelBMFont
 		CCLabelBMFont *label1 = [CCLabelBMFont labelWithString:@"Testing Glyph Designer" fntFile:@"futura-48.fnt"];
+        
 		[self addChild:label1];
 		[label1 setPosition: ccp(s.width/2, s.height/2)];
-
+        
 	}
 
 	return self;
@@ -1346,11 +1408,12 @@ static float menuItemPaddingCenter = 50;
 
     [self.label removeFromParentAndCleanup:YES];
     self.label = [CCLabelTTF labelWithString:[self currentAlignment]
+									fontName:@"Marker Felt"
+                                    fontSize:32
                                   dimensions:blockSize
 								  hAlignment:horizAlign
 								  vAlignment:vertAlign
-                                    fontName:@"Marker Felt"
-                                    fontSize:32];
+				  ];
     self.label.anchorPoint = ccp(0,0);
     self.label.position = ccp((s.width - blockSize.width) / 2, (s.height - blockSize.height)/2 );
     
@@ -1436,6 +1499,91 @@ static float menuItemPaddingCenter = 50;
 
 @end
 
+
+
+#pragma mark -
+#pragma mark LabelTTFShadowStroke
+
+@implementation LabelTTFShadowStroke
+-(id) init
+{
+	if( (self=[super init]) ) {
+        
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        
+        CCLayerColor *layer = [CCLayerColor layerWithColor:ccc4(0,190,0,255) width:s.width height:s.height];
+        [self addChild:layer];
+        
+        CCFontDefinition *tempDefinition = [[CCFontDefinition alloc]initWithFontName:@"Helvetica" fontSize:32];
+        
+        tempDefinition.dimensions    = CGSizeMake(0,0);
+		tempDefinition.alignment     = kCCTextAlignmentRight;
+        tempDefinition.vertAlignment = kCCVerticalTextAlignmentTop;
+        tempDefinition.lineBreakMode = kCCLineBreakModeWordWrap;
+        
+        // shadow
+        CGSize shadowOffset;
+        shadowOffset.width  = 7;
+        shadowOffset.height = 7;
+        [tempDefinition enableShadow:true];
+        [tempDefinition setShadowBlur: 1.0];
+        [tempDefinition setShadowOffset:shadowOffset];
+        
+        // stroke
+        ccColor3B strokeColor;
+        strokeColor.r = 0;
+        strokeColor.g = 0;
+        strokeColor.b = 255;
+        [tempDefinition enableStroke:true];
+        [tempDefinition setStrokeColor:strokeColor];
+        [tempDefinition setStrokeSize:1];
+       
+        // fill color
+        ccColor3B fillColor;
+        fillColor.r = 255;
+        fillColor.g = 0;
+        fillColor.b = 0;
+        tempDefinition.fontFillColor = fillColor;
+        
+        [tempDefinition enableStroke:false];
+        
+        CCLabelTTF *shadowLabel =[CCLabelTTF labelWithString:@"Test Shadow" fontDefinition:tempDefinition];
+		shadowLabel.position = ccp(s.width/2,s.height/2 );
+		[self addChild:shadowLabel];
+        
+        [tempDefinition enableStroke:true];
+        [tempDefinition enableShadow:false];
+        CCLabelTTF *strokeLabel =[CCLabelTTF labelWithString:@"Test Stroke" fontDefinition:tempDefinition];
+		strokeLabel.position = ccp(s.width/2,s.height/2 +50);
+		[self addChild:strokeLabel];
+        
+        [tempDefinition enableStroke:true];
+        [tempDefinition enableShadow:true];
+        CCLabelTTF *strokeAndShadowLable =[CCLabelTTF labelWithString:@"Test shadow + stroke" fontDefinition:tempDefinition];
+		strokeAndShadowLable.position = ccp(s.width/2,s.height/2 -50);
+		[self addChild:strokeAndShadowLable];
+        
+        // we don't need this anymore
+        [tempDefinition release];
+	}
+    
+	return self;
+}
+
+-(NSString*) title
+{
+	return @"Testing CCLabelTTF Shadow Stroke";
+}
+
+-(NSString *) subtitle
+{
+	return @"";
+}
+@end
+
+
+
+
 #pragma mark -
 #pragma mark LabelTTFMultiline
 
@@ -1449,7 +1597,13 @@ static float menuItemPaddingCenter = 50;
 		// CCLabelBMFont
 //		CCLabelTTF *center =  [[CCLabelTTF alloc] initWithString:@"Bla bla bla bla bla bla bla bla bla bla bla (bla)" dimensions:CGSizeMake(150,84) alignment:UITextAlignmentLeft fontName: @"MarkerFelt.ttc" fontSize: 14];
 
-		CCLabelTTF *center = [CCLabelTTF labelWithString:@"word wrap \"testing\" (bla0) bla1 'bla2' [bla3] (bla4) {bla5} {bla6} [bla7] (bla8) [bla9] 'bla0' \"bla1\"" dimensions:CGSizeMake(s.width/2,200) hAlignment:kCCTextAlignmentCenter vAlignment:kCCVerticalTextAlignmentTop fontName:@"Paint Boy" fontSize:32];
+		CCLabelTTF *center = [CCLabelTTF labelWithString:@"word wrap \"testing\" (bla0) bla1 'bla2' [bla3] (bla4) {bla5} {bla6} [bla7] (bla8) [bla9] 'bla0' \"bla1\""
+												fontName:@"Paint Boy"
+												fontSize:32
+											  dimensions:CGSizeMake(s.width/2,200)
+											  hAlignment:kCCTextAlignmentCenter
+											  vAlignment:kCCVerticalTextAlignmentTop
+							  ];
 		center.position = ccp(s.width/2,150);
 
 		[self addChild:center];
@@ -1552,46 +1706,50 @@ static float menuItemPaddingCenter = 50;
 		CGSize s = [[CCDirector sharedDirector] winSize];
 
 		CCLabelTTF *wordwrap = [CCLabelTTF labelWithString:@"Testing line wordwrap mode mode mode mode"
+												  fontName:@"Marker Felt"
+												  fontSize:16
 												dimensions:CGSizeMake(s.width/4,40)
 												hAlignment:kCCTextAlignmentCenter
 												vAlignment:kCCVerticalTextAlignmentTop
 											 lineBreakMode:kCCLineBreakModeWordWrap
-												  fontName:@"Marker Felt"
-												  fontSize:16];
+								];
 		wordwrap.position = ccp(s.width/2,60);
 
 		[self addChild:wordwrap];
 
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"A really long line of text that is longer than the width of the label"
+											   fontName:@"Impact"
+											   fontSize:14
 											 dimensions:CGSizeMake(280, 60)
 											 hAlignment:kCCTextAlignmentCenter
 											 vAlignment:kCCVerticalTextAlignmentTop
-											   fontName:@"Impact"
-											   fontSize:14];
+							 ];
 		label.position = ccp(s.width/2,90);
 		[self addChild:label];
 
 #ifdef __CC_PLATFORM_IOS
 
 		CCLabelTTF *charwrap = [CCLabelTTF labelWithString:@"Testing line character wrap mode mode mode mode"
+												  fontName:@"Marker Felt"
+												  fontSize:16
 												dimensions:CGSizeMake(s.width/4,40)
 												hAlignment:kCCTextAlignmentCenter
 												vAlignment:kCCVerticalTextAlignmentTop
 											 lineBreakMode:kCCLineBreakModeCharacterWrap
-												  fontName:@"Marker Felt"
-												  fontSize:16];
+								];
 		charwrap.position = ccp(s.width/2,140);
 
 		[self addChild:charwrap];
 
 
 		CCLabelTTF *clip = [CCLabelTTF labelWithString:@"Testing line clip clip clip mode mode mode mode"
+											  fontName:@"Marker Felt"
+											  fontSize:16
 											dimensions:CGSizeMake(s.width/4,40)
 											hAlignment:kCCTextAlignmentCenter
 											vAlignment:kCCVerticalTextAlignmentTop
 										 lineBreakMode:kCCLineBreakModeClip
-											  fontName:@"Marker Felt"
-											  fontSize:16];
+							];
 		clip.position = ccp(s.width/2,200);
 
 		[self addChild:clip];
@@ -1825,16 +1983,22 @@ static float menuItemPaddingCenter = 50;
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
-	// create the main scene
-	CCScene *scene = [CCScene node];
-	[scene addChild: [nextAction() node]];
-
-
-	// and run it!
-	[director_ pushScene: scene];
-
 	return YES;
 }
+
+// This is needed for iOS4 and iOS5 in order to ensure
+// that the 1st scene has the correct dimensions
+// This is not needed on iOS6 and could be added to the application:didFinish...
+-(void) directorDidReshapeProjection:(CCDirector*)director
+{
+	if(director.runningScene == nil){
+		// Add the first scene to the stack. The director will draw it immediately into the framebuffer. (Animation is started automatically when the view is displayed.)
+		CCScene *scene = [CCScene node];
+		[scene addChild: [nextAction() node]];
+		[director runWithScene: scene];
+	}
+}
+
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);

@@ -12,6 +12,8 @@ static NSString *transitions[] = {
 				@"SpriteEaseInOut",
 				@"SpriteEaseExponential",
 				@"SpriteEaseExponentialInOut",
+                @"SpriteEasePolynomial",
+                @"SpriteEasePolynomialInOut",
 				@"SpriteEaseSine",
 				@"SpriteEaseSineInOut",
 				@"SpriteEaseElastic",
@@ -383,6 +385,78 @@ Class restartAction()
 }
 @end
 
+#pragma mark SpriteEasePolynomial
+
+@implementation SpriteEasePolynomial
+-(void) onEnter
+{
+	[super onEnter];
+    
+	CGSize s = [[CCDirector sharedDirector] winSize];
+    
+	id move = [CCMoveBy actionWithDuration:3 position:ccp(s.width-130,0)];
+
+	CCEasePolynomialIn *move_ease_in_order_3 = [CCEasePolynomialIn actionWithAction:[[move copy] autorelease]];
+    move_ease_in_order_3.polynomialOrder = 3;
+	id move_ease_in_back_order_3 = [move_ease_in_order_3 reverse];
+    
+	id move_ease_in_order_6 = [CCEasePolynomialIn actionWithAction:[[move copy] autorelease]];
+	id move_ease_in_back_order_6 = [move_ease_in_order_6 reverse];
+    
+	CCEasePolynomialIn *move_ease_in_order_9 = [CCEasePolynomialIn actionWithAction:[[move copy] autorelease]];
+    move_ease_in_order_9.polynomialOrder = 9;
+	id move_ease_in_back_order_9 = [move_ease_in_order_9 reverse];
+    
+	id delay = [CCDelayTime actionWithDuration:0.25f];
+    
+	id seq1 = [CCSequence actions: move_ease_in_order_3, CCCA(delay), move_ease_in_back_order_9, CCCA(delay), nil];
+	id seq2 = [CCSequence actions: move_ease_in_order_6, CCCA(delay), move_ease_in_back_order_6, CCCA(delay), nil];
+	id seq3 = [CCSequence actions: move_ease_in_order_9, CCCA(delay), move_ease_in_back_order_3, CCCA(delay), nil];
+    
+    
+	[grossini runAction: [CCRepeatForever actionWithAction:seq1]];
+	[tamara runAction: [CCRepeatForever actionWithAction:seq2]];
+	[kathia runAction: [CCRepeatForever actionWithAction:seq3]];
+}
+-(NSString *) title
+{
+	return @"PolyIn - PolyOut actions with orders 3, 6 and 9";
+}
+@end
+
+#pragma mark SpriteEasePolynomialInOut
+
+@implementation SpriteEasePolynomialInOut
+-(void) onEnter
+{
+	[super onEnter];
+    
+	CGSize s = [[CCDirector sharedDirector] winSize];
+    
+	id move = [CCMoveBy actionWithDuration:3 position:ccp(s.width-130,0)];
+	id move_back = [move reverse];
+    
+	CCEasePolynomialInOut *move_ease = [CCEasePolynomialInOut actionWithAction:[[move copy] autorelease]];
+    move_ease.polynomialOrder = 4;
+	id move_ease_back = [move_ease reverse];
+    
+	id delay = [CCDelayTime actionWithDuration:0.25f];
+    
+	id seq1 = [CCSequence actions: move, delay, move_back, CCCA(delay), nil];
+	id seq2 = [CCSequence actions: move_ease, CCCA(delay), move_ease_back, CCCA(delay), nil];
+    
+    
+	[self positionForTwo];
+    
+	[grossini runAction: [CCRepeatForever actionWithAction:seq1]];
+	[tamara runAction: [CCRepeatForever actionWithAction:seq2]];
+}
+-(NSString *) title
+{
+	return @"PolynomialInOut action with order 4";
+}
+@end
+
 #pragma mark SpriteEaseElasticInOut
 
 @implementation SpriteEaseElasticInOut
@@ -619,13 +693,13 @@ Class restartAction()
 
 -(void) altertime:(ccTime)dt
 {
-	id action1 = [grossini getActionByTag:kTagAction1];
-	id action2 = [tamara getActionByTag:kTagAction1];
-	id action3 = [kathia getActionByTag:kTagAction1];
+	CCSpeed *action1 = (CCSpeed*)[grossini getActionByTag:kTagAction1];
+	CCSpeed *action2 = (CCSpeed*)[tamara getActionByTag:kTagAction1];
+	CCSpeed *action3 = (CCSpeed*)[kathia getActionByTag:kTagAction1];
 
-	[action1 setSpeed: CCRANDOM_0_1() * 2];
-	[action2 setSpeed: CCRANDOM_0_1() * 2];
-	[action3 setSpeed: CCRANDOM_0_1() * 2];
+	[action1 setSpeed: CCRANDOM_MINUS1_1() * 2];
+	[action2 setSpeed: CCRANDOM_MINUS1_1() * 2];
+	[action3 setSpeed: CCRANDOM_MINUS1_1() * 2];
 
 }
 
@@ -665,12 +739,17 @@ Class restartAction()
 	[sharedFileUtils setiPadSuffix:@"-ipad"];					// Default on iPad is "ipad"
 	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];	// Default on iPad RetinaDisplay is "-ipadhd"
 
-	CCScene *scene = [CCScene node];
-	[scene addChild: [nextAction() node]];
-
-	[director_ pushScene: scene];
-
 	return YES;
+}
+
+-(void) directorDidReshapeProjection:(CCDirector*)director
+{
+	if(director.runningScene == nil){
+		// Add the first scene to the stack. The director will draw it immediately into the framebuffer. (Animation is started automatically when the view is displayed.)
+		CCScene *scene = [CCScene node];
+		[scene addChild: [nextAction() node]];
+		[director runWithScene: scene];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

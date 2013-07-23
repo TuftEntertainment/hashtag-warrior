@@ -99,6 +99,12 @@
 }
 @end
 
+@interface LabelBMFontBounds : AtlasDemo
+{
+    CCLabelBMFont *label1;
+}
+@end
+
 @interface LabelGlyphDesigner : AtlasDemo
 {
 }
@@ -150,6 +156,11 @@
 @end
 
 @interface TTFFontInit : AtlasDemo
+{
+}
+@end
+
+@interface LabelTTFShadowStroke : AtlasDemo
 {
 }
 @end

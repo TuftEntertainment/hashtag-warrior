@@ -23,38 +23,37 @@
 
 //MARK: Post Step Callback Functions
 
-typedef struct cpPostStepCallback {
-	cpPostStepFunc func;
-	void *key;
-	void *data;
-} cpPostStepCallback;
-
-void *
-cpSpaceGetPostStepData(cpSpace *space, void *key)
+cpPostStepCallback *
+cpSpaceGetPostStepCallback(cpSpace *space, void *key)
 {
 	cpArray *arr = space->postStepCallbacks;
 	for(int i=0; i<arr->num; i++){
 		cpPostStepCallback *callback = (cpPostStepCallback *)arr->arr[i];
-		if(callback->key == key) return callback->data;
+		if(callback && callback->key == key) return callback;
 	}
 	
 	return NULL;
 }
 
-void
+static void PostStepDoNothing(cpSpace *space, void *obj, void *data){}
+
+cpBool
 cpSpaceAddPostStepCallback(cpSpace *space, cpPostStepFunc func, void *key, void *data)
 {
 	cpAssertWarn(space->locked,
 		"Adding a post-step callback when the space is not locked is unnecessary. "
 		"Post-step callbacks will not called until the end of the next call to cpSpaceStep() or the next query.");
 	
-	if(!cpSpaceGetPostStepData(space, key)){
+	if(!cpSpaceGetPostStepCallback(space, key)){
 		cpPostStepCallback *callback = (cpPostStepCallback *)cpcalloc(1, sizeof(cpPostStepCallback));
-		callback->func = func;
+		callback->func = (func ? func : PostStepDoNothing);
 		callback->key = key;
 		callback->data = data;
 		
 		cpArrayPush(space->postStepCallbacks, callback);
+		return cpTrue;
+	} else {
+		return cpFalse;
 	}
 }
 
@@ -72,31 +71,36 @@ cpSpaceUnlock(cpSpace *space, cpBool runPostStep)
 	space->locked--;
 	cpAssertHard(space->locked >= 0, "Internal Error: Space lock underflow.");
 	
-	if(space->locked == 0 && runPostStep && !space->skipPostStep){
-		space->skipPostStep = cpTrue;
-		
+	if(space->locked == 0){
 		cpArray *waking = space->rousedBodies;
+		
 		for(int i=0, count=waking->num; i<count; i++){
 			cpSpaceActivateBody(space, (cpBody *)waking->arr[i]);
 			waking->arr[i] = NULL;
 		}
 		
-		cpArray *arr = space->postStepCallbacks;
-		for(int i=0; i<arr->num; i++){
-			cpPostStepCallback *callback = (cpPostStepCallback *)arr->arr[i];
-			cpPostStepFunc func = callback->func;
-			
-			// Mark the func as NULL in case calling it calls cpSpaceRunPostStepCallbacks() again.
-			callback->func = NULL;
-			if(func) func(space, callback->key, callback->data);
-			
-			arr->arr[i] = NULL;
-			cpfree(callback);
-		}
-		
 		waking->num = 0;
-		arr->num = 0;
-		space->skipPostStep = cpFalse;
+		
+		if(space->locked == 0 && runPostStep && !space->skipPostStep){
+			space->skipPostStep = cpTrue;
+			
+			cpArray *arr = space->postStepCallbacks;
+			for(int i=0; i<arr->num; i++){
+				cpPostStepCallback *callback = (cpPostStepCallback *)arr->arr[i];
+				cpPostStepFunc func = callback->func;
+				
+				// Mark the func as NULL in case calling it calls cpSpaceRunPostStepCallbacks() again.
+				// TODO need more tests around this case I think.
+				callback->func = NULL;
+				if(func) func(space, callback->key, callback->data);
+				
+				arr->arr[i] = NULL;
+				cpfree(callback);
+			}
+			
+			arr->num = 0;
+			space->skipPostStep = cpFalse;
+		}
 	}
 }
 
@@ -409,7 +413,7 @@ cpSpaceStep(cpSpace *space, cpFloat dt)
 				
 			for(int j=0; j<constraints->num; j++){
 				cpConstraint *constraint = (cpConstraint *)constraints->arr[j];
-				constraint->klass->applyImpulse(constraint);
+				constraint->klass->applyImpulse(constraint, dt);
 			}
 		}
 		
