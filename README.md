@@ -12,14 +12,14 @@ In order to achieve some consistency, themes should be in the below format.
  
 <pre>
 ThemeName
-    ├── backgrounds
+    ├── Backgrounds
     │   ├── mainmenu.psd
     │   ├── game.psd
     |   └── (etc)
-    ├── fonts
+    ├── Fonts
     │   ├── font1.GlyphProject
     |   └── (etc)   
-    ├── sprites
+    ├── Sprites
     │   ├── ball.psd
     |   ├── hero.psd
     │   └── (etc)
@@ -30,9 +30,9 @@ The exception to this being the Generic folder which contains unthemeable items.
 
 <pre>
 Generic
-    ├── logo
+    ├── Logo
     |   └── logo.psd
-    └── splashscreen
+    └── Splashscreen
         └── splashscreen.psd
 </pre>
  
