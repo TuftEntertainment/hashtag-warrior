@@ -16,32 +16,26 @@
 
 @implementation GameManager
 
-static GameManager* _sharedGameManager = nil;
+static GameManager* sharedInstance = nil;
 
-@synthesize currentScene;
+@synthesize _currentScene;
 
 +(GameManager*)sharedGameManager
 {
-    @synchronized([GameManager class])
-    {
-        if(!_sharedGameManager) {
-            [[self alloc] init];
-        }
-        return _sharedGameManager;
-    }
-    return nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[GameManager alloc] init];
+    });
+    return sharedInstance;
 }
 
-+(id)alloc
+-(id)init
 {
-    @synchronized ([GameManager class])
-    {
-        NSAssert(_sharedGameManager == nil,
-                 @"Attempted to allocate a second instance of the Game Manager singleton");
-        _sharedGameManager = [super alloc];
-        return _sharedGameManager;
+    self = [super init];
+    if (self != nil) {
+        _currentScene = kHWNoScene;
     }
-    return nil;
+    return self;
 }
 
 - (NSString*)formatSceneTypeToString:(SceneTypes)sceneID
@@ -75,19 +69,10 @@ static GameManager* _sharedGameManager = nil;
     return result;
 }
 
--(id)init
-{
-    self = [super init];
-    if (self != nil) {
-        currentScene = kHWNoScene;
-    }
-    return self;
-}
-
 -(void)runSceneWithID:(SceneTypes)sceneID
 {
-    SceneTypes oldScene = currentScene;
-    currentScene = sceneID;
+    SceneTypes oldScene = _currentScene;
+    _currentScene = sceneID;
     
     id sceneToRun = nil;
     switch (sceneID) {
@@ -118,7 +103,7 @@ static GameManager* _sharedGameManager = nil;
     
     if (sceneToRun == nil) {
         // Unknown scene, go back to previous
-        currentScene = oldScene;
+        _currentScene = oldScene;
         return;
     }
     

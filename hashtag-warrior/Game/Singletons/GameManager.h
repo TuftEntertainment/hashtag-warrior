@@ -17,10 +17,10 @@
 #import "CommonProtocols.h"
 
 @interface GameManager : NSObject {
-    SceneTypes currentScene;
+    SceneTypes _currentScene;
 }
 
-@property (assign) SceneTypes currentScene;
+@property (assign) SceneTypes _currentScene;
 
 +(GameManager*)sharedGameManager;
 -(void)runSceneWithID:(SceneTypes)sceneID;
