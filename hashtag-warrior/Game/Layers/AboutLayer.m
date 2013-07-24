@@ -29,14 +29,14 @@
         posY -= 80;
         
         CCLabelTTF *blurb = [CCLabelTTF labelWithString:NSLocalizedString(@"About Blurb", nil)
-                                        fontName:kHWTextBodyFamily
+                                        fontName:@"Arial"
                                         fontSize:18];
         blurb.position = ccp(size.width/2, posY);
         blurb.color = kHWTextColor;
         posY -= 80;
         
         CCLabelTTF *credits = [CCLabelTTF labelWithString:NSLocalizedString(@"About Credits", nil)
-                                          fontName:kHWTextBodyFamily
+                                          fontName:@"Arial"
                                           fontSize:14];
         credits.position = ccp(size.width/2, posY);
         credits.color = kHWTextColor;

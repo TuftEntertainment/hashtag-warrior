@@ -15,7 +15,7 @@
 {
     GameState *_state;
     
-    CCLabelTTF *_score;
+    CCLabelBMFont *_score;
 }
 
 @end

@@ -42,6 +42,12 @@
 		9F12ED8E1742D03600CFD000 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F12ED1F1742CFC800CFD000 /* libbox2d.a */; };
 		9F12ED8F1742D03600CFD000 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F12ED231742CFC800CFD000 /* libcocos2d.a */; };
 		9F12ED911742D48600CFD000 /* GameState.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F7C1D7816AC22340039EA64 /* GameState.h */; };
+		9F257F6817A057E60096CA03 /* Arial12-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9F257F6217A057E60096CA03 /* Arial12-hd.fnt */; };
+		9F257F6917A057E60096CA03 /* Arial12-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F257F6317A057E60096CA03 /* Arial12-hd.png */; };
+		9F257F6A17A057E60096CA03 /* Arial12-ipad.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9F257F6417A057E60096CA03 /* Arial12-ipad.fnt */; };
+		9F257F6B17A057E60096CA03 /* Arial12-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F257F6517A057E60096CA03 /* Arial12-ipad.png */; };
+		9F257F6C17A057E60096CA03 /* Arial12-ipadhd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9F257F6617A057E60096CA03 /* Arial12-ipadhd.fnt */; };
+		9F257F6D17A057E60096CA03 /* Arial12-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F257F6717A057E60096CA03 /* Arial12-ipadhd.png */; };
 		9F26C13D1742DF7400CF0956 /* Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F26C1341742DF7400CF0956 /* Tweet.h */; };
 		9F26C13E1742DF7400CF0956 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F26C1351742DF7400CF0956 /* Tweet.m */; };
 		9F26C13F1742DF7400CF0956 /* TwitterManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F26C1361742DF7400CF0956 /* TwitterManager.h */; };
@@ -60,6 +66,8 @@
 		9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE1116AAC9B2001BE137 /* IntroScene.m */; };
 		9F5D096216AA13B700600AD2 /* GameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F5D096116AA13B700600AD2 /* GameOverLayer.mm */; };
 		9F5FA24816D2D21500B1985F /* HeroContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */; };
+		9F612519179F118400BC6201 /* Arial12.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9F612517179F118400BC6201 /* Arial12.fnt */; };
+		9F61251A179F118400BC6201 /* Arial12.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F612518179F118400BC6201 /* Arial12.png */; };
 		9F63943C16AC2D6F00BAA9CF /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */; };
 		9F63944016AC2F8F00BAA9CF /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.m */; };
 		9F6B14B317456867001481B7 /* Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6B14B217456867001481B7 /* Queue.h */; };
@@ -232,6 +240,12 @@
 		9F0EF90F16B872450007E929 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F0EF91016B872480007E929 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F12ECE01742CFC700CFD000 /* cocos2d-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-ios.xcodeproj"; path = "libs/cocos2d/cocos2d-ios.xcodeproj"; sourceTree = "<group>"; };
+		9F257F6217A057E60096CA03 /* Arial12-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Arial12-hd.fnt"; path = "Fonts/Arial12-hd.fnt"; sourceTree = "<group>"; };
+		9F257F6317A057E60096CA03 /* Arial12-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Arial12-hd.png"; path = "Fonts/Arial12-hd.png"; sourceTree = "<group>"; };
+		9F257F6417A057E60096CA03 /* Arial12-ipad.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Arial12-ipad.fnt"; path = "Fonts/Arial12-ipad.fnt"; sourceTree = "<group>"; };
+		9F257F6517A057E60096CA03 /* Arial12-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Arial12-ipad.png"; path = "Fonts/Arial12-ipad.png"; sourceTree = "<group>"; };
+		9F257F6617A057E60096CA03 /* Arial12-ipadhd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Arial12-ipadhd.fnt"; path = "Fonts/Arial12-ipadhd.fnt"; sourceTree = "<group>"; };
+		9F257F6717A057E60096CA03 /* Arial12-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Arial12-ipadhd.png"; path = "Fonts/Arial12-ipadhd.png"; sourceTree = "<group>"; };
 		9F26C1341742DF7400CF0956 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Twitter/API/Tweet.h; sourceTree = "<group>"; };
 		9F26C1351742DF7400CF0956 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Twitter/API/Tweet.m; sourceTree = "<group>"; };
 		9F26C1361742DF7400CF0956 /* TwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterManager.h; path = Twitter/API/TwitterManager.h; sourceTree = "<group>"; };
@@ -255,6 +269,8 @@
 		9F5D096116AA13B700600AD2 /* GameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameOverLayer.mm; sourceTree = "<group>"; };
 		9F5FA24616D2D1FC00B1985F /* HeroContactListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HeroContactListener.h; path = Utils/HeroContactListener.h; sourceTree = "<group>"; };
 		9F5FA24716D2D21500B1985F /* HeroContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroContactListener.cpp; path = Utils/HeroContactListener.cpp; sourceTree = "<group>"; };
+		9F612517179F118400BC6201 /* Arial12.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Arial12.fnt; path = Fonts/Arial12.fnt; sourceTree = "<group>"; };
+		9F612518179F118400BC6201 /* Arial12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Arial12.png; path = Fonts/Arial12.png; sourceTree = "<group>"; };
 		9F63943A16AC2D6F00BAA9CF /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		9F63943E16AC2F8F00BAA9CF /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
@@ -559,6 +575,7 @@
 		9FD9BD2C16A3735100DBEB88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9FDA32481799CB680047E510 /* Fonts */,
 				37216DFB1737F12000840D6F /* atlas-ipad.png */,
 				37216DFC1737F12000840D6F /* atlas-ipadhd.png */,
 				37216DFD1737F12000840D6F /* atlas.png */,
@@ -594,6 +611,21 @@
 				9F12ECDF1742CFBA00CFD000 /* cocos2d */,
 			);
 			name = libs;
+			sourceTree = "<group>";
+		};
+		9FDA32481799CB680047E510 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9F612517179F118400BC6201 /* Arial12.fnt */,
+				9F612518179F118400BC6201 /* Arial12.png */,
+				9F257F6217A057E60096CA03 /* Arial12-hd.fnt */,
+				9F257F6317A057E60096CA03 /* Arial12-hd.png */,
+				9F257F6417A057E60096CA03 /* Arial12-ipad.fnt */,
+				9F257F6517A057E60096CA03 /* Arial12-ipad.png */,
+				9F257F6617A057E60096CA03 /* Arial12-ipadhd.fnt */,
+				9F257F6717A057E60096CA03 /* Arial12-ipadhd.png */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		9FFEE43916B595000033E140 /* AccelerometerSimulation */ = {
@@ -800,6 +832,14 @@
 				37216E011737F12000840D6F /* atlas.png in Resources */,
 				37216E021737F12000840D6F /* atlas-hd.png in Resources */,
 				37216E041737FAB700840D6F /* Hero.plist in Resources */,
+				9F612519179F118400BC6201 /* Arial12.fnt in Resources */,
+				9F61251A179F118400BC6201 /* Arial12.png in Resources */,
+				9F257F6817A057E60096CA03 /* Arial12-hd.fnt in Resources */,
+				9F257F6917A057E60096CA03 /* Arial12-hd.png in Resources */,
+				9F257F6A17A057E60096CA03 /* Arial12-ipad.fnt in Resources */,
+				9F257F6B17A057E60096CA03 /* Arial12-ipad.png in Resources */,
+				9F257F6C17A057E60096CA03 /* Arial12-ipadhd.fnt in Resources */,
+				9F257F6D17A057E60096CA03 /* Arial12-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

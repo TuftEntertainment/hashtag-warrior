@@ -19,14 +19,12 @@
         _state = [GameState sharedInstance];
         
         // Create and initialize a label for the title.
-        CCLabelTTF *hashtag = [CCLabelTTF labelWithString:_state._hashtag
-                                               fontName:kHWTextBodyFamily
-                                               fontSize:12];
+        CCLabelBMFont *hashtag = [CCLabelBMFont labelWithString:_state._hashtag
+                                                        fntFile:kHWTextBodyFamily];
         hashtag.color = kHWTextColor;
         
-        _score = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %d", _state._score]
-                                    fontName:kHWTextBodyFamily
-                                    fontSize:12];
+        _score = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"Score: %d", _state._score]
+                                        fntFile:kHWTextBodyFamily];
         _score.color = kHWTextColor;
         
         // Position the labels atop the screen

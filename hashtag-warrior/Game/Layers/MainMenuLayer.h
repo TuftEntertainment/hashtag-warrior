@@ -16,7 +16,7 @@
 @interface MainMenuLayer : CCLayer
 {
     TweetEmitter* _tweetEmitter;
-    CCLabelTTF* _tweet;
+    CCLabelBMFont* _tweet;
 }
 
 - (void)newTweet:(Tweet*)tweet;

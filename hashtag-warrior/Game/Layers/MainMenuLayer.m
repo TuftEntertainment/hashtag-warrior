@@ -64,16 +64,14 @@
     
     // Make a label.
     CGSize size = [[CCDirector sharedDirector] winSize];
-    _tweet = [CCLabelTTF labelWithString:@"#Warrior"
-                              dimensions:CGSizeMake(size.width, 50)
-                               alignment:CCTextAlignmentCenter
-                                fontName:kHWTextBodyFamily
-                                fontSize:12];
-    
+    _tweet = [CCLabelBMFont labelWithString:@"#Warrior"
+                                    fntFile:kHWTextBodyFamily
+                                      width:size.width
+                                  alignment:kCCTextAlignmentCenter];
     _tweet.color = kHWTextColor;
     
     // Add the label to the layer.
-    _tweet.position = ccp(size.width/2, [_tweet boundingBox].size.height-20);
+    _tweet.position = ccp(size.width/2, [_tweet boundingBox].size.height);
     [self addChild: _tweet];
 }
 

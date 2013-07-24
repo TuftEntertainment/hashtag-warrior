@@ -13,7 +13,7 @@
 #define kHWBackgroundColor ccc4(142, 193, 218, 255)
 #define kHWTextColor ccc3(8, 90, 124);
 #define kHWTextHeadingFamily @"Marker Felt"
-#define kHWTextBodyFamily @"Arial"
+#define kHWTextBodyFamily @"Arial12.fnt"
 
 // Define macros to position items according to percentages on screen
 #define PCT_FROM_TOP(__f__)\
