@@ -90,9 +90,9 @@
                     {
                         // Parse the JSON from the response.
                         NSError *jsonError;
-                        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData
-                                                                             options:NSJSONReadingAllowFragments
-                                                                               error:&jsonError];
+                        NSData *json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                       options:NSJSONReadingAllowFragments
+                                                                         error:&jsonError];
                         
                         // Ensure the JSON deserialised correctly.
                         if ( json )
