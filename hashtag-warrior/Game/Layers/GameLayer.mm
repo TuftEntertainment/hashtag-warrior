@@ -20,7 +20,7 @@
 {
     if ((self=[super init]))
     {
-        self.isAccelerometerEnabled = YES;
+        self.AccelerometerEnabled = YES;
         
         _state = [GameState sharedInstance];
         CGSize windowSize = [[CCDirector sharedDirector] winSize];
