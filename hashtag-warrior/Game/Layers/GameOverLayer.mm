@@ -42,8 +42,16 @@
                                                fontName:kHWTextHeadingFamily
                                                fontSize:64];
         title.color = kHWTextColor;
-        title.position = ccp(size.width/2 , size.height/2);
+        title.position = ccp(size.width/2, (size.height/2)+100);
         [self addChild: title];
+        
+        // Show score
+        CCLabelTTF *score = [CCLabelTTF labelWithString:[NSString stringWithFormat:NSLocalizedString(@"You scored", nil), [GameState sharedInstance]._score, [GameState sharedInstance]._hashtag]
+                                               fontName:kHWTextHeadingFamily
+                                               fontSize:24];
+        score.color = kHWTextColor;
+        score.position = ccp(size.width/2, size.height/2);
+        [self addChild: score];
         
         // Create menu
         CCMenuItemLabel *playAgain = [CCMenuItemFont itemWithString:NSLocalizedString(@"Play again", nil) block:^(id sender)
@@ -88,7 +96,7 @@
                                      }];
         shareIt.color = kHWTextColor;
         CCMenu *menu = [CCMenu menuWithItems:playAgain, mainMenu, shareIt, nil];
-        [menu alignItemsHorizontally];
+        [menu alignItemsHorizontallyWithPadding:25.0f];
         menu.position = ccp(size.width/2, size.height - 200);
         [self addChild: menu];
     }

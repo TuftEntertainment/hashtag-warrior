@@ -11,6 +11,7 @@
 "About" = "About";
 "Dismiss" = "Dismiss";
 "Game Over" = "Game Over";
+"You scored" = "You scored %i against #%s!";
 "Glory Tweet" = "I just scored %i against %@ in #Warrior! Think you can do better?";
 "Main Menu" = "Main Menu";
 "New Game" = "New Game";
