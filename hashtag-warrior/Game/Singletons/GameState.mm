@@ -31,6 +31,7 @@
 @synthesize _score;
 @synthesize _hashtag;
 @synthesize _gravity;
+@synthesize _practice;
 
 +(GameState*)sharedInstance
 {
@@ -49,6 +50,7 @@
         self._score = 0;
         self._hashtag = @"#Warrior";
         self._gravity = b2Vec2(0.0f, -10.0f);
+        self._practice = TRUE;
     }
     
     return self;
@@ -58,6 +60,7 @@
 {
     [coder encodeInt:self._score forKey:@"_score"];
     [coder encodeObject:self._hashtag forKey:@"_hashtag"];
+    [coder encodeBool:self._practice forKey:@"_practice"];
 }
 
 -(id)initWithCoder:(NSCoder *)coder
@@ -68,6 +71,7 @@
     {
         self._score = [coder decodeIntForKey:@"_score"];
         self._hashtag = [coder decodeObjectForKey:@"_hashtag"];
+        self._practice = [coder decodeBoolForKey:@"_practice"];
     }
     
     return self;

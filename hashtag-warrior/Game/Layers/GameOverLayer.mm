@@ -46,7 +46,15 @@
         [self addChild: title];
         
         // Show score
-        CCLabelTTF *score = [CCLabelTTF labelWithString:[NSString stringWithFormat:NSLocalizedString(@"You scored", nil), [GameState sharedInstance]._score, [GameState sharedInstance]._hashtag]
+        NSString *youScored;
+        if([[GameState sharedInstance] _practice]) {
+            youScored = [NSString stringWithFormat:NSLocalizedString(@"You scored practice", nil), [GameState sharedInstance]._score];
+            
+        } else {
+            youScored = [NSString stringWithFormat:NSLocalizedString(@"You scored", nil), [GameState sharedInstance]._score, [GameState sharedInstance]._hashtag];
+        }
+        
+        CCLabelTTF *score = [CCLabelTTF labelWithString:youScored
                                                fontName:kHWTextHeadingFamily
                                                fontSize:24];
         score.color = kHWTextColor;
@@ -95,9 +103,15 @@
                                          }
                                      }];
         shareIt.color = kHWTextColor;
-        CCMenu *menu = [CCMenu menuWithItems:playAgain, mainMenu, shareIt, nil];
+        CCMenu *menu = [CCMenu menuWithItems:playAgain, mainMenu, nil];
+        
+        // Only add the share button if not in practice mode
+        if(![[GameState sharedInstance] _practice]) {
+            [menu addChild: shareIt];
+        }
+        
         [menu alignItemsHorizontallyWithPadding:25.0f];
-        menu.position = ccp(size.width/2, size.height - 200);
+        menu.position = ccp(size.width/2, size.height - 250);
         [self addChild: menu];
     }
     return self;

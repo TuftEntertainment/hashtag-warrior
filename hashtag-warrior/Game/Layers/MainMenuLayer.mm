@@ -27,6 +27,7 @@
 #import "MainMenuLayer.h"
 #import "Constants.h"
 #import "GameManager.h"
+#import "GameState.h"
 
 
 @implementation MainMenuLayer
@@ -49,7 +50,11 @@
     // Menu items
     CCMenuItemLabel *newGame = [CCMenuItemFont itemWithString:NSLocalizedString(@"New Game", nil) block:^(id sender)
     {
-        [[GameManager sharedGameManager] runSceneWithID:kHWChooseHashtagScene];
+        if([[GameState sharedInstance] _practice]) {
+            [[GameManager sharedGameManager] runSceneWithID:kHWGameScene];
+        } else {
+            [[GameManager sharedGameManager] runSceneWithID:kHWChooseHashtagScene];
+        }
     }];
     newGame.color = kHWTextColor;
     CCMenuItemLabel *about = [CCMenuItemFont itemWithString:NSLocalizedString(@"About", nil) block:^(id aboutSender)

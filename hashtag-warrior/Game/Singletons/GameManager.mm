@@ -50,9 +50,11 @@ static GameManager* sharedInstance = nil;
 -(id)init
 {
     self = [super init];
+    
     if (self != nil) {
         _currentScene = kHWNoScene;
     }
+    
     return self;
 }
 

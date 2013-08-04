@@ -69,7 +69,7 @@
 		9F612519179F118400BC6201 /* Arial12.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9F612517179F118400BC6201 /* Arial12.fnt */; };
 		9F61251A179F118400BC6201 /* Arial12.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F612518179F118400BC6201 /* Arial12.png */; };
 		9F63943C16AC2D6F00BAA9CF /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */; };
-		9F63944016AC2F8F00BAA9CF /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.m */; };
+		9F63944016AC2F8F00BAA9CF /* MainMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.mm */; };
 		9F6B14B317456867001481B7 /* Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6B14B217456867001481B7 /* Queue.h */; };
 		9F6B14EE17456873001481B7 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B14ED17456873001481B7 /* Queue.m */; };
 		9F79C68616A9DA680040F204 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F79C68516A9DA680040F204 /* GameLayer.mm */; };
@@ -274,7 +274,7 @@
 		9F63943A16AC2D6F00BAA9CF /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		9F63943B16AC2D6F00BAA9CF /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		9F63943E16AC2F8F00BAA9CF /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
-		9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
+		9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainMenuLayer.mm; sourceTree = "<group>"; };
 		9F6B14B217456867001481B7 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = Utils/Queue.h; sourceTree = "<group>"; };
 		9F6B14ED17456873001481B7 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = Utils/Queue.m; sourceTree = "<group>"; };
 		9F79C68416A9DA680040F204 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
@@ -496,7 +496,7 @@
 				9FD9BF3C16A3735400DBEB88 /* IntroLayer.h */,
 				9FD9BF3D16A3735400DBEB88 /* IntroLayer.m */,
 				9F63943E16AC2F8F00BAA9CF /* MainMenuLayer.h */,
-				9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.m */,
+				9F63943F16AC2F8F00BAA9CF /* MainMenuLayer.mm */,
 				9F79C68416A9DA680040F204 /* GameLayer.h */,
 				9F79C68516A9DA680040F204 /* GameLayer.mm */,
 				9F5D096016AA13B700600AD2 /* GameOverLayer.h */,
@@ -861,7 +861,7 @@
 				9F47BE1216AAC9B2001BE137 /* IntroScene.m in Sources */,
 				9F7C1D7A16AC22340039EA64 /* GameState.mm in Sources */,
 				9F63943C16AC2D6F00BAA9CF /* MainMenuScene.m in Sources */,
-				9F63944016AC2F8F00BAA9CF /* MainMenuLayer.m in Sources */,
+				9F63944016AC2F8F00BAA9CF /* MainMenuLayer.mm in Sources */,
 				37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */,
 				37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */,
 				9FB0E54816B5591B00A97DF2 /* Hero.mm in Sources */,
