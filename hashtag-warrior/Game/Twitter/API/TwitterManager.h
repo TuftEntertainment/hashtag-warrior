@@ -38,7 +38,7 @@
     bool _granted;
 }
 
-@property (retain) ACAccount* _twitterAccount;
+@property (strong) ACAccount* _twitterAccount;
 
 - (bool)twitterPermission;
 - (bool)talkToTwitter:(NSObject<TwitterProtocol>*)protocol;

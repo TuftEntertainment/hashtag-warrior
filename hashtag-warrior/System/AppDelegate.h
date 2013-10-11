@@ -31,11 +31,11 @@
 {
     UIWindow *window_;
     UINavigationController *navController_;
-    CCDirectorIOS    *director_;                            // weak ref
+    CCDirectorIOS    *__weak director_;                            // weak ref
 }
 
-@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
 @property (readonly) UINavigationController *navController;
-@property (readonly) CCDirectorIOS *director;
+@property (weak, readonly) CCDirectorIOS *director;
 
 @end

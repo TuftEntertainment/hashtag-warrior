@@ -18,20 +18,12 @@
 		37216DF81737F0F000840D6F /* atlas-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216DF41737F0F000840D6F /* atlas-ipadhd.plist */; };
 		37216DF91737F0F000840D6F /* atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216DF51737F0F000840D6F /* atlas.plist */; };
 		37216DFA1737F0F000840D6F /* atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216DF61737F0F000840D6F /* atlas-hd.plist */; };
-		37216DFF1737F12000840D6F /* atlas-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFB1737F12000840D6F /* atlas-ipad.png */; };
-		37216E001737F12000840D6F /* atlas-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFC1737F12000840D6F /* atlas-ipadhd.png */; };
-		37216E011737F12000840D6F /* atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFD1737F12000840D6F /* atlas.png */; };
-		37216E021737F12000840D6F /* atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 37216DFE1737F12000840D6F /* atlas-hd.png */; };
 		37216E041737FAB700840D6F /* Hero.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37216E031737FAB700840D6F /* Hero.plist */; };
 		3730E33A179B0AEE00A43F12 /* ChooseHashtagScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 3730E338179B0AEE00A43F12 /* ChooseHashtagScene.h */; };
 		3730E33B179B0AEE00A43F12 /* ChooseHashtagScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3730E339179B0AEE00A43F12 /* ChooseHashtagScene.mm */; };
 		3730E375179B0E4C00A43F12 /* ChooseHashtagLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3730E373179B0E4C00A43F12 /* ChooseHashtagLayer.h */; };
 		3730E376179B0E4C00A43F12 /* ChooseHashtagLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3730E374179B0E4C00A43F12 /* ChooseHashtagLayer.mm */; };
 		373D57CA16E7EF3F00B7FCFD /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */; };
-		373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CB16E7F43C00B7FCFD /* Background-hd.png */; };
-		373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CC16E7F43D00B7FCFD /* Background-ipad.png */; };
-		373D57D116E7F43D00B7FCFD /* Background-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */; };
-		373D57D216E7F43D00B7FCFD /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 373D57CE16E7F43D00B7FCFD /* Background.png */; };
 		375C7FB81722FB5E00E76C9F /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 375C7FB61722FA9300E76C9F /* Constants.h */; };
 		37AD94E716ACA48A00FBA15C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94E616ACA48A00FBA15C /* AboutScene.m */; };
 		37AD94EB16ACA4FE00FBA15C /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD94EA16ACA4FE00FBA15C /* AboutLayer.m */; };
@@ -73,12 +65,9 @@
 		9F6B14B317456867001481B7 /* Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6B14B217456867001481B7 /* Queue.h */; };
 		9F6B14EE17456873001481B7 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B14ED17456873001481B7 /* Queue.m */; };
 		9F79C68616A9DA680040F204 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F79C68516A9DA680040F204 /* GameLayer.mm */; };
-		9F79C68F16A9DF700040F204 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C68D16A9DF700040F204 /* Default-Landscape@2x~ipad.png */; };
-		9F79C69016A9DF700040F204 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */; };
-		9F79C69916A9E16B0040F204 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C69716A9E16B0040F204 /* Default.png */; };
-		9F79C69A16A9E16B0040F204 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F79C69816A9E16B0040F204 /* Default@2x.png */; };
 		9F7C1D7A16AC22340039EA64 /* GameState.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F7C1D7916AC22340039EA64 /* GameState.mm */; };
 		9FB0E54816B5591B00A97DF2 /* Hero.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0E54716B5591B00A97DF2 /* Hero.mm */; };
+		9FD266251808ABA800D65559 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD266241808ABA800D65559 /* Images.xcassets */; };
 		9FD9BD1A16A3735100DBEB88 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */; };
 		9FD9BD1C16A3735100DBEB88 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */; };
 		9FD9BD1E16A3735100DBEB88 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */; };
@@ -87,16 +76,9 @@
 		9FD9BD2416A3735100DBEB88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD2316A3735100DBEB88 /* UIKit.framework */; };
 		9FD9BD2616A3735100DBEB88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD2516A3735100DBEB88 /* Foundation.framework */; };
 		9FD9BD2816A3735100DBEB88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD2716A3735100DBEB88 /* CoreGraphics.framework */; };
-		9FD9BD2A16A3735100DBEB88 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD9BD2916A3735100DBEB88 /* GameKit.framework */; };
 		9FD9BD3216A3735100DBEB88 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD3116A3735100DBEB88 /* fps_images.png */; };
 		9FD9BD3416A3735100DBEB88 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD3316A3735100DBEB88 /* fps_images-hd.png */; };
 		9FD9BD3616A3735100DBEB88 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD3516A3735100DBEB88 /* fps_images-ipadhd.png */; };
-		9FD9BD3816A3735100DBEB88 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD3716A3735100DBEB88 /* Icon-72.png */; };
-		9FD9BD3A16A3735100DBEB88 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD3916A3735100DBEB88 /* Icon-Small-50.png */; };
-		9FD9BD3C16A3735100DBEB88 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD3B16A3735100DBEB88 /* Icon-Small.png */; };
-		9FD9BD3E16A3735100DBEB88 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD3D16A3735100DBEB88 /* Icon-Small@2x.png */; };
-		9FD9BD4016A3735100DBEB88 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD3F16A3735100DBEB88 /* Icon.png */; };
-		9FD9BD4216A3735100DBEB88 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD4116A3735100DBEB88 /* Icon@2x.png */; };
 		9FD9BD4516A3735100DBEB88 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9BD4416A3735100DBEB88 /* iTunesArtwork */; };
 		9FD9BF3516A3735400DBEB88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9BF3416A3735400DBEB88 /* main.m */; };
 		9FD9BF3816A3735400DBEB88 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9BF3716A3735400DBEB88 /* AppDelegate.mm */; };
@@ -211,10 +193,6 @@
 		37216DF41737F0F000840D6F /* atlas-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "atlas-ipadhd.plist"; path = "Plists/atlas-ipadhd.plist"; sourceTree = "<group>"; };
 		37216DF51737F0F000840D6F /* atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = atlas.plist; path = Plists/atlas.plist; sourceTree = "<group>"; };
 		37216DF61737F0F000840D6F /* atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "atlas-hd.plist"; path = "Plists/atlas-hd.plist"; sourceTree = "<group>"; };
-		37216DFB1737F12000840D6F /* atlas-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-ipad.png"; sourceTree = "<group>"; };
-		37216DFC1737F12000840D6F /* atlas-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-ipadhd.png"; sourceTree = "<group>"; };
-		37216DFD1737F12000840D6F /* atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atlas.png; sourceTree = "<group>"; };
-		37216DFE1737F12000840D6F /* atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atlas-hd.png"; sourceTree = "<group>"; };
 		37216E031737FAB700840D6F /* Hero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Hero.plist; path = Plists/Hero.plist; sourceTree = "<group>"; };
 		3730E338179B0AEE00A43F12 /* ChooseHashtagScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseHashtagScene.h; sourceTree = "<group>"; };
 		3730E339179B0AEE00A43F12 /* ChooseHashtagScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChooseHashtagScene.mm; sourceTree = "<group>"; };
@@ -222,10 +200,6 @@
 		3730E374179B0E4C00A43F12 /* ChooseHashtagLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChooseHashtagLayer.mm; sourceTree = "<group>"; };
 		373D57C816E7EF3F00B7FCFD /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		373D57C916E7EF3F00B7FCFD /* BackgroundLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundLayer.mm; sourceTree = "<group>"; };
-		373D57CB16E7F43C00B7FCFD /* Background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-hd.png"; sourceTree = "<group>"; };
-		373D57CC16E7F43D00B7FCFD /* Background-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipad.png"; sourceTree = "<group>"; };
-		373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipadhd.png"; sourceTree = "<group>"; };
-		373D57CE16E7F43D00B7FCFD /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		375C7FB61722FA9300E76C9F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		37AD94E516ACA48A00FBA15C /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		37AD94E616ACA48A00FBA15C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
@@ -279,14 +253,11 @@
 		9F6B14ED17456873001481B7 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = Utils/Queue.m; sourceTree = "<group>"; };
 		9F79C68416A9DA680040F204 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		9F79C68516A9DA680040F204 /* GameLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLayer.mm; sourceTree = "<group>"; };
-		9F79C68D16A9DF700040F204 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		9F79C69716A9E16B0040F204 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		9F79C69816A9E16B0040F204 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9F7C1D7816AC22340039EA64 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		9F7C1D7916AC22340039EA64 /* GameState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameState.mm; sourceTree = "<group>"; };
 		9FB0E54616B5591B00A97DF2 /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		9FB0E54716B5591B00A97DF2 /* Hero.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Hero.mm; sourceTree = "<group>"; };
+		9FD266241808ABA800D65559 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9FD9BD1516A3735100DBEB88 /* #Warrior.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#Warrior.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -296,16 +267,9 @@
 		9FD9BD2316A3735100DBEB88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9FD9BD2516A3735100DBEB88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9FD9BD2716A3735100DBEB88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9FD9BD2916A3735100DBEB88 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		9FD9BD3116A3735100DBEB88 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		9FD9BD3316A3735100DBEB88 /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-hd.png"; sourceTree = "<group>"; };
 		9FD9BD3516A3735100DBEB88 /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-ipadhd.png"; sourceTree = "<group>"; };
-		9FD9BD3716A3735100DBEB88 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		9FD9BD3916A3735100DBEB88 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
-		9FD9BD3B16A3735100DBEB88 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		9FD9BD3D16A3735100DBEB88 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		9FD9BD3F16A3735100DBEB88 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		9FD9BD4116A3735100DBEB88 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		9FD9BD4316A3735100DBEB88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FD9BD4416A3735100DBEB88 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		9FD9BF3316A3735400DBEB88 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
@@ -338,7 +302,6 @@
 				9FD9BD2416A3735100DBEB88 /* UIKit.framework in Frameworks */,
 				9FD9BD2616A3735100DBEB88 /* Foundation.framework in Frameworks */,
 				9FD9BD2816A3735100DBEB88 /* CoreGraphics.framework in Frameworks */,
-				9FD9BD2A16A3735100DBEB88 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +511,6 @@
 				9FD9BD2716A3735100DBEB88 /* CoreGraphics.framework */,
 				9F2AA2E1179F2F7A00477A29 /* CoreText.framework */,
 				9FD9BD2516A3735100DBEB88 /* Foundation.framework */,
-				9FD9BD2916A3735100DBEB88 /* GameKit.framework */,
 				9FD9BD1D16A3735100DBEB88 /* OpenAL.framework */,
 				9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */,
 				9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */,
@@ -575,30 +537,13 @@
 		9FD9BD2C16A3735100DBEB88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9FD9BD4316A3735100DBEB88 /* Info.plist */,
 				9FDA32481799CB680047E510 /* Fonts */,
-				37216DFB1737F12000840D6F /* atlas-ipad.png */,
-				37216DFC1737F12000840D6F /* atlas-ipadhd.png */,
-				37216DFD1737F12000840D6F /* atlas.png */,
-				37216DFE1737F12000840D6F /* atlas-hd.png */,
-				373D57CB16E7F43C00B7FCFD /* Background-hd.png */,
-				373D57CC16E7F43D00B7FCFD /* Background-ipad.png */,
-				373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */,
-				373D57CE16E7F43D00B7FCFD /* Background.png */,
+				9FD266241808ABA800D65559 /* Images.xcassets */,
 				9F0EF90E16B8723C0007E929 /* Localizable.strings */,
-				9F79C69716A9E16B0040F204 /* Default.png */,
-				9F79C69816A9E16B0040F204 /* Default@2x.png */,
-				9F79C68E16A9DF700040F204 /* Default-Landscape~ipad.png */,
-				9F79C68D16A9DF700040F204 /* Default-Landscape@2x~ipad.png */,
 				9FD9BD3116A3735100DBEB88 /* fps_images.png */,
 				9FD9BD3316A3735100DBEB88 /* fps_images-hd.png */,
 				9FD9BD3516A3735100DBEB88 /* fps_images-ipadhd.png */,
-				9FD9BD3716A3735100DBEB88 /* Icon-72.png */,
-				9FD9BD3916A3735100DBEB88 /* Icon-Small-50.png */,
-				9FD9BD3B16A3735100DBEB88 /* Icon-Small.png */,
-				9FD9BD3D16A3735100DBEB88 /* Icon-Small@2x.png */,
-				9FD9BD3F16A3735100DBEB88 /* Icon.png */,
-				9FD9BD4116A3735100DBEB88 /* Icon@2x.png */,
-				9FD9BD4316A3735100DBEB88 /* Info.plist */,
 				9FD9BD4416A3735100DBEB88 /* iTunesArtwork */,
 			);
 			path = Resources;
@@ -691,7 +636,7 @@
 		9FD9BD0C16A3735100DBEB88 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Ossum Games";
 			};
 			buildConfigurationList = 9FD9BD0F16A3735100DBEB88 /* Build configuration list for PBXProject "hashtag-warrior" */;
@@ -807,30 +752,13 @@
 				9FD9BD3216A3735100DBEB88 /* fps_images.png in Resources */,
 				9FD9BD3416A3735100DBEB88 /* fps_images-hd.png in Resources */,
 				9FD9BD3616A3735100DBEB88 /* fps_images-ipadhd.png in Resources */,
-				9FD9BD3816A3735100DBEB88 /* Icon-72.png in Resources */,
-				9FD9BD3A16A3735100DBEB88 /* Icon-Small-50.png in Resources */,
-				9FD9BD3C16A3735100DBEB88 /* Icon-Small.png in Resources */,
-				9FD9BD3E16A3735100DBEB88 /* Icon-Small@2x.png in Resources */,
-				9FD9BD4016A3735100DBEB88 /* Icon.png in Resources */,
-				9FD9BD4216A3735100DBEB88 /* Icon@2x.png in Resources */,
+				9FD266251808ABA800D65559 /* Images.xcassets in Resources */,
 				9FD9BD4516A3735100DBEB88 /* iTunesArtwork in Resources */,
-				9F79C68F16A9DF700040F204 /* Default-Landscape@2x~ipad.png in Resources */,
-				9F79C69016A9DF700040F204 /* Default-Landscape~ipad.png in Resources */,
-				9F79C69916A9E16B0040F204 /* Default.png in Resources */,
-				9F79C69A16A9E16B0040F204 /* Default@2x.png in Resources */,
 				9F0EF90C16B8723C0007E929 /* Localizable.strings in Resources */,
-				373D57CF16E7F43D00B7FCFD /* Background-hd.png in Resources */,
-				373D57D016E7F43D00B7FCFD /* Background-ipad.png in Resources */,
-				373D57D116E7F43D00B7FCFD /* Background-ipadhd.png in Resources */,
-				373D57D216E7F43D00B7FCFD /* Background.png in Resources */,
 				37216DF71737F0F000840D6F /* atlas-ipad.plist in Resources */,
 				37216DF81737F0F000840D6F /* atlas-ipadhd.plist in Resources */,
 				37216DF91737F0F000840D6F /* atlas.plist in Resources */,
 				37216DFA1737F0F000840D6F /* atlas-hd.plist in Resources */,
-				37216DFF1737F12000840D6F /* atlas-ipad.png in Resources */,
-				37216E001737F12000840D6F /* atlas-ipadhd.png in Resources */,
-				37216E011737F12000840D6F /* atlas.png in Resources */,
-				37216E021737F12000840D6F /* atlas-hd.png in Resources */,
 				37216E041737FAB700840D6F /* Hero.plist in Resources */,
 				9F612519179F118400BC6201 /* Arial12.fnt in Resources */,
 				9F61251A179F118400BC6201 /* Arial12.png in Resources */,
@@ -929,6 +857,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "#Warrior";
 				SDKROOT = iphoneos;
@@ -963,6 +892,9 @@
 		9FD9BF4A16A3735400DBEB88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hashtag-warrior/Prefix.pch";
 				INFOPLIST_FILE = "hashtag-warrior/Resources/Info.plist";
@@ -973,6 +905,9 @@
 		9FD9BF4B16A3735400DBEB88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hashtag-warrior/Prefix.pch";
 				INFOPLIST_FILE = "hashtag-warrior/Resources/Info.plist";

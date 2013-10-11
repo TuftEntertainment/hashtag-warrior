@@ -31,8 +31,8 @@
     CCAnimation *walkingAnim;
     CCAnimation *idleAnim;
 }
-@property (nonatomic, retain) CCAnimation *walkingAnim;
-@property (nonatomic, retain) CCAnimation *idleAnim;
+@property (nonatomic, strong) CCAnimation *walkingAnim;
+@property (nonatomic, strong) CCAnimation *idleAnim;
 
 - (id)initWithWorld:(b2World*)world atLocation:(CGPoint)location;
 - (void)accelerometer:(UIAccelerometer*)accelerometer
