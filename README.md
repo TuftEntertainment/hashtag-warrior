@@ -15,7 +15,7 @@ Requirements
 To build #Warrior for yourself, you'll need:
 * A Mac
 * Git
-* XCode 4+
+* XCode 5+
     * If you're going to run the game in the simulator, you'll also need http://code.google.com/p/accelerometer-simulator/wiki/Home
 
 Usage
