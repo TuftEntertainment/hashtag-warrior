@@ -273,7 +273,7 @@
 		9F7C1D7916AC22340039EA64 /* GameState.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameState.mm; sourceTree = "<group>"; };
 		9FB0E54616B5591B00A97DF2 /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		9FB0E54716B5591B00A97DF2 /* Hero.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Hero.mm; sourceTree = "<group>"; };
-		9FD266241808ABA800D65559 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "hashtag-warrior/Resources/Images.xcassets"; sourceTree = "<group>"; };
+		9FD266241808ABA800D65559 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9FD9BD1516A3735100DBEB88 /* #Warrior.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#Warrior.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD9BD1916A3735100DBEB88 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9FD9BD1B16A3735100DBEB88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -504,7 +504,6 @@
 		9FD9BD0A16A3735100DBEB88 = {
 			isa = PBXGroup;
 			children = (
-				9FD266241808ABA800D65559 /* Images.xcassets */,
 				9FD9BD2B16A3735100DBEB88 /* hashtag-warrior */,
 				9FD9BD1816A3735100DBEB88 /* Frameworks */,
 				9FD9BD1616A3735100DBEB88 /* Products */,
@@ -554,7 +553,10 @@
 		9FD9BD2C16A3735100DBEB88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9FD9BD4316A3735100DBEB88 /* Info.plist */,
 				9FDA32481799CB680047E510 /* Fonts */,
+				9FD266241808ABA800D65559 /* Images.xcassets */,
+				9F0EF90E16B8723C0007E929 /* Localizable.strings */,
 				37216DFB1737F12000840D6F /* atlas-ipad.png */,
 				37216DFC1737F12000840D6F /* atlas-ipadhd.png */,
 				37216DFD1737F12000840D6F /* atlas.png */,
@@ -563,11 +565,9 @@
 				373D57CC16E7F43D00B7FCFD /* Background-ipad.png */,
 				373D57CD16E7F43D00B7FCFD /* Background-ipadhd.png */,
 				373D57CE16E7F43D00B7FCFD /* Background.png */,
-				9F0EF90E16B8723C0007E929 /* Localizable.strings */,
 				9FD9BD3116A3735100DBEB88 /* fps_images.png */,
 				9FD9BD3316A3735100DBEB88 /* fps_images-hd.png */,
 				9FD9BD3516A3735100DBEB88 /* fps_images-ipadhd.png */,
-				9FD9BD4316A3735100DBEB88 /* Info.plist */,
 				9FD9BD4416A3735100DBEB88 /* iTunesArtwork */,
 			);
 			path = Resources;
