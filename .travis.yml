@@ -2,4 +2,4 @@ language: objective-c
 before_install:
     - brew update
     - brew upgrade xctool
-script: xctool -project "hashtag-warrior.xcodeproj" -scheme "#Warrior"
+script: xctool -project "hashtag-warrior.xcodeproj" -scheme "#Warrior" -configuration "Release" -sdk "iphonesimulator7.0" test
