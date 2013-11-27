@@ -1,4 +1,4 @@
-\#Warrior
+\#Warrior [![Build Status](https://travis-ci.org/TuftEntertainment/hashtag-warrior.png?branch=SpriteKit)](https://travis-ci.org/TuftEntertainment/hashtag-warrior)
 ===============
 
 Open-source iOS game powered by cocos2d and Box2D.

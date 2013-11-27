@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: hashtag-warrior.xcodeproj
+xcode_scheme: '#Warrior'
+xcode_sdk: iphonesimulator7.0
